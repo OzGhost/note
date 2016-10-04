@@ -3,19 +3,19 @@ Nhóm đề tài I: Xây dựng mô hình TMĐT
   
 Yêu cầu: Sử dụng Odoo làm nền tảng minh họa
 	- Tìm hiểu và viết báo cáo về mô hình kinh doanh, kế hoạch kinh doanh
-    + Tìm hiểu mô hình kinh doanh
-    + viết báo cáo về mô hình kinh doanh
-    + lên kế hoạch kinh doanh
+    		+ Tìm hiểu mô hình kinh doanh
+    		+ viết báo cáo về mô hình kinh doanh
+    		+ lên kế hoạch kinh doanh
 	- Triển khai E-Commerce
-    + Lập kế hoạch triển khai
-    + Phân tích chức năng (phân rã chức năng nếu cần)
-    + Xây dựng cơ sở dữ liệu
-    + Xây dựng giao diện
-    + Xây dựng xử lý
-    + Tích hợp chức năng (nếu có tiến hành phân ra)
+    		+ Lập kế hoạch triển khai
+    		+ Phân tích chức năng (phân rã chức năng nếu cần)
+    		+ Xây dựng cơ sở dữ liệu
+    		+ Xây dựng giao diện
+    		+ Xây dựng xử lý
+    		+ Tích hợp chức năng (nếu có tiến hành phân ra)
 	- Video clip kịch bản tương tác thể hiện mô hình kinh doanh
-    + Lên kịch bản
-    + Quay phim
-    + Xử lý
+    		+ Lên kịch bản
+    		+ Quay phim
+    		+ Xử lý
 	- Các module triển khai, Purchasing, Warehouse, Sale, E-Commerce
-    + Tìm hiểu các module trên
+    		+ Tìm hiểu các module trên
