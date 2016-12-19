@@ -1,0 +1,10 @@
+1. Tổng số bài đạt điểm A cấp tỉnh theo năm học, tên trường, khối lớp
+2. Số lượng bài đạt điểm F thất nhất theo loại kiểm tra, mức phổ quát
+3. Phần trăm bài đạt điểm C trừ cao nhất khối lớp 12 theo tên trường, tên huyện, tên môn học
+4. Phần trăm bài đạt điểm trên C trừ trở lên theo loại kiểm tra, loại môn học
+5. Số bài đạt điểm B theo loại môn học, tên môn học
+6. Phần trăm bài đạt điểm B theo loại trường, độ phổ quát
+7. Trung bình phần trăm bài đạt điểm C cộng theo khối lớp, loại kiểm tra
+8. Số bài làm theo tên trường, tên môn, loại môn
+9. Trung bình phần trăm đạt điểm F theo loại trường, độ phổ quát, khối lớp
+10. Trung bình phần trăm đạt điểm B theo năm học, tên huyện, loại trường
