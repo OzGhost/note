@@ -1,0 +1,41 @@
+Chỉnh sửa:
+
+## Phần Class Diagram
+	-- YeuCau: (bỏ chữ Control đi)
+		+ Bỏ:
+			XemDS()
+			Summit()
+		+ Thêm: 
+			XemDSDaGui()
+			XemDSDaNhan()
+			XacNhanYC()
+	-- BanGhi:
+		+ Sửa:
+			LoaiBG -> NhomHD
+			Save() -> Ghi()
+		+ Thêm:
+			LoaiHD
+			LayDS()
+	-- CongViec:
+		+ Thêm:
+			MoTaCV
+			TrangThai
+			NgayTao
+			HanChot
+		+ Sửa:
+			NgayKT -> NgayHT
+			XemCV() -> XemDSCV()
+			
+	-- DuAn:
+		+ Thêm:
+			TrangThai
+		+ Sửa:
+			XemDA() -> XemChiTietDA()
+			CapNhatDA() -> DoiTenDA()
+		+ Thêm:
+			YeuCauXoaDA()
+			XacNhanXoaDA()
+			
+## phần Sequence Diagram
+	- loại bỏ cái đối tượng :DuLieu
+	- Xem :TaiKhoan, :CongViec, v.v... như 1 bảng trong cơ sở dữ liệu và thay thế cho cái đối tượng :DuLieu
