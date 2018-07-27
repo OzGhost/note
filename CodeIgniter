@@ -1,0 +1,93 @@
+
+
+Over view:
+	- CodeIgniter is an Application Framework
+	- Free
+	- Light Weight
+	- Fast	
+	- Uses M-V-C
+	- Generates Clean URLs
+	- Packs a Punch
+	- is Extensible
+	- Does Not Require a Template Engine
+	- is Thoroughly Documented
+	- has a Friendly Community of Users
+	
+	
+Feature:
+	- Model-View-Controller Based System
+    - Extremely Light Weight
+    - Full Featured database classes with support for several platforms.
+    - Query Builder Database Support
+    - Form and Data Validation
+    - Security and XSS Filtering
+    - Session Management
+    - Email Sending Class. Supports Attachments, HTML/Text email, multiple protocols (sendmail, SMTP, and Mail) and more.
+    - Image Manipulation Library (cropping, resizing, rotating, etc.). Supports GD, ImageMagick, and NetPBM
+    - File Uploading Class
+    - FTP Class
+    - Localization
+    - Pagination
+    - Data Encryption
+    - Benchmarking
+    - Full Page Caching
+    - Error Logging
+    - Application Profiling
+    - Calendaring Class
+    - User Agent Class
+    - Zip Encoding Class
+    - Template Engine Class
+    - Trackback Class
+    - XML-RPC Library
+    - Unit Testing Class
+    - Search-engine Friendly URLs
+    - Flexible URI Routing
+    - Support for Hooks and Class Extensions
+    - Large library of “helper” functions
+
+
+-- Tạm dịch -- 
+
+Tổng quan: 
+	- CodeIgniter là một Application Framework (tạm dịch: khung xương ứng dụng)
+	- Miễn phí
+	- Nhẹ
+	- Nhanh
+	- Dựa trên mô hình M-V-C (Model-View-Controller)
+		+ M-V-C là mô hình phần mềm có phần xử lý được tách riêng khỏi phần hiển thị (controller điều khiển ở giữa)
+	- Phát sinh những địa chỉ web (URLs) "sạch sẽ"
+	- pack a punch
+	- Có thể mở rộng
+	- Does not require a template engine
+	- Tài liệu đầy đủ
+	- Cộng đồng người dùng thân thiện
+Đặc trưng:
+	- Dựa trên hệ thống Model-View-Controller
+	- Rất nhẹ
+	- Đầy đủ đặc trưng lớp csdl hỗ trợ một vài nền tảng
+	- Hỗ trợ hàng đợi csdl
+	- Form and data validation
+	- Bảo mật kết hợp lọc XSS
+	- Quản lý phiên làm việc
+	- Lớp gửi email, hỗ trợ đính kèm, HTML/Text email, đa giao thức ...
+	- Thư viện thao tác với hình ảnh (thay đổi kích thước, quay, cắt, ...). Hỗ trợ GD, ImageMagick, và NetPBM
+	- Lớp upload tập tin
+	- Lớp giao thức truyền tập tin
+	- Định vị
+	- Đánh số trang
+	- Mã hóa dữ liệu
+	- Chuẩn hóa
+	- Caching toàn bộ trang
+	- Ghi lỗi
+	- Cấu hình ứng dụng
+	- Lớp lịch
+	- Lớp tác nhân người dùng
+	- Zip encoding class
+	- Template Engine class
+	- Trackback class
+	- XML-RPC library
+	- Lớp bộ thử
+	- Công cụ tìm kiếm tiện lợi
+	- Flexible URI Routing
+	- Support for Hooks and Class Extensions
+	- Thư viện "helper" rộng lớn

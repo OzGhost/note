@@ -1,22 +1,62 @@
 
+-- Nhiệm vụ lần họp kế tiếp --
+
+   + hoàn thành phần thiết kế giao diện
+   + hoàn thành 1 số code (trang chủ, đăng nhập, đăng ký )
+   + hoàn thành phần thu thập tài liệu cho slide
+   + chi phần ra để code (yêu cầu phần nào? cần dùng cái gì?)
+
+
 -- Nội Dung chi tiết --
 
 1. về web:
-   + liệt kê các chức năng sẽ thực hiện cho trang web
+   + liệt kê các chức năng sẽ thực hiện cho trang web (done)
     . mua online
     . so sánh sản phẩm
     . show sản phẩm
     . đặt bàn online
     . hướng dẫn pha chế
-   + thiết kế giao diện
-   + code
-   + thử nghiệm các chức năng
-   + sửa chữa lỗi và hoàn thành sản phẩm
+   + thiết kế giao diện (running)
+   + code (not yet)
+   + thử nghiệm các chức năng (not yet)
+   + sửa chữa lỗi và hoàn thành sản phẩm (not yet)
    
 2. về phần thuyết trình:
-   + tìm hiểu về chung chung về CodeIgniter
-   + chọn lọc các chức năng chính, phổ biến và nổi bật của CodeIgniter để đưa vào bài thuyết trình.
-   + thu thập tư liệu (văn bản, hình ảnh, video demo, ...)
-   + tổng hợp tài liệu và soạn thảo thành báo cáo dạng word và powerpoint
-   + phân công nhiệm vụ thuyết trình
-   + tiến hành thuyết trình
+   + tìm hiểu về chung chung về CodeIgniter (done)
+   + chọn lọc các chức năng chính, phổ biến và nổi bật của CodeIgniter để đưa vào bài thuyết trình. (running)
+   + thu thập tư liệu (văn bản, hình ảnh, video demo, ...) (running)
+   + tổng hợp tài liệu và soạn thảo thành báo cáo dạng word và powerpoint (running)
+   + phân công nhiệm vụ thuyết trình (not yet)
+   + tiến hành thuyết trình (not yet)
+
+
+- Trang 1:
+	+ show sản phẩm
+		. comment
+		. like
+		. so sánh
+		. đặt hàng
+	+ sắp xếp
+
+- Trang 2:
+	+ Thao tác thanh toán
+	+ điều chỉnh giỏ hàng
+	
+- Trang 3:
+	+ hướng dẫn pha chế
+
+- Trang cuối:
+	+ liên hệ 
+	
+- Quản lý khách hàng:
+	+ đăng nhập, Đăng xuất.
+	+ lịch sử mua hàng
+	+ thông tin khách hàng
+	
+
+-- menu tài khoản: 
+	+ Hello, ten tai khoan <
+	+ quản lý tài khoản 
+	+ đơn hàng của tôi
+	+ danh sách yêu thích 
+	+ đăng xuất

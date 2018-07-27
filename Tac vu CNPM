@@ -1,0 +1,22 @@
+
+-- Chức năng cho ứng dụng --
+  - Tra cứu thông tin phòng
+  - Đặt phòng                 : Trường Thanh
+  - Trả phòng
+  - Dịch vụ kèm theo
+  - Xuất hóa đơn
+
+-- các phần công việc --
+  Mỗi người làm một chức năng nha.
+  Yêu cầu:
+    + 1 bản mô tả chi tiết về chức năng (hoạt động ra sao? những bên liên quan? giúp ích như thế nào? v.v...)
+    + 1 bản thiết kế giao diện cho chức năng đó.
+  
+  
+-- Deadline 20h00 ngày 28/03/2016 (còn lại khoảng 2 ngày để chỉnh sửa nha) --
+
+-- Trình bày --
+  + font-size: 14
+  + font: Times New Roman 
+  + khoảng cách dòng: 1.5
+
