@@ -101,41 +101,9 @@
     "clientKey": "string",
     "finances": {
       "financesPrivate": {
-        "revenue": {
-        },
-        "liabilities": {
-          "0": {
-            "manual": "boolean",
-            "liabilityWith": "",
-            "remainingDebt": {
-              "amount": "number",
-              "currency": "string",
-              "_links": {
-                "currency": {
-                  "href": "string"
-                }
-              }
-            },
-            "amountPerYear": {
-              "amount": "number",
-              "currency": "string",
-              "_links": {
-                "currency": {
-                  "href": "string"
-                }
-              }
-            },
-            "liabilityBeginning": "string",
-            "liabilityEnd": "",
-            "statusAsAt": "string",
-            "liabilityType": "string",
-            "_links": {
-              "liabilityType": {
-                "href": "string"
-              }
-            }
-          },
-          "1": {
+        "revenue": [],
+        "liabilities": [
+          {
             "manual": "boolean",
             "liabilityWith": "",
             "remainingDebt": {
@@ -166,53 +134,9 @@
               }
             }
           }
-        },
-        "assets": {
-          "0": {
-            "manual": "boolean",
-            "assetsWith": "",
-            "amountTotal": {
-              "amount": "number",
-              "currency": "string",
-              "_links": {
-                "currency": {
-                  "href": "string"
-                }
-              }
-            },
-            "validAfter": "string",
-            "validUntil": "string",
-            "statusAsAt": "string",
-            "assetType": "string",
-            "_links": {
-              "assetType": {
-                "href": "string"
-              }
-            }
-          },
-          "1": {
-            "manual": "boolean",
-            "assetsWith": "",
-            "amountTotal": {
-              "amount": "number",
-              "currency": "string",
-              "_links": {
-                "currency": {
-                  "href": "string"
-                }
-              }
-            },
-            "validAfter": "string",
-            "validUntil": "string",
-            "statusAsAt": "string",
-            "assetType": "string",
-            "_links": {
-              "assetType": {
-                "href": "string"
-              }
-            }
-          },
-          "2": {
+        ],
+        "assets": [
+          {
             "manual": "boolean",
             "assetsWith": "",
             "amountTotal": {
@@ -234,17 +158,15 @@
               }
             }
           }
-        },
-        "ratings": {
-        }
+        ],
+        "ratings": []
       },
       "financesCommerce": {
-        "financialStatements": {
-        }
+        "financialStatements": []
       },
       "information": {
-        "debtEnforcements": {
-          "0": {
+        "debtEnforcements": [
+          {
             "inactive": "boolean",
             "informationDate": "string",
             "numberOfDebtEnforcements": "",
@@ -272,27 +194,24 @@
               }
             }
           }
-        },
-        "tax": {
-        }
+        ],
+        "tax": []
       },
-      "tradeReferences": {
-      }
+      "tradeReferences": []
     }
   },
   "loadOrderAdditionalFieldsData": {
     "orderKey": "string",
-    "loanOrderAdditionalFieldsData": {
-      "0": {
+    "loanOrderAdditionalFieldsData": [
+      {
         "designation": "string",
         "value": "string"
       }
-    }
+    ]
   },
   "loanOrderData": {
     "orderKey": "string",
-    "loanOrderData": {
-    }
+    "loanOrderData": []
   },
   "loanRepaymentTypes": {
     "code": "string",
@@ -310,8 +229,7 @@
   },
   "orderAmortisation": {
     "orderKey": "string",
-    "amortisations": {
-    }
+    "amortisations": []
   },
   "orderCollateral": {
     "orderKey": "string",
@@ -328,13 +246,13 @@
         "href": "string"
       },
       "_links": {
-        "curies": {
-          "0": {
+        "curies": [
+          {
             "name": "string",
             "href": "string",
             "templated": "boolean"
           }
-        }
+        ]
       }
     },
     "lendingFromTo": "string",
@@ -344,13 +262,13 @@
         "href": "string"
       },
       "_links": {
-        "curies": {
-          "0": {
+        "curies": [
+          {
             "name": "string",
             "href": "string",
             "templated": "boolean"
           }
-        }
+        ]
       }
     },
     "expiry": "",
@@ -360,13 +278,13 @@
         "href": "string"
       },
       "_links": {
-        "curies": {
-          "0": {
+        "curies": [
+          {
             "name": "string",
             "href": "string",
             "templated": "boolean"
           }
-        }
+        ]
       }
     },
     "claimedLending": {
@@ -375,13 +293,13 @@
         "href": "string"
       },
       "_links": {
-        "curies": {
-          "0": {
+        "curies": [
+          {
             "name": "string",
             "href": "string",
             "templated": "boolean"
           }
-        }
+        ]
       }
     },
     "availableLending": {
@@ -390,13 +308,13 @@
         "href": "string"
       },
       "_links": {
-        "curies": {
-          "0": {
+        "curies": [
+          {
             "name": "string",
             "href": "string",
             "templated": "boolean"
           }
-        }
+        ]
       }
     },
     "collateralOrderSecurities": "number",
@@ -409,24 +327,19 @@
       "href": "number"
     },
     "_links": {
-      "curies": {
-        "0": {
-          "name": "string",
-          "href": "string",
-          "templated": "boolean"
-        },
-        "1": {
+      "curies": [
+        {
           "name": "string",
           "href": "string",
           "templated": "boolean"
         }
-      }
+      ]
     }
   },
   "orderMortgageCertificates": {
     "orderKey": "string",
-    "mortgagecertificates": {
-      "0": {
+    "mortgagecertificates": [
+      {
         "key": "string",
         "propertyKey": "string",
         "nominalAmount": {
@@ -435,13 +348,13 @@
             "href": "string"
           },
           "_links": {
-            "curies": {
-              "0": {
+            "curies": [
+              {
                 "name": "string",
                 "href": "string",
                 "templated": "boolean"
               }
-            }
+            ]
           }
         },
         "maxInterestRate": "number",
@@ -452,13 +365,13 @@
             "href": "string"
           },
           "_links": {
-            "curies": {
-              "0": {
+            "curies": [
+              {
                 "name": "string",
                 "href": "string",
                 "templated": "boolean"
               }
-            }
+            ]
           }
         },
         "totalEqualRankingLiens": {
@@ -467,13 +380,13 @@
             "href": "string"
           },
           "_links": {
-            "curies": {
-              "0": {
+            "curies": [
+              {
                 "name": "string",
                 "href": "string",
                 "templated": "boolean"
               }
-            }
+            ]
           }
         },
         "totalLowerRankingLiens": {
@@ -482,13 +395,13 @@
             "href": "string"
           },
           "_links": {
-            "curies": {
-              "0": {
+            "curies": [
+              {
                 "name": "string",
                 "href": "string",
                 "templated": "boolean"
               }
-            }
+            ]
           }
         },
         "dateCertificate": "string",
@@ -498,29 +411,29 @@
             "href": "string"
           },
           "_links": {
-            "curies": {
-              "0": {
+            "curies": [
+              {
                 "name": "string",
                 "href": "string",
                 "templated": "boolean"
               }
-            }
+            ]
           }
         },
         "SecurityTypes:securitiesType": {
           "href": "number"
         },
         "_links": {
-          "curies": {
-            "0": {
+          "curies": [
+            {
               "name": "string",
               "href": "string",
               "templated": "boolean"
             }
-          }
+          ]
         }
       }
-    }
+    ]
   },
   "ordersDetail": {
     "orderKey": "string",
@@ -537,13 +450,13 @@
           "href": "string"
         },
         "_links": {
-          "curies": {
-            "0": {
+          "curies": [
+            {
               "name": "string",
               "href": "string",
               "templated": "boolean"
             }
-          }
+          ]
         }
       },
       "resubmission": "string",
@@ -554,25 +467,20 @@
         "href": "number"
       },
       "_links": {
-        "curies": {
-          "0": {
-            "name": "string",
-            "href": "string",
-            "templated": "boolean"
-          },
-          "1": {
+        "curies": [
+          {
             "name": "string",
             "href": "string",
             "templated": "boolean"
           }
-        }
+        ]
       }
     }
   },
   "orderSecurity": {
     "orderKeyOnlyForFinnova": "string",
-    "securities": {
-      "0": {
+    "securities": [
+      {
         "key": "string",
         "designation": "string",
         "securityMortgageCertificate": "",
@@ -587,13 +495,13 @@
             "href": "string"
           },
           "_links": {
-            "curies": {
-              "0": {
+            "curies": [
+              {
                 "name": "string",
                 "href": "string",
                 "templated": "boolean"
               }
-            }
+            ]
           }
         },
         "claimedLending": {
@@ -602,13 +510,13 @@
             "href": "string"
           },
           "_links": {
-            "curies": {
-              "0": {
+            "curies": [
+              {
                 "name": "string",
                 "href": "string",
                 "templated": "boolean"
               }
-            }
+            ]
           }
         },
         "availableLending": {
@@ -617,13 +525,13 @@
             "href": "string"
           },
           "_links": {
-            "curies": {
-              "0": {
+            "curies": [
+              {
                 "name": "string",
                 "href": "string",
                 "templated": "boolean"
               }
-            }
+            ]
           }
         },
         "insurance": {
@@ -637,13 +545,13 @@
               "href": "string"
             },
             "_links": {
-              "curies": {
-                "0": {
+              "curies": [
+                {
                   "name": "string",
                   "href": "string",
                   "templated": "boolean"
                 }
-              }
+              ]
             }
           },
           "premium": "",
@@ -659,13 +567,13 @@
               "href": "string"
             },
             "_links": {
-              "curies": {
-                "0": {
+              "curies": [
+                {
                   "name": "string",
                   "href": "string",
                   "templated": "boolean"
                 }
-              }
+              ]
             }
           },
           "date": "string"
@@ -677,26 +585,21 @@
           "href": "number"
         },
         "_links": {
-          "curies": {
-            "0": {
-              "name": "string",
-              "href": "string",
-              "templated": "boolean"
-            },
-            "1": {
+          "curies": [
+            {
               "name": "string",
               "href": "string",
               "templated": "boolean"
             }
-          }
+          ]
         }
       }
-    }
+    ]
   },
   "orders": {
     "clientKey": "string",
-    "orders": {
-      "0": {
+    "orders": [
+      {
         "key": "string",
         "id": "string",
         "clientKey": "string",
@@ -708,13 +611,13 @@
             "href": "string"
           },
           "_links": {
-            "curies": {
-              "0": {
+            "curies": [
+              {
                 "name": "string",
                 "href": "string",
                 "templated": "boolean"
               }
-            }
+            ]
           }
         },
         "resubmission": "string",
@@ -725,21 +628,16 @@
           "href": "number"
         },
         "_links": {
-          "curies": {
-            "0": {
-              "name": "string",
-              "href": "string",
-              "templated": "boolean"
-            },
-            "1": {
+          "curies": [
+            {
               "name": "string",
               "href": "string",
               "templated": "boolean"
             }
-          }
+          ]
         }
       }
-    }
+    ]
   },
   "periodUnits": {
     "code": "string",
@@ -750,8 +648,8 @@
   },
   "pricings": {
     "orderKey": "string",
-    "pricings": {
-      "0": {
+    "pricings": [
+      {
         "extPricing": "boolean",
         "modificationKey": "number",
         "tranchesModificationCode": "string",
@@ -804,10 +702,8 @@
             }
           }
         },
-        "oneOffCostsProduct": {
-        },
-        "amortisationProduct": {
-        },
+        "oneOffCostsProduct": [],
+        "amortisationProduct": [],
         "_links": {
           "product": {
             "href": "string"
@@ -817,7 +713,7 @@
           }
         }
       }
-    }
+    ]
   },
   "privateIndividual": {
     "clientKey": "string",
@@ -879,8 +775,7 @@
         "nogaCode": "string",
         "identityChecked": "boolean",
         "activeBlock": "boolean",
-        "blocks": {
-        },
+        "blocks": [],
         "occupationalPension": "boolean",
         "clientMainType": "string",
         "branch": "string",
@@ -1011,13 +906,13 @@
         "href": "string"
       },
       "_links": {
-        "curies": {
-          "0": {
+        "curies": [
+          {
             "name": "string",
             "href": "string",
             "templated": "boolean"
           }
-        }
+        ]
       }
     },
     "landRegisterNumber": {
@@ -1038,24 +933,24 @@
     },
     "valueOfShareNumerator": "",
     "valueOfShareDenominator": "",
-    "owners": {
-      "0": {
+    "owners": [
+      {
         "clientKey": "string",
         "designation": "string",
         "ownershipRelationship:ownershipStructure": {
           "href": "number"
         },
         "_links": {
-          "curies": {
-            "0": {
+          "curies": [
+            {
               "name": "string",
               "href": "string",
               "templated": "boolean"
             }
-          }
+          ]
         }
       }
-    },
+    ],
     "propertyType:propertyType": {
       "href": "number"
     },
@@ -1072,33 +967,13 @@
       "href": "number"
     },
     "_links": {
-      "curies": {
-        "0": {
-          "name": "string",
-          "href": "string",
-          "templated": "boolean"
-        },
-        "1": {
-          "name": "string",
-          "href": "string",
-          "templated": "boolean"
-        },
-        "2": {
-          "name": "string",
-          "href": "string",
-          "templated": "boolean"
-        },
-        "3": {
-          "name": "string",
-          "href": "string",
-          "templated": "boolean"
-        },
-        "4": {
+      "curies": [
+        {
           "name": "string",
           "href": "string",
           "templated": "boolean"
         }
-      }
+      ]
     }
   },
   "propertyTypesOfUse": {
@@ -1161,8 +1036,8 @@
         "nogaCode": "string",
         "identityChecked": "boolean",
         "activeBlock": "boolean",
-        "blocks": {
-          "0": {
+        "blocks": [
+          {
             "blockingCode": "string",
             "comment": "",
             "_links": {
@@ -1171,7 +1046,7 @@
               }
             }
           }
-        },
+        ],
         "occupationalPension": "boolean",
         "clientMainType": "string",
         "branch": "string",
