@@ -1,0 +1,1334 @@
+{
+  "adressen": {
+    "addressNumber": "number",
+    "clientNumber": "string",
+    "country": "string",
+    "id": "string",
+    "place": "string",
+    "poBox": "object",
+    "receiverReference": "string",
+    "salutation": "string",
+    "street": "string",
+    "zipCode": "string"
+  },
+  "clientMainType": {
+    "clientKey": "string",
+    "clientMainType": {
+      "clientMainType": "string",
+      "_links": {
+        "clientMainType": {
+          "href": "string"
+        }
+      }
+    }
+  },
+  "clientsBlacked": {
+    "birthDate": "string",
+    "birthDatePartner": "string",
+    "category": "string",
+    "chiefConsultant": "string",
+    "clientStatus": "number",
+    "closedDate": "object",
+    "createDate": "string",
+    "customerNumber": "string",
+    "designation": "string",
+    "editedCustomerNumber": "string",
+    "firstName": "string",
+    "firstNamePartner": "string",
+    "fullDesignation": "string",
+    "id": "string",
+    "language": "string",
+    "languageIso": "string",
+    "lastName": "string",
+    "lastNamePartner": "string",
+    "letterSalutation": "string",
+    "maritalStatus": "string",
+    "maritalStatusDate": "object",
+    "maritalStatusPartner": "string",
+    "name": "string",
+    "nationality": "string",
+    "nationality2nd": "object",
+    "nationalityPartner": "string",
+    "nationalityPartner2nd": "object",
+    "openedDate": "string",
+    "partnerDate": "object",
+    "salutation": "string",
+    "salutationPartner": "string",
+    "segment": "string",
+    "title": "string",
+    "titlePartner": "string"
+  },
+  "clientStatuses": {
+    "code": "string",
+    "language": "string",
+    "shortcut": "string",
+    "description": "string",
+    "sortNr": "number"
+  },
+  "codeTables": {
+    "addition": "object",
+    "group": "string",
+    "id": "string",
+    "number": "string",
+    "text": {
+      "de": "string",
+      "en": "string",
+      "fr": "string"
+    }
+  },
+  "collateralSubtype": {
+    "code": "string",
+    "language": "string",
+    "shortcut": "string",
+    "description": "string",
+    "sortNr": "number"
+  },
+  "countries": {
+    "code": "string",
+    "language": "string",
+    "shortcut": "string",
+    "description": "string",
+    "sortNr": "number"
+  },
+  "currencies": {
+    "code": "string",
+    "language": "string",
+    "shortcut": "string",
+    "description": "string",
+    "sortNr": "number"
+  },
+  "finances": {
+    "clientKey": "string",
+    "finances": {
+      "financesPrivate": {
+        "revenue": {
+        },
+        "liabilities": {
+          "0": {
+            "manual": "boolean",
+            "liabilityWith": "object",
+            "remainingDebt": {
+              "amount": "number",
+              "currency": "string",
+              "_links": {
+                "currency": {
+                  "href": "string"
+                }
+              }
+            },
+            "amountPerYear": {
+              "amount": "number",
+              "currency": "string",
+              "_links": {
+                "currency": {
+                  "href": "string"
+                }
+              }
+            },
+            "liabilityBeginning": "string",
+            "liabilityEnd": "object",
+            "statusAsAt": "string",
+            "liabilityType": "string",
+            "_links": {
+              "liabilityType": {
+                "href": "string"
+              }
+            }
+          },
+          "1": {
+            "manual": "boolean",
+            "liabilityWith": "object",
+            "remainingDebt": {
+              "amount": "number",
+              "currency": "string",
+              "_links": {
+                "currency": {
+                  "href": "string"
+                }
+              }
+            },
+            "amountPerYear": {
+              "amount": "number",
+              "currency": "string",
+              "_links": {
+                "currency": {
+                  "href": "string"
+                }
+              }
+            },
+            "liabilityBeginning": "string",
+            "liabilityEnd": "object",
+            "statusAsAt": "string",
+            "liabilityType": "string",
+            "_links": {
+              "liabilityType": {
+                "href": "string"
+              }
+            }
+          }
+        },
+        "assets": {
+          "0": {
+            "manual": "boolean",
+            "assetsWith": "object",
+            "amountTotal": {
+              "amount": "number",
+              "currency": "string",
+              "_links": {
+                "currency": {
+                  "href": "string"
+                }
+              }
+            },
+            "validAfter": "string",
+            "validUntil": "string",
+            "statusAsAt": "string",
+            "assetType": "string",
+            "_links": {
+              "assetType": {
+                "href": "string"
+              }
+            }
+          },
+          "1": {
+            "manual": "boolean",
+            "assetsWith": "object",
+            "amountTotal": {
+              "amount": "number",
+              "currency": "string",
+              "_links": {
+                "currency": {
+                  "href": "string"
+                }
+              }
+            },
+            "validAfter": "string",
+            "validUntil": "string",
+            "statusAsAt": "string",
+            "assetType": "string",
+            "_links": {
+              "assetType": {
+                "href": "string"
+              }
+            }
+          },
+          "2": {
+            "manual": "boolean",
+            "assetsWith": "object",
+            "amountTotal": {
+              "amount": "number",
+              "currency": "string",
+              "_links": {
+                "currency": {
+                  "href": "string"
+                }
+              }
+            },
+            "validAfter": "string",
+            "validUntil": "string",
+            "statusAsAt": "string",
+            "assetType": "string",
+            "_links": {
+              "assetType": {
+                "href": "string"
+              }
+            }
+          }
+        },
+        "ratings": {
+        }
+      },
+      "financesCommerce": {
+        "financialStatements": {
+        }
+      },
+      "information": {
+        "debtEnforcements": {
+          "0": {
+            "inactive": "boolean",
+            "informationDate": "string",
+            "numberOfDebtEnforcements": "object",
+            "amount": {
+              "amount": "object",
+              "currency": "string",
+              "_links": {
+                "currency": {
+                  "href": "string"
+                }
+              }
+            },
+            "validFrom": "object",
+            "validUntil": "object",
+            "informationComment": "string",
+            "statusAsAt": "string",
+            "sourceOfInformation": "string",
+            "debtEnforcementAssessment": "string",
+            "_links": {
+              "sourceOfInformation": {
+                "href": "string"
+              },
+              "debtEnforcementAssessment": {
+                "href": "string"
+              }
+            }
+          }
+        },
+        "tax": {
+        }
+      },
+      "tradeReferences": {
+      }
+    }
+  },
+  "loadOrderAdditionalFieldsData": {
+    "orderKey": "string",
+    "loanOrderAdditionalFieldsData": {
+      "0": {
+        "designation": "string",
+        "value": "string"
+      }
+    }
+  },
+  "loanOrderData": {
+    "orderKey": "string",
+    "loanOrderData": {
+    }
+  },
+  "loanRepaymentTypes": {
+    "code": "string",
+    "language": "string",
+    "shortcut": "string",
+    "description": "string",
+    "sortNr": "number"
+  },
+  "loanRequestReasons": {
+    "code": "string",
+    "language": "string",
+    "shortcut": "string",
+    "description": "string",
+    "sortNr": "number"
+  },
+  "orderAmortisation": {
+    "orderKey": "string",
+    "amortisations": {
+    }
+  },
+  "orderCollateral": {
+    "orderKey": "string",
+    "itemKey": "string",
+    "securityKey": "string",
+    "propertyKey": "object",
+    "portfolioKey": "object",
+    "portfolioNumber": "object",
+    "accountCustodyAccountKey": "string",
+    "accountCustodyAccountNumber": "string",
+    "collateralLimit": {
+      "amount": "number",
+      "currency:currency": {
+        "href": "string"
+      },
+      "_links": {
+        "curies": {
+          "0": {
+            "name": "string",
+            "href": "string",
+            "templated": "boolean"
+          }
+        }
+      }
+    },
+    "lendingFromTo": "string",
+    "totalLending": {
+      "amount": "number",
+      "currency:currency": {
+        "href": "string"
+      },
+      "_links": {
+        "curies": {
+          "0": {
+            "name": "string",
+            "href": "string",
+            "templated": "boolean"
+          }
+        }
+      }
+    },
+    "expiry": "object",
+    "collateralValue": {
+      "amount": "number",
+      "currency:currency": {
+        "href": "string"
+      },
+      "_links": {
+        "curies": {
+          "0": {
+            "name": "string",
+            "href": "string",
+            "templated": "boolean"
+          }
+        }
+      }
+    },
+    "claimedLending": {
+      "amount": "number",
+      "currency:currency": {
+        "href": "string"
+      },
+      "_links": {
+        "curies": {
+          "0": {
+            "name": "string",
+            "href": "string",
+            "templated": "boolean"
+          }
+        }
+      }
+    },
+    "availableLending": {
+      "amount": "number",
+      "currency:currency": {
+        "href": "string"
+      },
+      "_links": {
+        "curies": {
+          "0": {
+            "name": "string",
+            "href": "string",
+            "templated": "boolean"
+          }
+        }
+      }
+    },
+    "collateralOrderSecurities": "number",
+    "orderWithinCollateral": "number",
+    "numberLiabilities": "number",
+    "CollateralTypes:type": {
+      "href": "number"
+    },
+    "CollateralSubtypes:subType": {
+      "href": "number"
+    },
+    "_links": {
+      "curies": {
+        "0": {
+          "name": "string",
+          "href": "string",
+          "templated": "boolean"
+        },
+        "1": {
+          "name": "string",
+          "href": "string",
+          "templated": "boolean"
+        }
+      }
+    }
+  },
+  "orderMortgageCertificates": {
+    "orderKey": "string",
+    "mortgagecertificates": {
+      "0": {
+        "key": "string",
+        "propertyKey": "string",
+        "nominalAmount": {
+          "amount": "number",
+          "currency:currency": {
+            "href": "string"
+          },
+          "_links": {
+            "curies": {
+              "0": {
+                "name": "string",
+                "href": "string",
+                "templated": "boolean"
+              }
+            }
+          }
+        },
+        "maxInterestRate": "number",
+        "rank": "string",
+        "totalPriorRankingLiens": {
+          "amount": "number",
+          "currency:currency": {
+            "href": "string"
+          },
+          "_links": {
+            "curies": {
+              "0": {
+                "name": "string",
+                "href": "string",
+                "templated": "boolean"
+              }
+            }
+          }
+        },
+        "totalEqualRankingLiens": {
+          "amount": "number",
+          "currency:currency": {
+            "href": "string"
+          },
+          "_links": {
+            "curies": {
+              "0": {
+                "name": "string",
+                "href": "string",
+                "templated": "boolean"
+              }
+            }
+          }
+        },
+        "totalLowerRankingLiens": {
+          "amount": "number",
+          "currency:currency": {
+            "href": "string"
+          },
+          "_links": {
+            "curies": {
+              "0": {
+                "name": "string",
+                "href": "string",
+                "templated": "boolean"
+              }
+            }
+          }
+        },
+        "dateCertificate": "string",
+        "totalMortgageCertificates": {
+          "amount": "number",
+          "currency:currency": {
+            "href": "string"
+          },
+          "_links": {
+            "curies": {
+              "0": {
+                "name": "string",
+                "href": "string",
+                "templated": "boolean"
+              }
+            }
+          }
+        },
+        "SecurityTypes:securitiesType": {
+          "href": "number"
+        },
+        "_links": {
+          "curies": {
+            "0": {
+              "name": "string",
+              "href": "string",
+              "templated": "boolean"
+            }
+          }
+        }
+      }
+    }
+  },
+  "ordersDetail": {
+    "orderKey": "string",
+    "orderDetail": {
+      "key": "string",
+      "id": "string",
+      "clientKey": "string",
+      "creditLineDesignation": "object",
+      "purpose": "string",
+      "use": "string",
+      "overallLimit": {
+        "amount": "number",
+        "currency:currency": {
+          "href": "string"
+        },
+        "_links": {
+          "curies": {
+            "0": {
+              "name": "string",
+              "href": "string",
+              "templated": "boolean"
+            }
+          }
+        }
+      },
+      "resubmission": "string",
+      "BusinessCases:businessCase": {
+        "href": "number"
+      },
+      "LoanRequestReason:reasonForApplication": {
+        "href": "number"
+      },
+      "_links": {
+        "curies": {
+          "0": {
+            "name": "string",
+            "href": "string",
+            "templated": "boolean"
+          },
+          "1": {
+            "name": "string",
+            "href": "string",
+            "templated": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "orderSecurity": {
+    "orderKeyOnlyForFinnova": "string",
+    "securities": {
+      "0": {
+        "key": "string",
+        "designation": "string",
+        "securityMortgageCertificate": "object",
+        "portfolioKey": "object",
+        "portfolioNumber": "object",
+        "accountCustodyAccount": "object",
+        "provider": "string",
+        "taker": "string",
+        "collateralValue": {
+          "amount": "number",
+          "currency:currency": {
+            "href": "string"
+          },
+          "_links": {
+            "curies": {
+              "0": {
+                "name": "string",
+                "href": "string",
+                "templated": "boolean"
+              }
+            }
+          }
+        },
+        "claimedLending": {
+          "amount": "number",
+          "currency:currency": {
+            "href": "string"
+          },
+          "_links": {
+            "curies": {
+              "0": {
+                "name": "string",
+                "href": "string",
+                "templated": "boolean"
+              }
+            }
+          }
+        },
+        "availableLending": {
+          "amount": "number",
+          "currency:currency": {
+            "href": "string"
+          },
+          "_links": {
+            "curies": {
+              "0": {
+                "name": "string",
+                "href": "string",
+                "templated": "boolean"
+              }
+            }
+          }
+        },
+        "insurance": {
+          "insuranceCompanyKey": "string",
+          "insuranceHolder": "string",
+          "insuredPerson": "string",
+          "beneficiary": "object",
+          "nominal": {
+            "amount": "number",
+            "currency:currency": {
+              "href": "string"
+            },
+            "_links": {
+              "curies": {
+                "0": {
+                  "name": "string",
+                  "href": "string",
+                  "templated": "boolean"
+                }
+              }
+            }
+          },
+          "premium": "object",
+          "expiryDate": "string",
+          "securitiesNumber": "object",
+          "securitiesShortText": "object"
+        },
+        "guarantee": "object",
+        "marketValue": {
+          "value": {
+            "amount": "number",
+            "currency:currency": {
+              "href": "string"
+            },
+            "_links": {
+              "curies": {
+                "0": {
+                  "name": "string",
+                  "href": "string",
+                  "templated": "boolean"
+                }
+              }
+            }
+          },
+          "date": "string"
+        },
+        "CollateralTypes:type": {
+          "href": "number"
+        },
+        "CollateralSubtypes:subType": {
+          "href": "number"
+        },
+        "_links": {
+          "curies": {
+            "0": {
+              "name": "string",
+              "href": "string",
+              "templated": "boolean"
+            },
+            "1": {
+              "name": "string",
+              "href": "string",
+              "templated": "boolean"
+            }
+          }
+        }
+      }
+    }
+  },
+  "orders": {
+    "clientKey": "string",
+    "orders": {
+      "0": {
+        "key": "string",
+        "id": "string",
+        "clientKey": "string",
+        "creditLineDesignation": "object",
+        "use": "string",
+        "overallLimit": {
+          "amount": "number",
+          "currency:currency": {
+            "href": "string"
+          },
+          "_links": {
+            "curies": {
+              "0": {
+                "name": "string",
+                "href": "string",
+                "templated": "boolean"
+              }
+            }
+          }
+        },
+        "resubmission": "string",
+        "BusinessCases:businessCase": {
+          "href": "number"
+        },
+        "LoanRequestReason:reasonForApplication": {
+          "href": "number"
+        },
+        "_links": {
+          "curies": {
+            "0": {
+              "name": "string",
+              "href": "string",
+              "templated": "boolean"
+            },
+            "1": {
+              "name": "string",
+              "href": "string",
+              "templated": "boolean"
+            }
+          }
+        }
+      }
+    }
+  },
+  "periodUnits": {
+    "code": "string",
+    "language": "string",
+    "shortcut": "string",
+    "description": "string",
+    "sortNr": "number"
+  },
+  "pricings": {
+    "orderKey": "string",
+    "pricings": {
+      "0": {
+        "extPricing": "boolean",
+        "modificationKey": "number",
+        "tranchesModificationCode": "string",
+        "product": "number",
+        "tariffCode": "number",
+        "floating": "object",
+        "position": "number",
+        "term": "number",
+        "rating": "object",
+        "validAfter": "string",
+        "termFrom": "string",
+        "termUntil": "string",
+        "amount": {
+          "currency": "object",
+          "amount": "number"
+        },
+        "tariffRate": "number",
+        "baseRate": "number",
+        "maximumRate": "object",
+        "minimumRate": "object",
+        "fixingDate": "string",
+        "deviations": {
+          "reason1": "object",
+          "value1": "object",
+          "reason2": "number",
+          "value2": "number",
+          "reason3": "object",
+          "value3": "object",
+          "reason4": "object",
+          "value4": "object",
+          "forwardSurchargeCode": "object",
+          "forwardSurchargeRate": "object"
+        },
+        "account": {
+          "key": "number",
+          "number": "object",
+          "currency": "string",
+          "type": "number",
+          "interestPaymentDate": "string",
+          "periodicity": "number",
+          "dayCountConvention": "number",
+          "interestAccountNumber": "object",
+          "interestAccountKey": "number",
+          "_links": {
+            "type": {
+              "href": "string"
+            },
+            "dayCountConvention": {
+              "href": "string"
+            }
+          }
+        },
+        "oneOffCostsProduct": {
+        },
+        "amortisationProduct": {
+        },
+        "_links": {
+          "product": {
+            "href": "string"
+          },
+          "rating": {
+            "href": "string"
+          }
+        }
+      }
+    }
+  },
+  "privateIndividual": {
+    "clientKey": "string",
+    "privateIndividual": {
+      "master": {
+        "clientNumber": "string",
+        "editClientNumber": "string",
+        "openingDate": "string",
+        "closureDate": "object",
+        "mainAdvisor": {
+          "key": "number",
+          "lastNameFirstName": "string",
+          "telephoneNo": "string",
+          "email": "string"
+        },
+        "securityAbroad": "boolean",
+        "clientDesignation": "string",
+        "domicileAddress": {
+          "address": "string",
+          "postcode": "string",
+          "placeDes": "string",
+          "country": "string",
+          "_links": {
+            "country": {
+              "href": "string"
+            }
+          }
+        },
+        "relevantTelNo": {
+          "tel": "string",
+          "relevantEntry": "boolean",
+          "comment": "object",
+          "marketing": "boolean",
+          "masked": "boolean",
+          "reachableFrom": "string",
+          "reachableUntil": "string",
+          "type": "string",
+          "_links": {
+            "type": {
+              "href": "string"
+            }
+          }
+        },
+        "relevantEmail": {
+          "address": "string",
+          "relevantEntry": "boolean",
+          "comment": "object",
+          "marketing": "boolean",
+          "masked": "boolean",
+          "reachableFrom": "string",
+          "reachableUntil": "string",
+          "type": "string",
+          "_links": {
+            "type": {
+              "href": "string"
+            }
+          }
+        },
+        "nogaCode": "string",
+        "identityChecked": "boolean",
+        "activeBlock": "boolean",
+        "blocks": {
+        },
+        "occupationalPension": "boolean",
+        "clientMainType": "string",
+        "branch": "string",
+        "clientLanguage": "string",
+        "clientStatus": "string",
+        "legalForm": "string",
+        "legalStatus": "string",
+        "characteristic1": "string",
+        "characteristic2": "string",
+        "category": "string",
+        "vsbStatus": "string",
+        "riskClass": "string",
+        "riskCategory": "string",
+        "groupType": "string",
+        "clientSegment": "string",
+        "isOccupationalPension": "boolean",
+        "_links": {
+          "nogaCode": {
+            "href": "string"
+          },
+          "clientMainType": {
+            "href": "string"
+          },
+          "branch": {
+            "href": "string"
+          },
+          "clientLanguage": {
+            "href": "string"
+          },
+          "clientStatus": {
+            "href": "string"
+          },
+          "legalForm": {
+            "href": "string"
+          },
+          "legalStatus": {
+            "href": "string"
+          },
+          "characteristic1": {
+            "href": "string"
+          },
+          "characteristic2": {
+            "href": "string"
+          },
+          "category": {
+            "href": "string"
+          },
+          "vsbStatus": {
+            "href": "string"
+          },
+          "riskClass": {
+            "href": "string"
+          },
+          "riskCategory": {
+            "href": "string"
+          },
+          "groupType": {
+            "href": "string"
+          },
+          "clientSegment": {
+            "href": "string"
+          }
+        }
+      },
+      "person": {
+        "firstName": "string",
+        "officialFirstName": "object",
+        "lastName": "string",
+        "officialLastName": "object",
+        "lastNameBeforeMarriage": "object",
+        "officialLastNameBeforeMarriage": "object",
+        "lastNameIsPrefixed": "boolean",
+        "gender": "number",
+        "dateOfBirth": "string",
+        "dateOfDeath": "object",
+        "formOfAddress": "string",
+        "title": "string",
+        "maritalStatus": "string",
+        "matrimonialPropertyRegime": "string",
+        "countryOfBirth": "string",
+        "nationality": "string",
+        "nationality2": "string",
+        "profession": "string",
+        "_links": {
+          "formOfAddress": {
+            "href": "string"
+          },
+          "title": {
+            "href": "string"
+          },
+          "maritalStatus": {
+            "href": "string"
+          },
+          "matrimonialPropertyRegime": {
+            "href": "string"
+          },
+          "countryOfBirth": {
+            "href": "string"
+          },
+          "nationality": {
+            "href": "string"
+          },
+          "nationality2": {
+            "href": "string"
+          },
+          "profession": {
+            "href": "string"
+          }
+        }
+      }
+    }
+  },
+  "productTariffs": {
+    "code": "string",
+    "language": "string",
+    "shortcut": "string",
+    "description": "string",
+    "sortNr": "number"
+  },
+  "properties": {
+    "key": "string",
+    "designation": "string",
+    "address": {
+      "street": "string",
+      "postcode": "string",
+      "place": "string",
+      "country:country": {
+        "href": "string"
+      },
+      "_links": {
+        "curies": {
+          "0": {
+            "name": "string",
+            "href": "string",
+            "templated": "boolean"
+          }
+        }
+      }
+    },
+    "landRegisterNumber": {
+      "number1": "string",
+      "number2": "object",
+      "number3": "object"
+    },
+    "landRegistryLocation": "string",
+    "landRegisterOffice": "string",
+    "taxMunicipality": "object",
+    "egrid": "object",
+    "loanToValueRatio": "number",
+    "residentialSpaceRate": "number",
+    "masterPlot": {
+      "landRegNumber1": "object",
+      "landRegNumber2": "object",
+      "landRegNumber3": "object"
+    },
+    "valueOfShareNumerator": "object",
+    "valueOfShareDenominator": "object",
+    "owners": {
+      "0": {
+        "clientKey": "string",
+        "designation": "string",
+        "ownershipRelationship:ownershipStructure": {
+          "href": "number"
+        },
+        "_links": {
+          "curies": {
+            "0": {
+              "name": "string",
+              "href": "string",
+              "templated": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "propertyType:propertyType": {
+      "href": "number"
+    },
+    "propertyTypeOfUse:usageType": {
+      "href": "number"
+    },
+    "buildingType:buildingType": {
+      "href": "number"
+    },
+    "typeOfConstruction:typeOfConstruction": {
+      "href": "number"
+    },
+    "buildingResidenceType:buildingResidenceType": {
+      "href": "number"
+    },
+    "_links": {
+      "curies": {
+        "0": {
+          "name": "string",
+          "href": "string",
+          "templated": "boolean"
+        },
+        "1": {
+          "name": "string",
+          "href": "string",
+          "templated": "boolean"
+        },
+        "2": {
+          "name": "string",
+          "href": "string",
+          "templated": "boolean"
+        },
+        "3": {
+          "name": "string",
+          "href": "string",
+          "templated": "boolean"
+        },
+        "4": {
+          "name": "string",
+          "href": "string",
+          "templated": "boolean"
+        }
+      }
+    }
+  },
+  "propertyTypesOfUse": {
+    "code": "string",
+    "language": "string",
+    "shortcut": "string",
+    "description": "string",
+    "sortNr": "number"
+  },
+  "propertyTypes": {
+    "code": "string",
+    "language": "string",
+    "shortcut": "string",
+    "description": "string",
+    "sortNr": "number"
+  },
+  "twoPersonHousehold": {
+    "clientKey": "string",
+    "twoPersonHousehold": {
+      "master": {
+        "clientNumber": "string",
+        "editClientNumber": "string",
+        "openingDate": "string",
+        "closureDate": "object",
+        "mainAdvisor": {
+          "key": "number",
+          "lastNameFirstName": "string",
+          "telephoneNo": "string",
+          "email": "string"
+        },
+        "securityAbroad": "boolean",
+        "clientDesignation": "string",
+        "domicileAddress": {
+          "address": "string",
+          "postcode": "string",
+          "placeDes": "string",
+          "country": "string",
+          "_links": {
+            "country": {
+              "href": "string"
+            }
+          }
+        },
+        "relevantTelNo": {
+          "tel": "string",
+          "relevantEntry": "boolean",
+          "comment": "object",
+          "marketing": "boolean",
+          "masked": "boolean",
+          "reachableFrom": "string",
+          "reachableUntil": "string",
+          "type": "string",
+          "_links": {
+            "type": {
+              "href": "string"
+            }
+          }
+        },
+        "relevantEmail": "object",
+        "nogaCode": "string",
+        "identityChecked": "boolean",
+        "activeBlock": "boolean",
+        "blocks": {
+          "0": {
+            "blockingCode": "string",
+            "comment": "object",
+            "_links": {
+              "blockingCodes": {
+                "href": "string"
+              }
+            }
+          }
+        },
+        "occupationalPension": "boolean",
+        "clientMainType": "string",
+        "branch": "string",
+        "clientLanguage": "string",
+        "clientStatus": "string",
+        "legalForm": "string",
+        "legalStatus": "string",
+        "characteristic1": "string",
+        "characteristic2": "string",
+        "category": "string",
+        "vsbStatus": "string",
+        "riskClass": "string",
+        "riskCategory": "string",
+        "groupType": "string",
+        "clientSegment": "string",
+        "isOccupationalPension": "boolean",
+        "_links": {
+          "nogaCode": {
+            "href": "string"
+          },
+          "clientMainType": {
+            "href": "string"
+          },
+          "branch": {
+            "href": "string"
+          },
+          "clientLanguage": {
+            "href": "string"
+          },
+          "clientStatus": {
+            "href": "string"
+          },
+          "legalForm": {
+            "href": "string"
+          },
+          "legalStatus": {
+            "href": "string"
+          },
+          "characteristic1": {
+            "href": "string"
+          },
+          "characteristic2": {
+            "href": "string"
+          },
+          "category": {
+            "href": "string"
+          },
+          "vsbStatus": {
+            "href": "string"
+          },
+          "riskClass": {
+            "href": "string"
+          },
+          "riskCategory": {
+            "href": "string"
+          },
+          "groupType": {
+            "href": "string"
+          },
+          "clientSegment": {
+            "href": "string"
+          }
+        }
+      },
+      "person": {
+        "firstName": "string",
+        "officialFirstName": "object",
+        "lastName": "string",
+        "officialLastName": "object",
+        "lastNameBeforeMarriage": "object",
+        "officialLastNameBeforeMarriage": "object",
+        "lastNameIsPrefixed": "boolean",
+        "gender": "number",
+        "dateOfBirth": "string",
+        "dateOfDeath": "object",
+        "formOfAddress": "string",
+        "title": "string",
+        "maritalStatus": "string",
+        "matrimonialPropertyRegime": "string",
+        "countryOfBirth": "string",
+        "nationality": "string",
+        "nationality2": "string",
+        "profession": "string",
+        "_links": {
+          "formOfAddress": {
+            "href": "string"
+          },
+          "title": {
+            "href": "string"
+          },
+          "maritalStatus": {
+            "href": "string"
+          },
+          "matrimonialPropertyRegime": {
+            "href": "string"
+          },
+          "countryOfBirth": {
+            "href": "string"
+          },
+          "nationality": {
+            "href": "string"
+          },
+          "nationality2": {
+            "href": "string"
+          },
+          "profession": {
+            "href": "string"
+          }
+        }
+      },
+      "personPartner": {
+        "firstName": "string",
+        "officialFirstName": "object",
+        "lastName": "string",
+        "officialLastName": "object",
+        "lastNameBeforeMarriage": "object",
+        "officialLastNameBeforeMarriage": "object",
+        "lastNameIsPrefixed": "boolean",
+        "gender": "number",
+        "dateOfBirth": "string",
+        "dateOfDeath": "object",
+        "formOfAddress": "string",
+        "title": "string",
+        "maritalStatus": "string",
+        "matrimonialPropertyRegime": "string",
+        "countryOfBirth": "string",
+        "nationality": "string",
+        "nationality2": "string",
+        "profession": "string",
+        "_links": {
+          "formOfAddress": {
+            "href": "string"
+          },
+          "title": {
+            "href": "string"
+          },
+          "maritalStatus": {
+            "href": "string"
+          },
+          "matrimonialPropertyRegime": {
+            "href": "string"
+          },
+          "countryOfBirth": {
+            "href": "string"
+          },
+          "nationality": {
+            "href": "string"
+          },
+          "nationality2": {
+            "href": "string"
+          },
+          "profession": {
+            "href": "string"
+          }
+        }
+      }
+    }
+  }
+}
+
