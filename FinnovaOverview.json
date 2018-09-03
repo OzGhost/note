@@ -5,7 +5,7 @@
     "country": "string",
     "id": "string",
     "place": "string",
-    "poBox": "object",
+    "poBox": "",
     "receiverReference": "string",
     "salutation": "string",
     "street": "string",
@@ -28,7 +28,7 @@
     "category": "string",
     "chiefConsultant": "string",
     "clientStatus": "number",
-    "closedDate": "object",
+    "closedDate": "",
     "createDate": "string",
     "customerNumber": "string",
     "designation": "string",
@@ -43,15 +43,15 @@
     "lastNamePartner": "string",
     "letterSalutation": "string",
     "maritalStatus": "string",
-    "maritalStatusDate": "object",
+    "maritalStatusDate": "",
     "maritalStatusPartner": "string",
     "name": "string",
     "nationality": "string",
-    "nationality2nd": "object",
+    "nationality2nd": "",
     "nationalityPartner": "string",
-    "nationalityPartner2nd": "object",
+    "nationalityPartner2nd": "",
     "openedDate": "string",
-    "partnerDate": "object",
+    "partnerDate": "",
     "salutation": "string",
     "salutationPartner": "string",
     "segment": "string",
@@ -66,7 +66,7 @@
     "sortNr": "number"
   },
   "codeTables": {
-    "addition": "object",
+    "addition": "",
     "group": "string",
     "id": "string",
     "number": "string",
@@ -106,7 +106,7 @@
         "liabilities": {
           "0": {
             "manual": "boolean",
-            "liabilityWith": "object",
+            "liabilityWith": "",
             "remainingDebt": {
               "amount": "number",
               "currency": "string",
@@ -126,7 +126,7 @@
               }
             },
             "liabilityBeginning": "string",
-            "liabilityEnd": "object",
+            "liabilityEnd": "",
             "statusAsAt": "string",
             "liabilityType": "string",
             "_links": {
@@ -137,7 +137,7 @@
           },
           "1": {
             "manual": "boolean",
-            "liabilityWith": "object",
+            "liabilityWith": "",
             "remainingDebt": {
               "amount": "number",
               "currency": "string",
@@ -157,7 +157,7 @@
               }
             },
             "liabilityBeginning": "string",
-            "liabilityEnd": "object",
+            "liabilityEnd": "",
             "statusAsAt": "string",
             "liabilityType": "string",
             "_links": {
@@ -170,7 +170,7 @@
         "assets": {
           "0": {
             "manual": "boolean",
-            "assetsWith": "object",
+            "assetsWith": "",
             "amountTotal": {
               "amount": "number",
               "currency": "string",
@@ -192,7 +192,7 @@
           },
           "1": {
             "manual": "boolean",
-            "assetsWith": "object",
+            "assetsWith": "",
             "amountTotal": {
               "amount": "number",
               "currency": "string",
@@ -214,7 +214,7 @@
           },
           "2": {
             "manual": "boolean",
-            "assetsWith": "object",
+            "assetsWith": "",
             "amountTotal": {
               "amount": "number",
               "currency": "string",
@@ -247,9 +247,9 @@
           "0": {
             "inactive": "boolean",
             "informationDate": "string",
-            "numberOfDebtEnforcements": "object",
+            "numberOfDebtEnforcements": "",
             "amount": {
-              "amount": "object",
+              "amount": "",
               "currency": "string",
               "_links": {
                 "currency": {
@@ -257,8 +257,8 @@
                 }
               }
             },
-            "validFrom": "object",
-            "validUntil": "object",
+            "validFrom": "",
+            "validUntil": "",
             "informationComment": "string",
             "statusAsAt": "string",
             "sourceOfInformation": "string",
@@ -317,9 +317,9 @@
     "orderKey": "string",
     "itemKey": "string",
     "securityKey": "string",
-    "propertyKey": "object",
-    "portfolioKey": "object",
-    "portfolioNumber": "object",
+    "propertyKey": "",
+    "portfolioKey": "",
+    "portfolioNumber": "",
     "accountCustodyAccountKey": "string",
     "accountCustodyAccountNumber": "string",
     "collateralLimit": {
@@ -353,7 +353,7 @@
         }
       }
     },
-    "expiry": "object",
+    "expiry": "",
     "collateralValue": {
       "amount": "number",
       "currency:currency": {
@@ -528,7 +528,7 @@
       "key": "string",
       "id": "string",
       "clientKey": "string",
-      "creditLineDesignation": "object",
+      "creditLineDesignation": "",
       "purpose": "string",
       "use": "string",
       "overallLimit": {
@@ -575,10 +575,10 @@
       "0": {
         "key": "string",
         "designation": "string",
-        "securityMortgageCertificate": "object",
-        "portfolioKey": "object",
-        "portfolioNumber": "object",
-        "accountCustodyAccount": "object",
+        "securityMortgageCertificate": "",
+        "portfolioKey": "",
+        "portfolioNumber": "",
+        "accountCustodyAccount": "",
         "provider": "string",
         "taker": "string",
         "collateralValue": {
@@ -630,7 +630,7 @@
           "insuranceCompanyKey": "string",
           "insuranceHolder": "string",
           "insuredPerson": "string",
-          "beneficiary": "object",
+          "beneficiary": "",
           "nominal": {
             "amount": "number",
             "currency:currency": {
@@ -646,12 +646,12 @@
               }
             }
           },
-          "premium": "object",
+          "premium": "",
           "expiryDate": "string",
-          "securitiesNumber": "object",
-          "securitiesShortText": "object"
+          "securitiesNumber": "",
+          "securitiesShortText": ""
         },
-        "guarantee": "object",
+        "guarantee": "",
         "marketValue": {
           "value": {
             "amount": "number",
@@ -700,7 +700,7 @@
         "key": "string",
         "id": "string",
         "clientKey": "string",
-        "creditLineDesignation": "object",
+        "creditLineDesignation": "",
         "use": "string",
         "overallLimit": {
           "amount": "number",
@@ -757,43 +757,43 @@
         "tranchesModificationCode": "string",
         "product": "number",
         "tariffCode": "number",
-        "floating": "object",
+        "floating": "",
         "position": "number",
         "term": "number",
-        "rating": "object",
+        "rating": "",
         "validAfter": "string",
         "termFrom": "string",
         "termUntil": "string",
         "amount": {
-          "currency": "object",
+          "currency": "",
           "amount": "number"
         },
         "tariffRate": "number",
         "baseRate": "number",
-        "maximumRate": "object",
-        "minimumRate": "object",
+        "maximumRate": "",
+        "minimumRate": "",
         "fixingDate": "string",
         "deviations": {
-          "reason1": "object",
-          "value1": "object",
+          "reason1": "",
+          "value1": "",
           "reason2": "number",
           "value2": "number",
-          "reason3": "object",
-          "value3": "object",
-          "reason4": "object",
-          "value4": "object",
-          "forwardSurchargeCode": "object",
-          "forwardSurchargeRate": "object"
+          "reason3": "",
+          "value3": "",
+          "reason4": "",
+          "value4": "",
+          "forwardSurchargeCode": "",
+          "forwardSurchargeRate": ""
         },
         "account": {
           "key": "number",
-          "number": "object",
+          "number": "",
           "currency": "string",
           "type": "number",
           "interestPaymentDate": "string",
           "periodicity": "number",
           "dayCountConvention": "number",
-          "interestAccountNumber": "object",
+          "interestAccountNumber": "",
           "interestAccountKey": "number",
           "_links": {
             "type": {
@@ -826,7 +826,7 @@
         "clientNumber": "string",
         "editClientNumber": "string",
         "openingDate": "string",
-        "closureDate": "object",
+        "closureDate": "",
         "mainAdvisor": {
           "key": "number",
           "lastNameFirstName": "string",
@@ -849,7 +849,7 @@
         "relevantTelNo": {
           "tel": "string",
           "relevantEntry": "boolean",
-          "comment": "object",
+          "comment": "",
           "marketing": "boolean",
           "masked": "boolean",
           "reachableFrom": "string",
@@ -864,7 +864,7 @@
         "relevantEmail": {
           "address": "string",
           "relevantEntry": "boolean",
-          "comment": "object",
+          "comment": "",
           "marketing": "boolean",
           "masked": "boolean",
           "reachableFrom": "string",
@@ -947,15 +947,15 @@
       },
       "person": {
         "firstName": "string",
-        "officialFirstName": "object",
+        "officialFirstName": "",
         "lastName": "string",
-        "officialLastName": "object",
-        "lastNameBeforeMarriage": "object",
-        "officialLastNameBeforeMarriage": "object",
+        "officialLastName": "",
+        "lastNameBeforeMarriage": "",
+        "officialLastNameBeforeMarriage": "",
         "lastNameIsPrefixed": "boolean",
         "gender": "number",
         "dateOfBirth": "string",
-        "dateOfDeath": "object",
+        "dateOfDeath": "",
         "formOfAddress": "string",
         "title": "string",
         "maritalStatus": "string",
@@ -1022,22 +1022,22 @@
     },
     "landRegisterNumber": {
       "number1": "string",
-      "number2": "object",
-      "number3": "object"
+      "number2": "",
+      "number3": ""
     },
     "landRegistryLocation": "string",
     "landRegisterOffice": "string",
-    "taxMunicipality": "object",
-    "egrid": "object",
+    "taxMunicipality": "",
+    "egrid": "",
     "loanToValueRatio": "number",
     "residentialSpaceRate": "number",
     "masterPlot": {
-      "landRegNumber1": "object",
-      "landRegNumber2": "object",
-      "landRegNumber3": "object"
+      "landRegNumber1": "",
+      "landRegNumber2": "",
+      "landRegNumber3": ""
     },
-    "valueOfShareNumerator": "object",
-    "valueOfShareDenominator": "object",
+    "valueOfShareNumerator": "",
+    "valueOfShareDenominator": "",
     "owners": {
       "0": {
         "clientKey": "string",
@@ -1122,7 +1122,7 @@
         "clientNumber": "string",
         "editClientNumber": "string",
         "openingDate": "string",
-        "closureDate": "object",
+        "closureDate": "",
         "mainAdvisor": {
           "key": "number",
           "lastNameFirstName": "string",
@@ -1145,7 +1145,7 @@
         "relevantTelNo": {
           "tel": "string",
           "relevantEntry": "boolean",
-          "comment": "object",
+          "comment": "",
           "marketing": "boolean",
           "masked": "boolean",
           "reachableFrom": "string",
@@ -1157,14 +1157,14 @@
             }
           }
         },
-        "relevantEmail": "object",
+        "relevantEmail": "",
         "nogaCode": "string",
         "identityChecked": "boolean",
         "activeBlock": "boolean",
         "blocks": {
           "0": {
             "blockingCode": "string",
-            "comment": "object",
+            "comment": "",
             "_links": {
               "blockingCodes": {
                 "href": "string"
@@ -1238,15 +1238,15 @@
       },
       "person": {
         "firstName": "string",
-        "officialFirstName": "object",
+        "officialFirstName": "",
         "lastName": "string",
-        "officialLastName": "object",
-        "lastNameBeforeMarriage": "object",
-        "officialLastNameBeforeMarriage": "object",
+        "officialLastName": "",
+        "lastNameBeforeMarriage": "",
+        "officialLastNameBeforeMarriage": "",
         "lastNameIsPrefixed": "boolean",
         "gender": "number",
         "dateOfBirth": "string",
-        "dateOfDeath": "object",
+        "dateOfDeath": "",
         "formOfAddress": "string",
         "title": "string",
         "maritalStatus": "string",
@@ -1284,15 +1284,15 @@
       },
       "personPartner": {
         "firstName": "string",
-        "officialFirstName": "object",
+        "officialFirstName": "",
         "lastName": "string",
-        "officialLastName": "object",
-        "lastNameBeforeMarriage": "object",
-        "officialLastNameBeforeMarriage": "object",
+        "officialLastName": "",
+        "lastNameBeforeMarriage": "",
+        "officialLastNameBeforeMarriage": "",
         "lastNameIsPrefixed": "boolean",
         "gender": "number",
         "dateOfBirth": "string",
-        "dateOfDeath": "object",
+        "dateOfDeath": "",
         "formOfAddress": "string",
         "title": "string",
         "maritalStatus": "string",
