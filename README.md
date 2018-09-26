@@ -12,7 +12,7 @@ xresource colorscheme: https://github.com/chriskempson/base16-xresources
  ffmpeg -f x11grab -video_size 1140x720 -framerate 25 -i :0.0 -vcodec h264 /tmp/out.mkv  
  
  first: https://github.com/jashkenas/underscore
- second: https://lodash.com/
+ second: https://lodash.com/ (https://github.com/lodash/lodash/tree/4.17.4)
 
 9 mistake when people come to css grid: https://hacks.mozilla.org/2018/07/9-biggest-mistakes-with-css-grid/?utm_source=dev-newsletter&utm_medium=email&utm_campaign=july26-2018&utm_content=csslayout
 
