@@ -17,3 +17,7 @@ xresource colorscheme: https://github.com/chriskempson/base16-xresources
 9 mistake when people come to css grid: https://hacks.mozilla.org/2018/07/9-biggest-mistakes-with-css-grid/?utm_source=dev-newsletter&utm_medium=email&utm_campaign=july26-2018&utm_content=csslayout
 
 object oriented css: https://github.com/stubbornella/oocss/wiki
+
+9gag: [
+  https://9gag.com/gag/agXRKRn
+]
