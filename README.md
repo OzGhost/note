@@ -21,3 +21,5 @@ object oriented css: https://github.com/stubbornella/oocss/wiki
 9gag: [
   https://9gag.com/gag/agXRKRn
 ]
+
+wmname LG3D
