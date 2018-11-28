@@ -10,6 +10,7 @@ bash prompt config: PS1="\[\\e[0;96m\] % \[\\e[m\]"
 xresource colorscheme: https://github.com/chriskempson/base16-xresources
 
  ffmpeg -f x11grab -video_size 1140x720 -framerate 25 -i :0.0 -vcodec h264 /tmp/out.mkv  
+ ffmpeg -f x11grab -video_size 1280x720 -framerate 25 -i :0.0 -vcodec libvpx /tmp/out_v3.webm
  
  first: https://github.com/jashkenas/underscore
  second: https://lodash.com/ (https://github.com/lodash/lodash/tree/4.17.4)
