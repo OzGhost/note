@@ -24,3 +24,7 @@ object oriented css: https://github.com/stubbornella/oocss/wiki
 ]
 
 wmname LG3D
+
+js iterator pattern
+https://loige.co/javascript-iterator-patterns/
+
