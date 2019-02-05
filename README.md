@@ -28,3 +28,5 @@ wmname LG3D
 js iterator pattern
 https://loige.co/javascript-iterator-patterns/
 
+hacker tools: https://hacker-tools.github.io/
+
