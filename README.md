@@ -30,3 +30,7 @@ https://loige.co/javascript-iterator-patterns/
 
 hacker tools: https://hacker-tools.github.io/
 
+/etc/sysctl.d/10-custom-kernel-bbr.conf
+net.core.default_qdisc=fq
+net.ipv4.tcp_congestion_control=bbr
+
