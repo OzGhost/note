@@ -34,3 +34,6 @@ hacker tools: https://hacker-tools.github.io/
 net.core.default_qdisc=fq
 net.ipv4.tcp_congestion_control=bbr
 
+ffmpeg -i src/001.mp4 -ss 00:06:34.0 -to 00:09:24.0 -c copy output.mp4
+ffmpeg -i src/001.mp4 -ss 00:06:34.0 -to 00:09:24.0 -target ntsc-svcd output.mpg
+
