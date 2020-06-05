@@ -12,7 +12,7 @@ public class Pup {
     private static final String ofp = System.getProperty("java.io.tmpdir") + File.separator + "inner_pup.log";
     private static volatile Thread t;
 
-    public static void bark(Object o) {
+    public static void bark(Object o, boolean x) {
     	if (t == null) {
     		synchronized(Pup.class) {
     			if (t == null) {
@@ -24,7 +24,7 @@ public class Pup {
         try { q.offer(o, 30, TimeUnit.SECONDS); } catch(Throwable ignored){}
     }
     
-    public static void bark(Object o, boolean b) {
+    public static void bark(Object o) {
     	try { write(o); } catch(Exception ingored) {}
     }
 
