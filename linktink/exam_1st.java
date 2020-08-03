@@ -1,12 +1,16 @@
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Random;
+
 public class Exam1st {
 
 	private static final int PRESSOR = 2;
-	private static final int LIFTER = ~PRESSOR;
-	private static final byte[] TEMPLATE = "(y,x)".getBytes();
 	private static final byte[] FAILMSG = "NOT FOUND!".getBytes();
+	private static final Random r = new Random();
 
 	private java.io.OutputStream os;
+	int tries = 0;
 
 	@org.junit.Test
 	public void test_me() {
@@ -17,8 +21,12 @@ public class Exam1st {
 				new int[]{0,0,0,0}
 		};
 		int w = 4, h = 4;
+		matrix = new int[100][50];
+		w = 50;
+		h = 100;
 		os = System.out;
-		doSearch(matrix, w, h, 0, 1, 3, 3);
+		tries = 0;
+		doSearch(matrix, w, h, 0, 1, 48, 92);
 	}
 
 	private void doSearch(int[][] m, int w, int h, int ex, int ey, int ox, int oy) {
@@ -38,40 +46,59 @@ public class Exam1st {
 		xb[l] = cx;
 		yb[l] = cy;
 		l++;
-		m[cy][cx] |= PRESSOR;
+		m[cy][cx] = PRESSOR;
+		tries++;
+		if (tries > 10000) {
+			print(xb, yb, l, m, w, h);
+			throw new RuntimeException("Out of tries");
+		}
 		if (cx == dx && cy == dy) {
-			print(xb, yb, l);
+			print(xb, yb, l, m, w, h);
 			return true;
 		}
 		boolean hit = false;
-		int nx = cx+1, ny = cy;
-		if (stepable(nx, ny, m, w, h)) {
-			hit = takeAStep(nx, ny, m, w, h, xb, yb, l, dx, dy);
-		}
-		nx = cx-1; ny = cy;
-		if (!hit && stepable(nx, ny, m, w, h)) {
-			hit = takeAStep(nx, ny, m, w, h, xb, yb, l, dx, dy);
-		}
-		nx = cx; ny = cy+1;
-		if (!hit && stepable(nx, ny, m, w, h)) {
-			hit = takeAStep(nx, ny, m, w, h, xb, yb, l, dx, dy);
-		}
-		nx = cx; ny = cy-1;
-		if (!hit && stepable(nx, ny, m, w, h)) {
-			hit = takeAStep(nx, ny, m, w, h, xb, yb, l, dx, dy);
+		int[] xbasket = new int[]{cx+1, cx-1, cx, cx};
+		int[] ybasket = new int[]{cy, cy, cy+1, cy-1};
+		int[] sb = shuffle();
+		for (int i: sb) {
+			int nx = xbasket[i], ny = ybasket[i];
+			if (hit) break;
+			if (stepable(nx, ny, m, w, h)) {
+				hit = takeAStep(nx, ny, m, w, h, xb, yb, l, dx, dy);
+			}
 		}
 		l--;
-		m[cy][cx] &= LIFTER;
 		return hit;
 	}
 
-	private void print(int[] xb, int[] yb, int l) {
+	private void print(int[] xb, int[] yb, int l, int[][] m, int w, int h) {
 		for (int i = 0; i < l; i++) {
-			TEMPLATE[1] = (byte)(yb[i] + '0');
-			TEMPLATE[3] = (byte)(xb[i] + '0');
-			silentWrite(TEMPLATE);
+			silentWrite(("("+yb[i]+","+xb[i]+")").getBytes());
+			m[yb[i]][xb[i]] = 8;
 		}
-		silentWrite((byte)'\n');
+		System.out.println("\nEnd up with l: " + l);
+		try (FileOutputStream fos = new FileOutputStream(new File("/tmp/peesee"))) {
+			for (int i = 0; i < h; i++) {
+				for (int j = 0; j < w; j++) {
+					fos.write((m[i][j] + " ").getBytes());
+				}
+				fos.write((byte)'\n');
+			}
+			fos.write((byte)'\n');
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+	}
+
+	private int[] shuffle() {
+		int[] base = new int[]{0,1,2,3};
+		for (int i = 0; i < 4; i++) {
+			int rp = r.nextInt(4);
+			int tmp = base[rp];
+			base[rp] = base[i];
+			base[i] = tmp;
+		}
+		return base;
 	}
 
 	private boolean stepable(int nx, int ny, int[][] m, int w, int h) {
