@@ -4,7 +4,7 @@ import org.junit.Test;
 import java.io.*;
 import java.util.*;
 
-public class MyQuestion {
+public class MyTest {
     
     @Test
     public void askFor() throws Exception {
