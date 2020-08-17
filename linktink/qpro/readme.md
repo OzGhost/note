@@ -2,8 +2,11 @@
 # Middle weighted of the sliding frame
 ## Problem describe
 - **INPUT**:
-- First line contain two number *n (the length of input stack)* and *s (the size of the frame)* separated by a space, ***s* always be an odd number**
+- First line contain two number *n (the length of input stack)* and *s (the size of the frame)* separated by a space
+- 0 < n <= 1030000
+- 0 < s <= 15001, s%2 == 1
 - Next *n* line contain single number *x (the value)*
+- 0 <= x <= 9
 - The input will be pass as an input stream, so you must extract the values as describe above yourself
 - **OUTPUT**:
 - The frame slide from top to down (or from left to right depend on how you imaginate the input stack)
