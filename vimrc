@@ -31,4 +31,5 @@ set t_Co=256
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|\.git)$'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='jellybeans'
+let g:ctrlp_working_path_mode = 'a'
 
