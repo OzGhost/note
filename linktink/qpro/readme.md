@@ -16,17 +16,19 @@
 - ex: frame: [1, 9, 2, 7, 4] -> frame after sort: [1, 2, 4, 7, 9] -> the number in the middle is 4
 - **FULL EXAMPLE**:
 - *Given input*
-> 10 3
-> 8
-> 1
-> 1
-> 5
-> 5
-> 4
-> 7
-> 1
-> 8
-> 3
+```js
+10 3
+8
+1
+1
+5
+5
+4
+7
+1
+8
+3
+```
 - *Expected output*
 > 1
 > 1
