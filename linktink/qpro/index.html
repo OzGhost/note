@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8"/>
+        <title>QPro output visualization</title>
+    </head>
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <script src="raw.js"></script>
+        <script>
+var md = {};
+var cio = '';
+var cus = '';
+var p = [];
+for (var d of raw) {
+    if (d.charAt(0) == '#') {
+        cus = d.substring(1);
+    } else if (d.trim()) {
+        p = d.trim().split(' ');
+        if (p.length != 5 || p[2] != 'Correct') {
+            continue;
+        }
+        cio = p[0];
+        if ( !md[cio] ) {
+            md[cio] = {};
+        }
+        if ( typeof(md[cio][cus]) == 'undefined') {
+            md[cio][cus] = 0;
+        }
+        md[cio][cus] += +p[4];
+    }
+}
+var fd = {};
+var s = 0;
+for (var io in md) {
+    p = [];
+    s = 0;
+    for (var us in md[io]) {
+        s += md[io][us];
+    }
+    for (var us in md[io]) {
+        p.push({u: us, v: Math.round(md[io][us]*10000/s)/100});
+    }
+    p.sort(function(a, b){
+        return a.v - b.v;
+    });
+    fd[io] = p;
+}
+var cm = {
+    huy: '#91d18b',
+    lan: '#411f1f',
+    duc: '#99d8d0',
+    thanh: '#206a5d',
+    duy: '#e0dede',
+    hoai: '#fa1616',
+    ngan: '#eb8f8f'
+};
+for (var io in fd) {
+    var ancho = document.createElement('canvas');
+    ancho.id = io;
+    ancho.width = '400';
+    ancho.height = '400';
+    document.body.appendChild(ancho);
+    var ctx = document.getElementById(io).getContext('2d');
+    //var ctx = ancho.getContext('2d');
+    var bg = [];
+    var lab = [];
+    var d = [];
+    for (var us of fd[io]) {
+        bg.push(cm[us.u]);
+        lab.push(us.u);
+        d.push(us.v);
+    }
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: lab,
+            datasets: [
+                {
+                    data: d,
+                    backgroundColor: bg,
+                    borderWidth: 0
+                }
+            ]
+        },
+        options: {
+            responsive: false,
+            title: {
+                text: io,
+                display: true
+            },
+            legend: {
+                position: 'bottom'
+            }
+        }
+    });
+}
+        </script>
+    </body>
+</html>
+
