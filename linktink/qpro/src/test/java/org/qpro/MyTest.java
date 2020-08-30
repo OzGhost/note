@@ -9,7 +9,7 @@ public class MyTest {
     @Test
     public void askFor() throws Exception {
         String p = "src/test/resources/ioset";
-        Map<String, File[]> rmap = new HashMap<>();
+        Map<String, File[]> rmap = new LinkedHashMap<>();
         for (File f: new File(p).listFiles()) {
             String[] namep = f.getName().split("\\.");
             if (namep.length != 2) continue;
@@ -28,7 +28,7 @@ public class MyTest {
             storage[si] = f;
         }
         YourAnswer shooter = new YourAnswer();
-        boolean allowWarmUp = false;
+        boolean allowWarmUp = true;
         if (allowWarmUp) {
             String wuf = p + "/ioset_01.inp";
             String wuo = p + "/ioset_01.ans";
@@ -40,7 +40,7 @@ public class MyTest {
                 }
             }
         }
-        Map<String, Object[]> rs = new HashMap<>();
+        Map<String, Object[]> rs = new LinkedHashMap<>();
         for (Map.Entry<String, File[]> e: rmap.entrySet()) {
             String name = e.getKey();
             String ans = e.getValue()[1].getAbsolutePath().replaceAll("out$", "ans");
