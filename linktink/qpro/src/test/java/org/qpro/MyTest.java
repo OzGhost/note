@@ -28,11 +28,10 @@ public class MyTest {
 
     private void askFor(String prefix) throws Exception {
         String p = "src/test/resources/tcset/";
-        try (InputStream is = new FileInputStream(new File(p + prefix + "_input.txt" ));
-                InputStream ex = new FileInputStream(new File(p + prefix + "_output.txt" ))
-            ) {
+        try ( InputStream ex = new FileInputStream(new File(p + prefix + "_output.txt" ))) {
+            File inf = new File(p+prefix+"_input.txt");
             long beginning = System.nanoTime();
-            int ans = new YourAnswer().answerTo(is);
+            int ans = new YourAnswer().answerTo(inf);
             System.out.println(prefix + " take " + (System.nanoTime() - beginning));
             Scanner sc = new Scanner(ex);
             int trueans = sc.nextInt();
@@ -48,17 +47,17 @@ public class MyTest {
         private static final int C0 = (int)'0';
         private static final int C9 = (int)'9';
 
-        public int answerTo(InputStream input) throws Exception {
-            try (BufferedInputStream is = new BufferedInputStream(input)) {
-                Reader r = new Reader(is);
-                int n = r.next();
-                int l = r.next();
+        public int answerTo(File inf) throws Exception {
+            try (BufferedReader br = new BufferedReader(new FileReader(inf))) {
+                int n = Integer.parseInt(br.readLine());
+                int l = Integer.parseInt(br.readLine());
                 Cluster[] clusters = new Cluster[n + 1];
                 int[] clusterSize = new int[n];
                 int cname = 0;
                 for (int i = 0; i < l; i++) {
-                    int left = r.next();
-                    int right = r.next();
+                    String[] pieces = br.readLine().split(" ");
+                    int left = Integer.parseInt(pieces[0]);
+                    int right = Integer.parseInt(pieces[1]);
                     Cluster leftCluster = clusters[left];
                     Cluster rightCluster = clusters[right];
                     if (leftCluster == null) {
