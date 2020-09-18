@@ -43,9 +43,7 @@ public class MyTest {
     }
 
     private static class YourAnswer {
-
-        private static final int C0 = (int)'0';
-        private static final int C9 = (int)'9';
+        private static final String SPACE = " ";
 
         public int answerTo(File inf) throws Exception {
             try (BufferedReader br = new BufferedReader(new FileReader(inf))) {
@@ -55,7 +53,7 @@ public class MyTest {
                 int[] clusterSize = new int[n];
                 int cname = 0;
                 for (int i = 0; i < l; i++) {
-                    String[] pieces = br.readLine().split(" ");
+                    String[] pieces = br.readLine().split(SPACE);
                     int left = Integer.parseInt(pieces[0]);
                     int right = Integer.parseInt(pieces[1]);
                     Cluster leftCluster = clusters[left];
@@ -94,22 +92,6 @@ public class MyTest {
             int alias;
             Cluster(int n){
                 alias = n;
-            }
-        }
-
-        private static class Reader {
-            private InputStream is;
-            private Reader(InputStream i) {
-                is = i;
-            }
-            private int next() throws Exception {
-                int r;
-                while ( (r = is.read()) < C0 || r > C9 ) { }
-                int x = r - C0;
-                while ( (r = is.read()) >= C0 && r <= C9 ) {
-                    x = x*10 + (r - C0);
-                }
-                return x;
             }
         }
     }
