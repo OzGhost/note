@@ -11,16 +11,19 @@ public class MyTest {
         askFor("tc1");
     }
 
+    @org.junit.Ignore
     @Test
     public void secondCase() throws Exception {
         askFor("tc2");
     }
 
+    @org.junit.Ignore
     @Test
     public void thirdCase() throws Exception {
         askFor("tc3");
     }
 
+    @org.junit.Ignore
     @Test
     public void fourthCase() throws Exception {
         askFor("tc4");
@@ -79,6 +82,10 @@ public class MyTest {
                         }
                     }
                 }
+                for (int i = 1; i < n+1; i++) {
+                    Cluster c = clusters[i];
+                    System.out.println(i + " :: " + c.ori + " -> " + c.alias);
+                }
                 int maxSize = clusterSize[0];
                 for (int i = 1; i < cname; i++) {
                     int size = clusterSize[i];
@@ -90,8 +97,10 @@ public class MyTest {
 
         private static class Cluster {
             int alias;
+            int ori;
             Cluster(int n){
                 alias = n;
+                ori = n;
             }
         }
     }
