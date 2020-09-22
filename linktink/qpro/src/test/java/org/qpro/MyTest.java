@@ -11,19 +11,16 @@ public class MyTest {
         askFor("tc1");
     }
 
-    @org.junit.Ignore
     @Test
     public void secondCase() throws Exception {
         askFor("tc2");
     }
 
-    @org.junit.Ignore
     @Test
     public void thirdCase() throws Exception {
         askFor("tc3");
     }
 
-    @org.junit.Ignore
     @Test
     public void fourthCase() throws Exception {
         askFor("tc4");
@@ -53,7 +50,8 @@ public class MyTest {
                 int n = Integer.parseInt(br.readLine());
                 int l = Integer.parseInt(br.readLine());
                 Cluster[] clusters = new Cluster[n + 1];
-                int[] clusterSize = new int[n];
+                int[] clusterSize = new int[n/2];
+                Cluster[][] propagator = new Cluster[n/2][];
                 int cname = 0;
                 for (int i = 0; i < l; i++) {
                     String[] pieces = br.readLine().split(SPACE);
@@ -63,7 +61,10 @@ public class MyTest {
                     Cluster rightCluster = clusters[right];
                     if (leftCluster == null) {
                         if (rightCluster == null) {
-                            clusters[left] = clusters[right] = new Cluster(cname++);
+                            Cluster c = new Cluster(cname++);
+                            propagator[c.alias] = new Cluster[1];
+                            propagator[c.alias][0] = c;
+                            clusters[left] = clusters[right] = c;
                             clusterSize[clusters[left].alias] = 2;
                         } else {
                             clusters[left] = clusters[right];
@@ -75,16 +76,28 @@ public class MyTest {
                             clusterSize[clusters[left].alias]++;
                         } else {
                             if (leftCluster.alias != rightCluster.alias) {
-                                clusterSize[rightCluster.alias] += clusterSize[leftCluster.alias];
-                                clusterSize[leftCluster.alias] = 0;
-                                leftCluster.alias = rightCluster.alias;
+                                Cluster dad = leftCluster;
+                                Cluster son = rightCluster;
+                                if (propagator[dad.alias].length < propagator[son.alias].length) {
+                                    dad = rightCluster;
+                                    son = leftCluster;
+                                }
+                                clusterSize[dad.alias] += clusterSize[son.alias];
+                                clusterSize[son.alias] = 0;
+                                Cluster[] dads = propagator[dad.alias];
+                                Cluster[] sons = propagator[son.alias];
+                                int sonalias = son.alias;
+                                for (Cluster s: sons) {
+                                    s.alias = dad.alias;
+                                }
+                                Cluster[] newDads = new Cluster[dads.length + sons.length];
+                                System.arraycopy(dads, 0, newDads, 0, dads.length);
+                                System.arraycopy(sons, 0, newDads, dads.length, sons.length);
+                                propagator[dad.alias] = newDads;
+                                propagator[sonalias] = null;
                             }
                         }
                     }
-                }
-                for (int i = 1; i < n+1; i++) {
-                    Cluster c = clusters[i];
-                    System.out.println(i + " :: " + c.ori + " -> " + c.alias);
                 }
                 int maxSize = clusterSize[0];
                 for (int i = 1; i < cname; i++) {
