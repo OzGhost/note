@@ -3,119 +3,68 @@ package org.qpro;
 import org.junit.Test;
 import java.io.*;
 import java.util.*;
+import java.nio.file.Files;
 
 public class MyTest {
 
     @Test
     public void firstCase() throws Exception {
-        askFor("tc1");
-    }
-
-    @Test
-    public void secondCase() throws Exception {
-        askFor("tc2");
-    }
-
-    @Test
-    public void thirdCase() throws Exception {
-        askFor("tc3");
-    }
-
-    @Test
-    public void fourthCase() throws Exception {
-        askFor("tc4");
-    }
-
-    private void askFor(String prefix) throws Exception {
-        String p = "src/test/resources/tcset/";
-        try ( InputStream ex = new FileInputStream(new File(p + prefix + "_output.txt" ))) {
-            File inf = new File(p+prefix+"_input.txt");
-            long beginning = System.nanoTime();
-            int ans = new YourAnswer().answerTo(inf);
-            System.out.println(prefix + " take " + (System.nanoTime() - beginning));
-            Scanner sc = new Scanner(ex);
-            int trueans = sc.nextInt();
-            org.junit.Assert.assertEquals(trueans, ans);
-        } catch(Exception e) {
-            e.printStackTrace();
-            throw e;
-        }
-    }
-
-    private static class YourAnswer {
-        private static final String SPACE = " ";
-
-        public int answerTo(File inf) throws Exception {
-            try (BufferedReader br = new BufferedReader(new FileReader(inf))) {
-                int n = Integer.parseInt(br.readLine());
-                int l = Integer.parseInt(br.readLine());
-                Cluster[] clusters = new Cluster[n + 1];
-                int[] clusterSize = new int[n/2];
-                Cluster[][] propagator = new Cluster[n/2][];
-                int cname = 0;
-                for (int i = 0; i < l; i++) {
-                    String[] pieces = br.readLine().split(SPACE);
-                    int left = Integer.parseInt(pieces[0]);
-                    int right = Integer.parseInt(pieces[1]);
-                    Cluster leftCluster = clusters[left];
-                    Cluster rightCluster = clusters[right];
-                    if (leftCluster == null) {
-                        if (rightCluster == null) {
-                            Cluster c = new Cluster(cname++);
-                            propagator[c.alias] = new Cluster[1];
-                            propagator[c.alias][0] = c;
-                            clusters[left] = clusters[right] = c;
-                            clusterSize[clusters[left].alias] = 2;
-                        } else {
-                            clusters[left] = clusters[right];
-                            clusterSize[clusters[left].alias]++;
-                        }
-                    } else {
-                        if (rightCluster == null) {
-                            clusters[right] = clusters[left];
-                            clusterSize[clusters[left].alias]++;
-                        } else {
-                            if (leftCluster.alias != rightCluster.alias) {
-                                Cluster dad = leftCluster;
-                                Cluster son = rightCluster;
-                                if (propagator[dad.alias].length < propagator[son.alias].length) {
-                                    dad = rightCluster;
-                                    son = leftCluster;
-                                }
-                                clusterSize[dad.alias] += clusterSize[son.alias];
-                                clusterSize[son.alias] = 0;
-                                Cluster[] dads = propagator[dad.alias];
-                                Cluster[] sons = propagator[son.alias];
-                                int sonalias = son.alias;
-                                for (Cluster s: sons) {
-                                    s.alias = dad.alias;
-                                }
-                                Cluster[] newDads = new Cluster[dads.length + sons.length];
-                                System.arraycopy(dads, 0, newDads, 0, dads.length);
-                                System.arraycopy(sons, 0, newDads, dads.length, sons.length);
-                                propagator[dad.alias] = newDads;
-                                propagator[sonalias] = null;
-                            }
-                        }
-                    }
-                }
-                int maxSize = clusterSize[0];
-                for (int i = 1; i < cname; i++) {
-                    int size = clusterSize[i];
-                    if (size > maxSize) maxSize = size;
-                }
-                return maxSize;
+        String p = "src/test/resources/lipsum.txt";
+        String content = Files.readString(new File(p).toPath());
+        content = content.replace('\n', ' ');
+        Set<String> uniq = new HashSet<>();
+        int c = 0;
+        for (String i: content.split("[^a-zA-Z]")) {
+            String j = i.trim().toLowerCase();
+            if ( ! j.isEmpty()) {
+                uniq.add(j);
+                c++;
             }
         }
-
-        private static class Cluster {
-            int alias;
-            int ori;
-            Cluster(int n){
-                alias = n;
-                ori = n;
-            }
+        String[] dict = uniq.toArray(new String[uniq.size()]);
+        Random r = new Random();
+        int z = 10;
+        int hz = z/2;
+        int n = r.nextInt(hz)+hz;
+        int m = r.nextInt(hz)+hz;
+        int l = n+m-r.nextInt(Math.min(n,m));
+        int nr = n;
+        int mr = m;
+        if (l > dict.length) {
+            hz = dict.length/2;
+            n = r.nextInt(hz)+1;
+            m = r.nextInt(hz)+1;
+            l = n+m-r.nextInt(Math.min(n,m));
         }
+        String tmp = null;
+        int ti = 0;
+        for (int i = 0; i < l; i++) {
+            ti = r.nextInt(dict.length);
+            tmp = dict[i];
+            dict[i] = dict[ti];
+            dict[ti] = tmp;
+        }
+        String[] nc = new String[nr];
+        String[] mc = new String[mr];
+        System.arraycopy(dict, 0, nc, 0, n);
+        System.arraycopy(dict, l-m, mc, 0, m);
+        int buf = n+m-l;
+        String ans = (n-buf) + " " + (l-buf) + " " + buf;
+        // under construction
+        System.out.println("[o0] dict: " + l);
+        for (int i = 0; i < l; i++) {
+            System.out.print(" " + dict[i]);
+        }
+        System.out.println("\n[o0] n:" + n);
+        for (int i = 0; i < n; i++) {
+            System.out.print(" " + nc[i]);
+        }
+        System.out.println("\n[o0] m:" + m);
+        for (int i = 0; i < m; i++) {
+            System.out.print(" " + mc[i]);
+        }
+        System.out.println();
     }
+
 }
 
