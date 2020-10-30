@@ -49,21 +49,40 @@ public class MyTest {
         System.arraycopy(dict, 0, nc, 0, n);
         System.arraycopy(dict, l-m, mc, 0, m);
         int buf = n+m-l;
-        String ans = (n-buf) + " " + (l-buf) + " " + buf;
+        String ans = (n-buf) + " " + (m-buf) + " " + buf;
+        for (int i = n; i < nr; i++) {
+            nc[i] = nc[r.nextInt(n)];
+        }
+        for (int i = m; i < mr; i++) {
+            mc[i] = mc[r.nextInt(m)];
+        }
+        for (int i = 0; i < nr; i++) {
+            ti = r.nextInt(nr);
+            tmp = nc[i];
+            nc[i] = nc[ti];
+            nc[ti] = tmp;
+        }
+        for (int i = 0; i < mr; i++) {
+            ti = r.nextInt(mr);
+            tmp = mc[i];
+            mc[i] = mc[ti];
+            mc[ti] = tmp;
+        }
         // under construction
         System.out.println("[o0] dict: " + l);
         for (int i = 0; i < l; i++) {
             System.out.print(" " + dict[i]);
         }
-        System.out.println("\n[o0] n:" + n);
-        for (int i = 0; i < n; i++) {
+        System.out.println("\n[o0] nr:" + nr);
+        for (int i = 0; i < nr; i++) {
             System.out.print(" " + nc[i]);
         }
-        System.out.println("\n[o0] m:" + m);
-        for (int i = 0; i < m; i++) {
+        System.out.println("\n[o0] m:" + mr);
+        for (int i = 0; i < mr; i++) {
             System.out.print(" " + mc[i]);
         }
         System.out.println();
+        System.out.println(ans);
     }
 
 }
