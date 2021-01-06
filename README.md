@@ -53,5 +53,4 @@ _the number is relatively correct_
         - Thanh: 18,500 -> 6.512 minutes/task
         - Ngan:  16,750 -> 7.172 minutes/task
         - Lan:   15,700 -> 7.673 minutes/task
-End of summaries
 ---
