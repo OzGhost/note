@@ -39,3 +39,19 @@ ffmpeg -i src/001.mp4 -ss 00:06:34.0 -to 00:09:24.0 -target ntsc-svcd output.mpg
 
 git log --pretty=format:"%h - %an, %ar : %s" path/to/file
 
+---
+Vision summaries
+*the number is relatively correct*
+---
+- Total:
+    - 18,350 stories
+    - 160,200 technical tasks
+        - Duc: 22,550
+        - Duy: 21,050
+        - Hoai: 18,650
+        - Thanh: 18,500
+        - Ngan: 16,750
+        - Lan: 15,700
+---
+End of summaries
+---
