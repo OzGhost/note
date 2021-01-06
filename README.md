@@ -41,8 +41,8 @@ git log --pretty=format:"%h - %an, %ar : %s" path/to/file
 
 ---
 # Vision summaries
-*the number is relatively correct*
----
+_the number is relatively correct_
+
 - Working time: 366 - 52*2 - 11 = 251 days ~ 2008 hours
 - Total:
     - 18,350 stories
@@ -53,6 +53,5 @@ git log --pretty=format:"%h - %an, %ar : %s" path/to/file
         - Thanh: 18,500 -> 6.512 minutes/task
         - Ngan:  16,750 -> 7.172 minutes/task
         - Lan:   15,700 -> 7.673 minutes/task
----
 End of summaries
 ---
