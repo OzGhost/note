@@ -40,18 +40,19 @@ ffmpeg -i src/001.mp4 -ss 00:06:34.0 -to 00:09:24.0 -target ntsc-svcd output.mpg
 git log --pretty=format:"%h - %an, %ar : %s" path/to/file
 
 ---
-Vision summaries
+# Vision summaries
 *the number is relatively correct*
 ---
+- Working time: 366 - 52*2 - 11 = 251 days ~ 2008 hours
 - Total:
     - 18,350 stories
-    - 160,200 technical tasks
-        - Duc: 22,550
-        - Duy: 21,050
-        - Hoai: 18,650
-        - Thanh: 18,500
-        - Ngan: 16,750
-        - Lan: 15,700
+    - 160,200 technical tasks -> 8 tasks/story
+        - Duc:   22,550 -> 5.342 minutes/task
+        - Duy:   21,050 -> 5.723 minutes/task
+        - Hoai:  18,650 -> 6.460 minutes/task
+        - Thanh: 18,500 -> 6.512 minutes/task
+        - Ngan:  16,750 -> 7.172 minutes/task
+        - Lan:   15,700 -> 7.673 minutes/task
 ---
 End of summaries
 ---
