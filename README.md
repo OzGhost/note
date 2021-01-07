@@ -45,12 +45,12 @@ _the number is relatively correct_
 
 - Working time: 366 - 52*2 - 11 = 251 days ~ 2008 hours
 - Total:
-    - 18,350 stories
-    - 160,200 technical tasks -> 8 tasks/story
-        - Duc:   22,550 -> 5.342 minutes/task
-        - Duy:   21,050 -> 5.723 minutes/task
-        - Hoai:  18,650 -> 6.460 minutes/task
-        - Thanh: 18,500 -> 6.512 minutes/task
-        - Ngan:  16,750 -> 7.172 minutes/task
-        - Lan:   15,700 -> 7.673 minutes/task
+    - 367 stories
+    - 3,204 technical tasks -> 8 tasks/story
+        - Duc:   451 -> 4.452 hours/task
+        - Duy:   421 -> 4.769 hours/task
+        - Hoai:  373 -> 5.383 hours/task
+        - Thanh: 370 -> 5.427 hours/task
+        - Ngan:  335 -> 5.994 hours/task
+        - Lan:   314 -> 6.394 hours/task
 ---
