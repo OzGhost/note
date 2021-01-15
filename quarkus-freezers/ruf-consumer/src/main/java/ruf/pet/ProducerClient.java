@@ -12,5 +12,5 @@ import javax.ws.rs.core.Response;
 public interface ProducerClient {
 
     @GET
-    Response get();
+    void get();
 }

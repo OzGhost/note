@@ -1,0 +1,2 @@
+
+https://docs.jboss.org/resteasy/docs/3.6.0.Final/userguide/html/RESTEasy_Client_Framework.html
