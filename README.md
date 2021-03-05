@@ -54,3 +54,13 @@ _the number is relatively correct_
         - Ngan:  335 -> 5.994 hours/task
         - Lan:   314 -> 6.394 hours/task
 ---
+
+# i3 color set
+```
+# class                 border  backgr. text    indicator child_border
+client.focused          #d21f3c #d21f3c #ffffff #d21f3c #d21f3c
+client.focused_inactive #222222 #222222 #888888 #222222 #222222
+client.unfocused        #222222 #222222 #888888 #222222 #222222
+client.urgent           #900000 #900000 #ffffff #900000 #900000
+client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
+```
