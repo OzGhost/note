@@ -13,6 +13,7 @@ public class ProducerApi {
 
     @GET
     public Response create() {
+        if (true) return Response.status(400).entity("Something went wrong by producer!!!").build();
         return Response.ok("Hello from producer").build();
     }
 }
