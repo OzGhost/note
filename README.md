@@ -64,3 +64,9 @@ client.unfocused        #222222 #222222 #888888 #222222 #222222
 client.urgent           #900000 #900000 #ffffff #900000 #900000
 client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 ```
+
+# Half ass auto log disclose
+
+| Pick | Auto | Response status based | Exception based | Low risk |
+| :--- | :--: | :-------------------: | :-------------: | -------: |
+| RsIntercepter only | Y | Y | N | Y |
