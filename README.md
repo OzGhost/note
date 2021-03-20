@@ -67,6 +67,6 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 
 # Half ass auto log disclose
 
-| Candidate | Auto | Rs code based | Exception based | Low risk |
-| :-------- | :--: | :-----------: | :-------------: | :------: |
-| RsIntercepter only | Y | Y | N | Y |
+| Candidate | Auto | Act on non-rs | Rs code based | Exception based | Low risk |
+| :- | :-: | :-: | :-: | :-: | :-: |
+| RsIntercepter only | Y | N | Y | N | Y |
