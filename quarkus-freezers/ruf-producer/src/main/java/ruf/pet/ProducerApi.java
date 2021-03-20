@@ -7,13 +7,16 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
-@Path("/producer")
+@Path("/producer/{id}")
 @Produces(MediaType.APPLICATION_JSON)
 public class ProducerApi {
 
-    @GET
-    public Response create() {
-        if (true) return Response.status(400).entity("Something went wrong by producer!!!").build();
-        return Response.ok("Hello from producer").build();
+    @POST
+    public Response create(@HeaderParam("name") String name, @PathParam("id") String id, String msg) {
+        if (true)
+            return Response.status(400)
+                        .entity("["+id+"] Something went wrong by producer as <"+name+"> with <"+msg+">!!!")
+                        .build();
+        return Response.ok("Hello from producer to <"+name+">: <"+msg+">").build();
     }
 }

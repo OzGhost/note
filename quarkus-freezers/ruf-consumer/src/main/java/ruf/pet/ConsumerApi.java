@@ -32,7 +32,7 @@ public class ConsumerApi {
     public Response digest() {
         log.info("__[o0] start ...");
         String[] v = new String[1];
-        stamper.surround(() -> v[0] = client.get());
+        stamper.surround(() -> v[0] = client.get("3000", "Kluton", "noYou"));
         Response r = Response.ok("Hello from consumer >> " + v[0]).build();
         log.info("__[o0] end ...");
         return r;

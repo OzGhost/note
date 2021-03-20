@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 @Singleton
 public class Stamper {
     private static final Logger log = LoggerFactory.getLogger(Stamper.class);
-    private static ThreadLocal<Renderer> cr = new ThreadLocal<>();
+    private static ThreadLocal<Renderer> cr = ThreadLocal.withInitial(() -> new Renderer());
     
     private static class Renderer {
         private Supplier<String> rqRenderer = () -> "No request renderer available!!!";
@@ -17,13 +17,14 @@ public class Stamper {
 
     public void surround(Runnable runner) {
         try {
-            cr.set(new Renderer());
             runner.run();
         } catch(javax.ws.rs.WebApplicationException e) {
             Renderer r = cr.get();
             log.error(r.rqRenderer.get());
             log.error(r.rsRenderer.get());
             throw e;
+        } finally {
+            cr.set(new Renderer());
         }
     }
 
