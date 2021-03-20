@@ -69,8 +69,8 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 
 | Candidate | Auto | Act on non-rs | Rs code based | Exception based | Low risk | Error ID matching |
 | :- | :-: | :-: | :-: | :-: | :-: | :-: |
-| RsIntercepter only | Y | N | Y | N | Y | N |
-| ThreadLocal | N | Y | Y | Y | N | Y |
+| RsIntercepter only | x | | x | | x | |
+| ThreadLocal | | x | x | x | | x |
 
 * Auto: No more stuff need to be done after install
 * Act on non-rs: Work on request which haven't reach the destination yet (ex: connection refuse)
