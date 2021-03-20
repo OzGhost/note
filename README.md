@@ -70,3 +70,4 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 | Candidate | Auto | Act on non-rs | Rs code based | Exception based | Low risk |
 | :- | :-: | :-: | :-: | :-: | :-: |
 | RsIntercepter only | Y | N | Y | N | Y |
+| ThreadLocal | N | Y | Y | Y | N |
