@@ -67,7 +67,7 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 
 # Half ass auto log disclose
 
-| Candidate | Auto | Act on non-rs | Rs code based | Exception based | Low risk | Error ID matching | Dynamic error detect |
+| Candidate | Auto | Act on non-rs | Rs code based | Exception based | Low risk | Error ID matching | Dynamic error ignore |
 | :- | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | RsIntercepter only | x | | x | | x | | |
 | ThreadLocal | | x | x | x | | x | x |
@@ -78,5 +78,5 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 * Exception based: Detect failure based on exception which thrown on client invoke
 * Low risk: The number of un-direct-supported feature will be used will be low
 * Error ID matching: Request, Response and Error log will have the same error code
-* Dynamic error detect: Conditionally detect an error for each invocation
+* Dynamic error ignore: Conditionally ignore an error for each invocation
 
