@@ -71,3 +71,9 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 | :- | :-: | :-: | :-: | :-: | :-: |
 | RsIntercepter only | Y | N | Y | N | Y |
 | ThreadLocal | N | Y | Y | Y | N |
+
+Auto: No more stuff need to be done after install
+Act on non-rs: Work on request which haven't reach the destination yet (ex: connection refuse)
+Rs code based: Detect failure based on response's status code
+Exception based: Detect failure based on exception which thrown on client invoke
+Low risk: The number of un-direct-supported feature will be used will be low
