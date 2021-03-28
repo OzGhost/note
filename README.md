@@ -39,22 +39,6 @@ ffmpeg -i src/001.mp4 -ss 00:06:34.0 -to 00:09:24.0 -target ntsc-svcd output.mpg
 
 git log --pretty=format:"%h - %an, %ar : %s" path/to/file
 
----
-# Vision summaries
-_the number is relatively correct_
-
-- Working time: 366 - 52*2 - 11 = 251 days ~ 2008 hours
-- Total:
-    - 367 stories
-    - 3,204 technical tasks -> 8 tasks/story
-        - Duc:   451 -> 4.452 hours/task
-        - Duy:   421 -> 4.769 hours/task
-        - Hoai:  373 -> 5.383 hours/task
-        - Thanh: 370 -> 5.427 hours/task
-        - Ngan:  335 -> 5.994 hours/task
-        - Lan:   314 -> 6.394 hours/task
----
-
 # i3 color set
 ```
 # class                 border  backgr. text    indicator child_border
@@ -79,4 +63,17 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 * Low risk: The number of un-direct-supported feature will be used will be low
 * Error ID matching: Request, Response and Error log will have the same error code
 * Dynamic error ignore: Conditionally ignore an error for each invocation
+
+
+# Anim3 wishlist
+```
+- UQ holder
+- Aho girl
+- Armed girl's machiavellism
+- Monster Musume: Everyday life with monster girls
+- Kishuku gakkou no Juliet
+- Handa-kun
+- Hidan no aria
+- Rewrite
+```
 
