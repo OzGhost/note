@@ -75,5 +75,18 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 - Handa-kun
 - Hidan no aria
 - Rewrite
+- Suppose a Kid from the Last Dungeon Boonies moved to a starter town?
+- Mayo chiki
+- Gekkan shoujo Nozaki-kun
+- Nisekoi
+- Bokutachi wa Benkyou ga Dekinai
+- Tokyo Ravens
+- Infinite Stratos
+- Fullmetal Alchemist: Brotherhood
+- Omamori Himari
+- Scissor Seven
+- Nichijo
+- Kobayashi-san chi no maid Dragon
+- Amagi Brilliant Park
 ```
 
