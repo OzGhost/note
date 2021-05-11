@@ -85,8 +85,21 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 - Fullmetal Alchemist: Brotherhood
 - Omamori Himari
 - Scissor Seven
-- Nichijo
+- Nichijou
 - Kobayashi-san chi no maid Dragon
 - Amagi Brilliant Park
+- Asobi Asobase
+- Maken-ki
+- Rokujouma no Shinryakusha
+- Rakudai Kishi no Cavalry
+- Saenai Heroine no Sodatekata Fine
+- Gamers
+- DanMachi
+- Horimiya
+- Inou-Battle wa Nichijou-kei no Naka de
+- Demi-chan wa Kataritai
+- Tsuujou Kougeki ga Zentai Kougeki de Ni-kai Kougeki no Okaasan wa Suki Desu ka?
+- The Hidden dungeon only I can enter
+- Kiss x Sis
 ```
 
