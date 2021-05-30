@@ -101,5 +101,6 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 - Tsuujou Kougeki ga Zentai Kougeki de Ni-kai Kougeki no Okaasan wa Suki Desu ka?
 - The Hidden dungeon only I can enter
 - Kiss x Sis
+- Bofuri: i don't want to get hurt, So I'll max out my defense
 ```
 
