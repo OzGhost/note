@@ -102,5 +102,6 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 - The Hidden dungeon only I can enter
 - Kiss x Sis
 - Bofuri: i don't want to get hurt, So I'll max out my defense
+- Kaguya-sama: Love is war
 ```
 
