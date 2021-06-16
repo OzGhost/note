@@ -103,5 +103,16 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 - Kiss x Sis
 - Bofuri: i don't want to get hurt, So I'll max out my defense
 - Kaguya-sama: Love is war
+- Oreshura
+- Gakusen Toshi Asterisk
+- Tsukimichi - moonlit fantasy -
+- Cyphers
+- Keppeki Danshi! Aoyama-Kun
+- Senryuu Shoujo
+- This art club has a problem
+- Tsugu Tsugumomo
+- Seto no Hanayome
+- The mistfit of demon king academy
+- Uzaki-chan wa Asobitai
 ```
 
