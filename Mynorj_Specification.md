@@ -20,7 +20,7 @@ endwith true
 - *number*: all the number work as real number -> end up with precision issues when do math (ex: 35)
 - *string*: a series of character come together between a couple of double quote (ex: "the string")
 - *boolean*: only two value available: true and false
-- *void*: only one value available: void
+- *null*: only one value available: null
 
 ## Definations
 - var (or variable): a series of character used to hold value during execution
@@ -29,10 +29,13 @@ endwith true
 - ap (or access path): a series of character which denote the location of value inside the ground
 - leaf level: the location in the ground which have no more route to travel
 - return value: every function will return a value with one of the type list above
+- num: accept a literal number or a variable which holding number value
 
 ## Functions
 | Signature | Description |
 | --- | --- |
-| use *\<var\>* from *\<ap\>* -> void | create new var with value from the ground at the location which the given access path point to, the location must be at the leaf level of the ground |
-| if *\<func\>* -> void | check whether to execute or ignore staments until reach *else* or *endif*, the *func* must return a boolean |
+| use *\<var\>* from *\<ap\>* :: null | create new var with value from the ground at the location which the given access path point to, the location must be at the leaf level of the ground |
+| if *\<func\>* :: null | check whether to execute or ignore staments until reach *else* or *endif*, the *func* must return a boolean |
+| set *\<var\>* = *\<func\>* :: null | take return value from *func* and put to *var*, new variable will be created if not exists |
+| compare *\<num\>* *\<op\>* *\<num\>* :: boolean | perfom comparation on 2 given number, *op* can be one of [>, <, =, !=, >=, <=] |
 
