@@ -23,5 +23,5 @@
 ## Functions
 | Signature | Description |
 | --- | --- |
-| use \<var\> from \<ap\> | create new var with value from the ground at the location which the given access path point to, the location must be at the leaf level of the ground |
+| use *\<var\>* from *\<ap\>* | create new var with value from the ground at the location which the given access path point to, the location must be at the leaf level of the ground |
 
