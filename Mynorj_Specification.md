@@ -16,6 +16,7 @@
 - leaf level: the location in the ground which have no more route to travel
 - return value: every function will return a value with one of the type list above
 - num: accept a literal number or a variable which holding number type value
+- bool: accept a literal boolean or a variable which holding boolean type value
 
 ## Syntax
 - Line based: each statement will be on a single line
@@ -25,15 +26,26 @@
 - Must output something: no matter how the logic go, the program must reach an end by call function *exitwith*
 - Scope: every variable will have global scope, no matter where and when it was first appeared
 - Free type: variable have no type or you can save it have type of value it holding (like JavaScript)
+- Free nameing: you can name a variable however you like as long as it have no space or tab, even using keyword like "null" but when using it the order below will be apply top down so be carefull
+- Function call, parameter passing: too much => ignored, too little => error
+- Unicode: support or not depend on the impletation
+
+## Precedence
+> You will not see name of function down there cause if you see *\<func\>* then nothing but a name of function will work
+1. null
+2. boolean literal
+3. number literal
+4. string literal
+5. name of variable
 
 ### Example:
 ```
 use a from my.input.firstValue
 use b from my.input.randomValue
 if compare a > b
-    endwith false
+    exitwith false
 endif
-endwith true
+exitwith true
 ```
 
 ## Functions
@@ -41,6 +53,15 @@ endwith true
 | --- | --- |
 | use *\<var\>* from *\<ap\>* :: null | create new var with value from the ground at the location which the given access path point to, the location must be at the leaf level of the ground |
 | if *\<func\>* :: null | check whether to execute or ignore staments until reach *else* or *endif*, the *func* must return a boolean |
+| else | start or stop ignoring statement based on the output state of previous *if* |
+| endif | stop ignoring statement if any, mark the end of *if* or *else* affected range |
 | set *\<var\>* = *\<func\>* :: null | take return value from *func* and put to *var*, new variable will be created if not exists |
 | compare *\<num\>* *\<op\>* *\<num\>* :: boolean | perform comparation on 2 given number, *op* can be one of [>, <, =, !=, >=, <=] |
+| combine *\<bool\>* *\<op\>* *\<bool\>* :: boolean | combine two boolean value together, *op* can be one of [and, or] |
+| isNull *\<var\>* :: boolean | check whether given variable is null |
+| isFalse *\<var\>* :: boolean | check whether given variable hold false value or not, only *false* will end up true, any others value will end up false |
+| exitwith *\<bool\>* :: boolean | stop the process immediately with given value |
+| multiply *\<num\>* *\<num\>* :: number | multiply two number together |
+| add *\<num\>* *\<num\>* :: number | add two number together |
+| divide *\<num\>* *\<num\>* :: number | divide first given number to second given number |
 
