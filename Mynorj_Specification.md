@@ -1,6 +1,14 @@
 
 # This document is a specification for my mini language (named Mynorj), the implementation may come up later :)
 
+## Motivation
+- For non-technical parties who have almost no idea about programing can design the logical flow them self, so that logic can be replace during runtime without recompile or release or deploy
+- For small part of the system that is vary among tenant that buy product of your
+- Configurable
+- Not fully function like a normal programing language such as Java, Python but
+- Clear enough for non-tech guy can write and
+- Small enough for tech guy to implement this specification
+
 ## Types
 > Some type was listed below was borrowed from [JSON Data Types](https://www.w3schools.com/js/js_json_datatypes.asp)
 - *number*: all the number work as real number -> end up with precision issues when do math (ex: 35)
