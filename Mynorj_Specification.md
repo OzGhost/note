@@ -27,7 +27,7 @@
 - Scope: every variable will have global scope, no matter where and when it was first appeared
 - Free type: variable have no type or you can save it have type of value it holding (like JavaScript)
 - Free nameing: you can name a variable however you like as long as it have no space or tab, even using keyword like "null" but when using it the order below will be apply top down so be carefull
-- Function call, parameter passing: too much => ignored, too little => error
+- Function call, parameter passing: too much => ignored, not enough => error
 - Unicode: support or not depend on the impletation
 
 ## Precedence
