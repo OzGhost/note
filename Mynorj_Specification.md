@@ -25,6 +25,7 @@
 - return value: every function will return a value with one of the type list above
 - num: accept a literal number or a variable which holding number type value
 - bool: accept a literal boolean or a variable which holding boolean type value
+- any: accept anything but func
 
 ## Syntax
 - Line based: each statement will be on a single line
@@ -59,15 +60,15 @@ exit true
 ## Functions
 | Signature | Description |
 | --- | --- |
-| use *\<var\>* from *\<ap\>* :: null | create new var with value from the ground at the location which the given access path point to, the location must be at the leaf level of the ground |
+| use *\<var\>* from *\<ap\>* :: null | create new var with value from the ground at the location which the given access path point to. If the value at that location is not a leaf or unable to travel the whole path -> value null will be use |
 | if *\<func\>* :: null | check whether to execute or ignore staments until reach *else* or *endif*, the *func* must return a boolean |
 | else | start or stop ignoring statement based on the output state of previous *if* |
 | endif | stop ignoring statement if any, mark the end of *if* or *else* affected range |
 | set *\<var\>* = *\<func\>* :: null | take return value from *func* and put to *var*, new variable will be created if not exists |
 | compare *\<num\>* *\<op\>* *\<num\>* :: boolean | perform comparation on 2 given number, *op* can be one of [>, <, =, !=, >=, <=] |
 | combine *\<bool\>* *\<op\>* *\<bool\>* :: boolean | combine two boolean value together, *op* can be one of [and, or] |
-| isNull *\<var\>* :: boolean | check whether given variable is null |
-| isFalse *\<var\>* :: boolean | check whether given variable hold false value or not, only *false* will end up true, any others value will end up false |
+| isNull *\<any\>* :: boolean | check whether given parameter is null |
+| isFalse *\<any\>* :: boolean | check whether given parameter hold false value or not, only *false* will end up true, any others value will end up false |
 | exit *\<bool\>* :: boolean | stop the process immediately with given value |
 | multiply *\<num\>* *\<num\>* :: number | multiply two number together |
 | add *\<num\>* *\<num\>* :: number | add two number together |
