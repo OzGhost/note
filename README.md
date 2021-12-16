@@ -39,6 +39,8 @@ ffmpeg -i src/001.mp4 -ss 00:06:34.0 -to 00:09:24.0 -target ntsc-svcd output.mpg
 
 git log --pretty=format:"%h - %an, %ar : %s" path/to/file
 
+chrome://net-internals/#hsts
+
 # i3 color set
 ```
 # class                 border  backgr. text    indicator child_border
