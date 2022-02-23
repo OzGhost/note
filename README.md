@@ -116,3 +116,7 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #0c0c0c #0c0c0c
 - Uzaki-chan wa Asobitai
 ```
 
+Book lists
+- Essential English Grammar - Raymond Murphy
+- Intermediate English Grammar - Raymond Murphy
+- Word Power Made Easy - Norman Lewis
