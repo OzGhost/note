@@ -1,0 +1,10 @@
+FROM alpine:3.17.0
+RUN apk add --no-cache thttpd
+RUN adduser -D -H -s /bin/ash oz
+RUN mkdir /web
+RUN chown oz:oz /web
+USER oz
+WORKDIR /web
+ADD --chown=oz:oz ./web/* ./
+EXPOSE 8080
+CMD ["thttpd", "-p", "8080", "-u", "oz", "-l", "/tmp/thttpd.log", "-D"]
