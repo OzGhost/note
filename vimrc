@@ -1,35 +1,33 @@
-
-colorscheme elflord
+set t_Co=256
+syntax on
 set background=dark
 
-set tabstop=2
-set shiftwidth=2
-set expandtab
+set tabstop=4
+set shiftwidth=4
+"set expandtab
 set smarttab
+set nowrap
 
-set autoindent
-set smartindent
+"set autoindent
+"set smartindent
+set cindent
 
 set autoread
 set ignorecase
 set nocompatible
 set showcmd
+set hlsearch
 
 
 call plug#begin('~/.vim/plugged')
-
-Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-airline/vim-airline'
-
 call plug#end()
 
-set laststatus=2
-set t_Co=256
-
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|\.git)$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|\.git|build|vendor)$'
 let g:ctrlp_working_path_mode = 'a'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='jellybeans'
 
+colorscheme koehler
+set directory^=$HOME/.vim/swp//
+set listchars=eol:<,tab:>-,trail:~
+set list
+set relativenumber
