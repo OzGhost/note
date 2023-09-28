@@ -15,10 +15,10 @@ for (var i = 0; i < n; i++) {
     var tag = root.childNodes[i];
     if (tag.tagName == "BUTTON") {
         tag.addEventListener("click", function(){
-            root.appendChild(document.createTextNode(".. manipulated!"));
             tidPm.then(function(tid){
                 console.log("msg sending ...");
                 browser.tabs.sendMessage(tid, { code: 1293, type: "mahMsg" });
+                window.close();
             });
         });
     }

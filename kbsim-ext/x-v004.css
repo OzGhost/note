@@ -1,0 +1,12 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+.box {
+    padding: 4px;
+}
+button {
+    padding: 4px 6px;
+    border: 1px solid grey;
+    border-radius: 4px;
+}
