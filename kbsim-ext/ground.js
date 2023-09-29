@@ -24,18 +24,33 @@ var cancelled = false;
 function unwire(){ inused = false; }
 function cancelfn(e) { if (e.key == "Control") cancelled = true; }
 document.addEventListener("keydown", cancelfn);
-browser.runtime.onMessage.addListener((msg) => {
-    if (inused) return;
+
+function runControl(payload) {
+    var cmds = payload.cmds;
+    if (!cmds) {
+        console.warn("no cfg found > load default cfg ...");
+        cmds = " ul ul ul ul ul ul ul ul ul ul ul ul"
+                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
+                + "rrru"
+                + " ul ul ul ul ul ul ul ul ul ul ul ul"
+                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
+                + "rrru"
+                + " ul ul ul ul ul ul ul ul ul ul ul ul"
+                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
+                + "rrru"
+                + " ul ul ul ul ul ul ul ul ul ul ul ul"
+                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
+        ;
+    }
     inused = true;
     cancelled = false;
     console.log("1 sec ...");
-    var cmds = "uuullldddrrr";
-    cmds = "ululululululululululululrdrdrdrdrdrdrdrdrdrdrdrdrdrrruululululululululululululrdrdrdrdrdrdrdrdrdrdrdrdrdrrruululululululululululululrdrdrdrdrdrdrdrdrdrdrdrdrdrrruululululululululululululrdrdrdrdrdrdrdrdrdrdrdrdrd";
     setTimeout(function(){
         var anc = Promise.resolve();
         for (var i = 0; i < cmds.length; i++) {
             (function(){
                 var d = cmds.charAt(i);
+                if (d == " " || d == "\n") return;
                 anc = anc.then(function(){
                     return cancelled
                         ? Promise.reject(new Error("cbks"))
@@ -44,5 +59,10 @@ browser.runtime.onMessage.addListener((msg) => {
             })();
         }
         anc.then(unwire, unwire);
-    }, 2000);
+    }, 1000);
+}
+browser.runtime.onMessage.addListener(function(){
+    if (inused) return;
+    browser.storage.sync.get("cmds").then(runControl);
 });
+

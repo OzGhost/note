@@ -1,22 +1,30 @@
 {
-  "manifest_version": 2,
-  "name": "kbsim",
-  "version": "1.0",
-  "description": "nope!",
-  "icons": {
-    "48": "icons/ananas-48.png"
-  },
-  "permissions": ["activeTab"],
-  "browser_action": {
-    "default_icon": "icons/ananas-48.png",
-    "default_title": "kbsim",
-    "default_popup": "inter.html"
-  },
-  "content_scripts": [
-    {
-      "matches": ["https://data.mo.ee/"],
-      "js": ["ground.js"]
+    "manifest_version": 2,
+    "name": "kbsim",
+    "version": "1.2",
+    "description": "nope!",
+    "icons": {
+        "48": "icons/farm-48.png"
+    },
+    "permissions": ["activeTab", "storage"],
+    "browser_action": {
+        "default_icon": "icons/farm-48.png",
+        "default_title": "kbsim",
+        "default_popup": "action.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://data.mo.ee/"],
+            "js": ["ground.js"]
+        }
+    ],
+    "options_ui": {
+        "page": "cfg.html"
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "n0you@ruf.com"
+        }
     }
-  ]
 }
 
