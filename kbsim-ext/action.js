@@ -11,15 +11,17 @@ var tidPm = browser.tabs.query({ currentWindow: true, active: true })
     .catch(function(e){ console.log("tab id not available", e); });
 var root = document.getElementById("droot");
 var n = root.childNodes.length
+function ignite(){
+    tidPm.then(function(tid){
+        console.log("msg sending ...");
+        browser.tabs.sendMessage(tid, { code: 1293, type: "mahMsg" });
+        window.close();
+    });
+}
 for (var i = 0; i < n; i++) {
     var tag = root.childNodes[i];
     if (tag.tagName == "BUTTON") {
-        tag.addEventListener("click", function(){
-            tidPm.then(function(tid){
-                console.log("msg sending ...");
-                browser.tabs.sendMessage(tid, { code: 1293, type: "mahMsg" });
-                window.close();
-            });
-        });
+        tag.addEventListener("click", ignite);
     }
 }
+document.addEventListener("DOMContentLoaded", ignite);
