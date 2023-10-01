@@ -1,0 +1,17 @@
+button {
+    border: 1px solid lightgrey;
+    padding: 8px;
+    display: block;
+    min-width: 100px;
+    text-align: center;
+    margin: 4px 8px;
+}
+textarea {
+    border-radius: 4px;
+    padding: 4px 8px;
+    border: 1px solid lightgrey;
+    margin: 4px 8px;
+}
+label {
+    margin: 4px 8px;
+}
