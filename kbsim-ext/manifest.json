@@ -4,11 +4,11 @@
     "version": "1.2",
     "description": "nope!",
     "icons": {
-        "48": "icons/farm-48.png"
+        "48": "farm-48.png"
     },
     "permissions": ["activeTab", "storage"],
     "browser_action": {
-        "default_icon": "icons/farm-48.png",
+        "default_icon": "farm-48.png",
         "default_title": "kbsim",
         "default_popup": "action.html"
     },

@@ -2,10 +2,14 @@ console.log("__[o0] i'm in");
 var inused = false;
 var cancelled = false;
 function unwire(){ inused = false; }
-function cancelfn(e) { if (e.key == "Control") cancelled = true; }
-document.addEventListener("keydown", cancelfn);
 
 function runControl(payload) {
+    if (inused)
+        return;
+    if (payload == "ibks") {
+        browser.storage.sync.get("cmds").then(runControl);
+        return;
+    }
     var cmds = payload.cmds;
     if (!cmds) {
         console.warn("no cfg found > load default cfg ...");
@@ -101,8 +105,12 @@ function rest(delay) {
         setTimeout(resolve, delay + pickin(1, 99));
     });
 }
-browser.runtime.onMessage.addListener(function(){
-    if (inused) return;
-    browser.storage.sync.get("cmds").then(runControl);
-});
 
+function onKeyFn(e) {
+    if (e.key == "Control")
+        cancelled = true;
+    if (e.shiftKey && (e.key == "M" || e.key == "m"))
+        runControl("ibks");
+
+}
+document.addEventListener("keydown", onKeyFn);
