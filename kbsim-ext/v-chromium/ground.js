@@ -43,22 +43,20 @@ function runControl(payload) {
 function digest(c, cmds, i, anc) {
     var synev = undefined;
     var waitSig = false;
+    var kbev = undefined;
     switch (c) {
         case "u":
-            synev = {code:"ArrowUp",key:"ArrowUp",keyCode:38,which:38,bubbles:true};
-            break;
+            synev = {code:"ArrowUp",key:"ArrowUp",keyCode:38,which:38,bubbles:true}; break;
         case "d":
-            synev = {code:"ArrowDown",key:"ArrowDown",keyCode:40,which:40,bubbles:true};
-            break;
+            synev = {code:"ArrowDown",key:"ArrowDown",keyCode:40,which:40,bubbles:true}; break;
         case "l":
-            synev = {code:"ArrowLeft",key:"ArrowLeft",keyCode:37,which:37,bubbles:true};
-            break;
+            synev = {code:"ArrowLeft",key:"ArrowLeft",keyCode:37,which:37,bubbles:true}; break;
         case "r":
-            synev = {code:"ArrowRight",key:"ArrowRight",keyCode:39,which:39,bubbles:true};
-            break;
+            synev = {code:"ArrowRight",key:"ArrowRight",keyCode:39,which:39,bubbles:true}; break;
         case "w":
-            waitSig = true;
-            break;
+            waitSig = true; break;
+        case "k":
+            kbev = true; break;
         default:
             break;
     }
@@ -86,6 +84,21 @@ function digest(c, cmds, i, anc) {
                         : rest(1000*sec);
                     });
     }
+    if (kbev) {
+        switch(cmds.charAt(i+1)) {
+            case "x":
+                kbev = {code:"KeyX",key:"x",keyCode:88,which:88,bubbles:true}; break;
+            case "t":
+                kbev = {code:"KeyT",key:"t",keyCode:84,which:84,bubbles:true}; break;
+            default:
+                return anc;
+        }
+        return anc.then(function(){
+            return cancelled
+                ? Promise.reject(new Error("cbks"))
+                : press(kbev);
+        });
+    }
     return anc;
 }
 function press(synev) {
@@ -93,8 +106,8 @@ function press(synev) {
         document.body.dispatchEvent(new KeyboardEvent("keydown", synev));
         setTimeout(function(){
             document.body.dispatchEvent(new KeyboardEvent("keyup", synev));
-            setTimeout(resolve, pickin(50, 80));
-        }, pickin(60, 100));
+            setTimeout(resolve, pickin(80, 110));
+        }, pickin(80, 110));
     });
 }
 function pickin(low, hig) {
