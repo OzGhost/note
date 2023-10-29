@@ -131,7 +131,7 @@ function onKeyFn(e) {
         clearTimeout(cid);
         ctx.cmds = 0;
     }
-    if (e.shiftKey && (e.key == "." || e.key == ">"))
+    if (e.shiftKey && (e.key == "\\" || e.key == "|"))
         runControl("ibks");
 
 }
