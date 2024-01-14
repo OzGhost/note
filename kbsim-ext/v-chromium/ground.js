@@ -13,18 +13,7 @@ function runControl(payload) {
     var cmds = payload.cmds;
     if (!cmds) {
         verbose && console.warn(" .. load default commands!");
-        cmds = " ul ul ul ul ul ul ul ul ul ul ul ul"
-                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
-                + "rrru"
-                + " ul ul ul ul ul ul ul ul ul ul ul ul"
-                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
-                + "rrru"
-                + " ul ul ul ul ul ul ul ul ul ul ul ul"
-                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
-                + "rrru"
-                + " ul ul ul ul ul ul ul ul ul ul ul ul"
-                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
-        ;
+        cmds = "uullddrr";
     }
     ctx = { cmds: cmds, idx: 0 };
     verbose && console.log("1 sec ...");

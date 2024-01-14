@@ -6,9 +6,24 @@
     </head>
     <body>
         <form>
-            <label>Put your control script down here:</label>
-            <textarea rows="9" cols="60"></textarea>
-            <button type="submit">Save</button>
+            <table>
+                <tr class="mah-head">
+                    <td><p>Name</p></td>
+                    <td><p>Script</p></td>
+                </tr>
+                <!--
+                <tr>
+                    <td><input type="text" /><br/><button type="button">(-)</button></td>
+                    <td><textarea rows="9" cols="60"></textarea></td>
+                </tr>
+                -->
+                <tr id="pincer">
+                    <td colspan="2">
+                        <button type="button">( + )</button>
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" class="big">Save</button>
         </form>
         <script src="cfg.js"></script>
     </body>

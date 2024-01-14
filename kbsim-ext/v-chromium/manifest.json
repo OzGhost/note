@@ -16,6 +16,12 @@
     "options_ui": {
         "page": "cfg.html",
         "open_in_tab": false
+    },
+    "action": {
+        "default_popup": "act.html",
+        "default_icon": {
+            "48": "farm-48.png"
+        }
     }
 }
 
