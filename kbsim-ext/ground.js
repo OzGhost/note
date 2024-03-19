@@ -13,17 +13,29 @@ function runControl(payload) {
     var cmds = payload.cmds;
     if (!cmds) {
         verbose && console.warn(" .. load default commands!");
-        cmds = " ul ul ul ul ul ul ul ul ul ul ul ul"
-                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
-                + "rrru"
-                + " ul ul ul ul ul ul ul ul ul ul ul ul"
-                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
-                + "rrru"
-                + " ul ul ul ul ul ul ul ul ul ul ul ul"
-                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
-                + "rrru"
-                + " ul ul ul ul ul ul ul ul ul ul ul ul"
-                + " rd rd rd rd rd rd rd rd rd rd rd rd rd"
+        cmds = ""
+                + "    urur    urururur    urururur    urururur    urururur    urururur    ur"
+                + "rdrdrdrd    rdrdrdrd    rdrdrdrd    rdrdrdrd    rdrdrdrd    rdrdrdrd    rd"
+                + "dldldldl    dldldldl    dldldldl    dld dldl    dldldldl    dldldldl    dl"
+                + "lulululu    lulululu    lulululu    lulululu    lulululu    lul"
+
+                + "ul ulrulrulr    ulrulrulrulr    ulrulrulrulr    ulrulrul ulr    ulrulrulr    ulrulrulr    ulu"
+                + "ru rudrudrud    rudrudrudrud    rudrudrudrud    rudrudrudrud    rudrudrud    rur"
+                + "dr drldr drl    drldrldrldrl    drldrldrldrl    drldrldrldrl    drldrldrl    drd"
+                + "ld ldulduldu    lduldulduldu    lduldulduldu    ld ldulduldu    ldl"
+
+                + "ul ulrulrulr    ulrulrulrulr    ulrulrulrulr    ulrulrulrulr    ulu"
+                + "ru rudrudrud    rudrudrudrud    rudru rudrud    rud    rur"
+                + "dr drldrldrl    drldrldrldrl    drldrldrldrl    drl    drd"
+                + "ld ldulduldu    lduldulduldu    lduldu    ldl"
+
+                + "ul ulrul ulr    ulrulrulrulr    ulrulr     ulu"
+                + "ru rudrudrud    rudrudrud    rur"
+                + "dr drldrldrl    drldrldrl    drd"
+                + "ld ldulduldu    ldl"
+
+                + "ul ulrulrul    ulu"
+                + "rurur drdrdr"
         ;
     }
     ctx = { cmds: cmds, idx: 0 };
