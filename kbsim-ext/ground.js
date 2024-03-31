@@ -1,5 +1,5 @@
 var ctx = {};
-var verbose = false;
+var verbose = 0;
 var cid = 0;
 verbose && console.log("__[o0] i'm in");
 
@@ -73,6 +73,7 @@ function roll() {
 function digest(d, i) {
     var synev = 0;
     var waitSig = 0;
+    var kpSig = 0;
     switch (d) {
         case "u":
             synev = {code:"ArrowUp",key:"ArrowUp",keyCode:38,which:38,bubbles:true};
@@ -88,6 +89,9 @@ function digest(d, i) {
             break;
         case "w":
             waitSig = true;
+            break;
+        case "k":
+            kpSig = true;
             break;
         default:
             break;
@@ -107,6 +111,27 @@ function digest(d, i) {
         }
         if (sec)
             return { fn: idle(sec), i: ni };
+    }
+    if (kpSig) {
+        var kev = 0;
+        switch(ctx.cmds.charAt(i+1)) {
+            case "o":
+                kev = {code:"KeyO",key:"o",keyCode:79,which:79,bubbles:true};
+                break;
+            case "p":
+                kev = {code:"KeyP",key:"p",keyCode:80,which:80,bubbles:true};
+                break;
+            case "n":
+                kev = {code:"KeyN",key:"n",keyCode:78,which:78,bubbles:true};
+                break;
+            case "s":
+                kev = {code:"KeyS",key:"s",keyCode:83,which:83,bubbles:true};
+                break;
+            default:
+                break;
+        }
+        if (kev)
+            return { fn: press(kev), subFn: release(kev), i: i+2 };
     }
 }
 
