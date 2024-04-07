@@ -127,6 +127,12 @@ function digest(d, i) {
             case "s":
                 kev = {code:"KeyS",key:"s",keyCode:83,which:83,bubbles:true};
                 break;
+            case "t":
+                kev = {code:"KeyT",key:"t",keyCode:84,which:84,bubbles:true};
+                break;
+            case "b":
+                kev = {code:"KeyB",key:"b",keyCode:66,which:66,bubbles:true};
+                break;
             default:
                 break;
         }
