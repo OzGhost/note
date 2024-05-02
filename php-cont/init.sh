@@ -16,3 +16,10 @@ docker container create --name mahpo \
 	--network mahnet \
 	-p 3000:80 \
 	mahphp:0.0.1
+
+docker start mahdbs
+docker cp mah.sql mahdbs:/tmp/mah.sql
+echo "waiting on db start up ..."
+sleep 75
+docker exec mahdbs mysql -u root --password=Edo123 -D mahdb -e '\. /tmp/mah.sql'
+docker start mahpo
