@@ -8,6 +8,7 @@ function makePrint(id, head) {
             fr.appendChild(h);
             dz = document.createElement('pre');
             fr.appendChild(dz);
+            fr.appendChild(document.createElement('hr'));
         }
         dz.innerText += msg + '\n';
     }
