@@ -23,3 +23,6 @@ var ITEM_CATEGORY = {}
 var IMAGE_SHEET = {}
 var HIT_ANIMATION = {}
 var BASE_TYPE = {}
+var OBJECT_TYPE = {}
+var ACTIVITIES = {}
+var cow_image = ""
