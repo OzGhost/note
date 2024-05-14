@@ -1,6 +1,6 @@
 function makePrint(id, head) {
     var dz = 0;
-    return function(msg) {
+    var func = function(msg) {
         if (!dz) {
             var fr = document.getElementById(id);
             var h = document.createElement('h4');
@@ -12,6 +12,10 @@ function makePrint(id, head) {
         }
         dz.innerText += msg + '\n';
     }
+    func.reset = function(){
+        dz.innerText = '';
+    }
+    return func;
 }
 function createObject(arg, _){
     return arg;
