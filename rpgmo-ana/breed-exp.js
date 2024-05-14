@@ -45,5 +45,5 @@
     inp.type = 'number';
     inp.min = 1;
     inp.value = 60;
-    inp.addEventListener('change', function(){ rateByLv(inp.value); });
+    inp.addEventListener('input', function(){ rateByLv(inp.value); });
 })();
