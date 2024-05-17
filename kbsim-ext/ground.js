@@ -158,8 +158,10 @@ function onKeyFn(e) {
         verbose && console.log("__ ready");
         ctx.w = 1;
     }
-    if (e.key == "1" || e.key == "2")
-        ctx.w && runControl("ibks", e.key);
+    if ((e.key == "1" || e.key == "2") && ctx.w) {
+        ctx.w = 0;
+        runControl("ibks", e.key);
+    }
 
 }
 document.addEventListener("keydown", onKeyFn);
