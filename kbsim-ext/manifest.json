@@ -1,17 +1,12 @@
 {
     "manifest_version": 2,
     "name": "kbsim",
-    "version": "1.2",
+    "version": "0.1.3",
     "description": "nope!",
     "icons": {
         "48": "farm-48.png"
     },
     "permissions": ["activeTab", "storage"],
-    "browser_action": {
-        "default_icon": "farm-48.png",
-        "default_title": "kbsim",
-        "default_popup": "action.html"
-    },
     "content_scripts": [
         {
             "matches": ["https://data.mo.ee/"],

@@ -3,40 +3,20 @@ var verbose = 0;
 var cid = 0;
 verbose && console.log("__[o0] i'm in");
 
-function runControl(payload) {
+function runControl(payload, num) {
     if (ctx.cmds)
         return verbose && console.warn("__[xx] busy");
     if (payload == "ibks") {
-        browser.storage.sync.get("cmds").then(runControl);
+        ctx.num = +num;
+        browser.storage.local.get("cmds").then(runControl);
         return;
     }
-    var cmds = payload.cmds;
+    var cmds = payload.cmds || [];
+    cmds = cmds[ctx.num - 1];
+    verbose && console.log(" __ execute: ", ctx.num);
     if (!cmds) {
         verbose && console.warn(" .. load default commands!");
-        cmds = ""
-                + "    urur    urururur    urururur    urururur    urururur    urururur    ur"
-                + "rdrdrdrd    rdrdrdrd    rdrdrdrd    rdrdrdrd    rdrdrdrd    rdrdrdrd    rd"
-                + "dldldldl    dldldldl    dldldldl    dld dldl    dldldldl    dldldldl    dl"
-                + "lulululu    lulululu    lulululu    lulululu    lulululu    lul"
-
-                + "ul ulrulrulr    ulrulrulrulr    ulrulrulrulr    ulrulrul ulr    ulrulrulr    ulrulrulr    ulu"
-                + "ru rudrudrud    rudrudrudrud    rudrudrudrud    rudrudrudrud    rudrudrud    rur"
-                + "dr drldr drl    drldrldrldrl    drldrldrldrl    drldrldrldrl    drldrldrl    drd"
-                + "ld ldulduldu    lduldulduldu    lduldulduldu    ld ldulduldu    ldl"
-
-                + "ul ulrulrulr    ulrulrulrulr    ulrulrulrulr    ulrulrulrulr    ulu"
-                + "ru rudrudrud    rudrudrudrud    rudru rudrud    rud    rur"
-                + "dr drldrldrl    drldrldrldrl    drldrldrldrl    drl    drd"
-                + "ld ldulduldu    lduldulduldu    lduldu    ldl"
-
-                + "ul ulrul ulr    ulrulrulrulr    ulrulr     ulu"
-                + "ru rudrudrud    rudrudrud    rur"
-                + "dr drldrldrl    drldrldrl    drd"
-                + "ld ldulduldu    ldl"
-
-                + "ul ulrulrul    ulu"
-                + "rurur drdrdr"
-        ;
+        cmds = "uu ll dd rr" ;
     }
     ctx = { cmds: cmds, idx: 0 };
     verbose && console.log("1 sec ...");
@@ -174,8 +154,12 @@ function onKeyFn(e) {
         clearTimeout(cid);
         ctx.cmds = 0;
     }
-    if (e.shiftKey && (e.key == "\\" || e.key == "|"))
-        runControl("ibks");
+    if (e.shiftKey && (e.key == "\\" || e.key == "|")) {
+        verbose && console.log("__ ready");
+        ctx.w = 1;
+    }
+    if (e.key == "1" || e.key == "2")
+        ctx.w && runControl("ibks", e.key);
 
 }
 document.addEventListener("keydown", onKeyFn);
