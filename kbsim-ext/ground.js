@@ -158,9 +158,18 @@ function onKeyFn(e) {
         verbose && console.log("__ ready");
         ctx.w = 1;
     }
-    if ((e.key == "1" || e.key == "2") && ctx.w) {
-        ctx.w = 0;
-        runControl("ibks", e.key);
+    if (ctx.w) {
+        switch(e.key) {
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+                ctx.w = 0;
+                runControl("ibks", e.key);
+                break;
+            default:
+                break;
+        }
     }
 
 }
