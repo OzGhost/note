@@ -11,8 +11,6 @@ docker container create --name mahdbs \
 	--network-alias mahdb \
 	mysql:8.4.0
 docker container create --name mahpo \
-	-e MYSQL_ROOT_PASSWORD=nah \
-	-e MYSQL_DATABASE=rock \
 	--network mahnet \
 	-p 3000:80 \
 	mahphp:0.0.1
