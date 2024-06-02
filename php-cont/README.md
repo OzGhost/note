@@ -1,5 +1,5 @@
 ## Build docker image
-_note_: source from another repo, need to adjust db connection info then package into a tar file
+_note_: source from another repo, need to adjust db connection info then package into a tar file named `source.tar.gz`
 ```
 docker build -t mahphp:0.0.1 .
 ```
