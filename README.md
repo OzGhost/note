@@ -125,3 +125,7 @@ Book lists
 - Essential English Grammar - Raymond Murphy
 - Intermediate English Grammar - Raymond Murphy
 - Word Power Made Easy - Norman Lewis
+
+book mark
+- https://ww3.readjujutsukaisen.com/chapter/jujutsu-kaisen-chapter-264/
+- https://mobpsycho100manga.com/manga/mob-psycho-100-chapter-76/

@@ -137,7 +137,7 @@ function release(synev) {
     return function() {
         verbose && console.log("_ release: ", synev.key);
         document.body.dispatchEvent(new KeyboardEvent("keyup", synev));
-        return pickin(55, 88);
+        return pickin(85, 118);
     };
 }
 

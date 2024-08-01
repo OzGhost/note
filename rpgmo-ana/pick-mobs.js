@@ -22,10 +22,12 @@
             mb: npc.temp.magic_block || 0,
             sb: npc.temp.melee_block || 0
         };
-        if (m.d < 750) continue;
+        if (m.sb > 0) continue;
+        if (m.d > 328) continue;
+        if (m.a > 493) continue;
         wm.push(m);
     }
-    wm.sort(function(a, b){ return b.d - a.d; });
+    wm.sort(function(a, b){ return b.h - a.h; });
     for (var i = 0; i < wm.length; i++) {
         print(mtostr(wm[i]));
     }
