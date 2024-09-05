@@ -1,2 +1,1 @@
-https://mlu-upload.line-scdn.net/r/mlu/mlu/cj1yaWxiZjdjcDA3azYmcz1qcDYmdD1kJnU9MWNxMHAxbnJzM2owMCZpPTA/w800
-https://mlu-upload.line-scdn-dev.net/r/mlu/mlu/cj0tN3RwcDZkam1ia2c3aiZzPWpwNiZ0PXMmdT0xZTUwY3M5Z2s2cGcwJmk9MA/w800
+-- some text
