@@ -9,7 +9,7 @@
     "permissions": ["activeTab", "storage"],
     "content_scripts": [
         {
-            "matches": ["https://data.mo.ee/"],
+            "matches": ["https://data.mo.ee/", "https://rpg.mo.ee/"],
             "js": ["ground.js"]
         }
     ],
