@@ -18,9 +18,23 @@ function runControl(payload, num) {
         verbose && console.warn(" .. load default commands!");
         cmds = "uu ll dd rr" ;
     }
-    ctx = { cmds: cmds, idx: 0 };
+    ctx = { cmds: cmds, idx: 0, round: readReps(cmds) };
     verbose && console.log("1 sec ...");
     cid = setTimeout(roll, 500);
+}
+
+function readReps(cmds) {
+    var buf = "";
+    for (var i = 0; i < cmds.length; i++) {
+        var c = cmds.charAt(i);
+        if (c < '0' || c > '9')
+            break;
+        buf += c;
+    }
+    verbose && console.warn(">> load rounds: ", buf);
+    if (!buf)
+        return 1;
+    return +buf;
 }
 
 function roll() {
@@ -38,8 +52,18 @@ function roll() {
         if (p)
             break;
     }
-    if (!p)
-        return (ctx = {});
+    if (!p) {
+        ctx.round--;
+        if (ctx.round == 0) {
+            verbose && console.log(" << round exhausted!");
+            ctx = {};
+        } else {
+            ctx.idx = 0;
+            cid = setTimeout(roll, 250);
+            verbose && console.log(" .. round left: ", ctx.round);
+        }
+        return
+    }
     ctx.idx = p.i;
     p.subFn && (ctx.fn = p.subFn);
     if (p.fn) {
