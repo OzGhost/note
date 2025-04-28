@@ -1,0 +1,5 @@
+#!/bin/ash
+cp="lib/*:."
+javac -cp $cp -Xlint:unchecked WateringCan.java && \
+    java -cp $cp WateringCan
+rm -f WateringCan*.class
