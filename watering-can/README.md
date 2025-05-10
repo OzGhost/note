@@ -14,3 +14,7 @@
 ## Insufficient remaining goods
 * On any order which required more than the remaining amount of goods, all the remaining goods will be used to fill that order then a special ship with amount=0 invoice=`no goods` will be append to the right of last ship
 
+## Installation
+* Visit link: https://learn.microsoft.com/en-us/java/openjdk/download#openjdk-21
+* Select download link for `Windows x64 msi`
+* Open the downloaded file and start the installation of jdk-21

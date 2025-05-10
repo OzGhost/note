@@ -85,6 +85,8 @@ public class WateringCan {
         String x = "instock";
         if (x.equals(a.eta))
             return x.equals(b.eta) ? 0 : -1;
+        if (x.equals(b.eta))
+            return 1;
         if (a.etaT == null)
             return b.etaT == null ? 0 : 1;
         if (b.etaT == null)
