@@ -3,6 +3,11 @@ var verbose = 0;
 var cid = 0;
 verbose && console.log("__[o0] i'm in");
 
+var relay = document.createElement("div");
+relay.innerHTML = "<button onclick='inventoryClick(3)'></button>";
+relay.style = "position: absolute;z-index: -1;top: -20px;"
+document.body.appendChild(relay);
+
 function runControl(payload, num) {
     if (ctx.cmds)
         return verbose && console.warn("__[xx] busy");
@@ -78,6 +83,7 @@ function digest(d, i) {
     var synev = 0;
     var waitSig = 0;
     var kpSig = 0;
+    var invC = 0;
     switch (d) {
         case "u":
             synev = {code:"ArrowUp",key:"ArrowUp",keyCode:38,which:38,bubbles:true};
@@ -92,10 +98,13 @@ function digest(d, i) {
             synev = {code:"ArrowRight",key:"ArrowRight",keyCode:39,which:39,bubbles:true};
             break;
         case "w":
-            waitSig = true;
+            waitSig = 1;
             break;
         case "k":
-            kpSig = true;
+            kpSig = 1;
+            break;
+        case "i":
+            invC = 1;
             break;
         default:
             break;
@@ -143,6 +152,8 @@ function digest(d, i) {
         if (kev)
             return { fn: press(kev), subFn: release(kev), i: i+2 };
     }
+    if (invC)
+        return { fn: invClick(ctx.cmds.charAt(i+1)), i: i+2 };
 }
 
 function press(synev) {
@@ -197,4 +208,12 @@ function onKeyFn(e) {
     }
 
 }
+
 document.addEventListener("keydown", onKeyFn);
+
+function invClick(c) {
+    return function() {
+        verbose && console.log("__ trigger click on 4th inv item");
+        relay.firstChild.click();
+    }
+}
