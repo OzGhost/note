@@ -1,4 +1,4 @@
-#!/bin/tcsh
+#!/bin/bash
 curl -O https://data.mo.ee/release.js
 echo "var npc_base = [];" > mobs.js
 cat release.js | tr -d '\n' | sed -e 's|\(npc_base\[[^(]*createObject(\)|\n\1|g' | grep '^npc' | grep -v 'fn:{' | sed '$ s|;.*|;|' >> mobs.js
