@@ -1,0 +1,56 @@
+--- seed
+5
+kbw3kow2kbw4 dddd dddd rrrrrr d rrrr rrrr rddd rr
+dddd ddd llll llll llll llll llll llw3
+ull uuu llll uuuu uuuu lluul uuuuuuuu ktw2
+dddddddd rrr dddd dddd d rrrr ddd rr ddw3
+rrrr rrrr rrrr rrrr rrrr r uuuu uuuu uuu llll llll d
+lllu llllll uuuu uuuu u
+
+---- nml fish
+ddddl dddddl lllllu
+llll llll ll lllll lllll lllll lllll lllll l
+ullldll ullull ulull ulul
+lllll lllll llllu uw1ktw1
+rrrrr rrrrr rrrrd rdrdrrd rdrrd rrdrrr urrd
+rrrrr rrrrr rrrrr rr rrrrr rrrrr rrrrr rrrr
+d rrrrrru uuuur uuuuu
+
+--- nml ds
+rrddd rrdrrrrrr urrrrrddddd lllldddddddd rrrddrrdd
+rrrrruuuuuuu rrrrrrrrrrdddddrrrrrr dddrrrr dddddddddddr
+ddddddddl
+ddddl dddddl lllllu
+llll llll ll lllll lllll lllll lllll lllll l
+ullldll ullull ulull ulul
+lllll lllll llllu uktw2
+rrrrr rrrrr rrrrd rdrdrrd rdrrd rrdrrr urrd
+rrrrr rrrrr rrrrr rr rrrrr rrrrr rrrrr rrrr
+d rrrrrru uuuur uuuu
+ruuuuuuuuuuuuuuuuuuu llllluuu llllllluuuuu lllllllll
+dddddddllllll uuullluul uuuuuuurrrr uuuuullllld
+llllllluulluull w3rrruuuuull
+
+--- nml redh
+rrrrr dddd rrrrr ddrr dddd rrrr rr ddrrrddrrr dr
+dddd ddrd dddd dddd ddl dddddddddddddddddddddddddddd
+llllll ulu llll ddddd llllllllllllllllllllllllllllllll
+ullll dll ullull uulll ulul lllllllllllllluu ktw2
+d rrrrrrrrrrrrrr rdrd rrrdd rrdrrd rrru rrrrd
+rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr uuuuu rrrr drd rrrrrr
+uuuuuuuuuuuuuuuuuuuuuuuuuuuu ruu uuuu uuuu uluu uuuu
+lu llluullluu ll llll uuuu lluu lllll uuuu lllll u
+
+--- narwa redh burn
+8 uw20kpw2uw11llllllll dktknkoknw2rrrrrrrr
+
+--- 350 shrooms
+_rulrulrulru lrulrulrulru lrulrulrulru lrulrulrulru lrulrulru_ru lru lrrrrd
+lrdlrdlrdlrd _rdlrdlrdlrd lrdlrdlrdlrd lrdlrdlrdlrd lrd_rdlrdlrd lrd rrru
+lrulrulrulru lrulrulrulru lru_rulrulru lrulrulrulru _rulrulrulru lru lrrrrd
+lrdlrdlrdlrd lrdlrdlrdlrd lrdlrdlrdlrd lrd_rd_rdlrd lrdlrdlrdlrd lrd rrru
+lru_rulrulru lrulrulrulru lrulrulrulru lru_rulrulru lrulrulru_ru lru lrrrrd
+lrdlrdlrdlrd lrdlrdlrdlrd lrdlrdlrd_rd lrdlrdlrdlrd lrdlrdlrdlrd lrd rrru
+lrulru_rulru lrulrulrulru lrulru_rulru lrulrulrulru lrulrulrulru lru lrrrrd
+lrdlrdlrdlrd lrdlrd_rdlrd _rdlrdlrdlrd lrdlrdlrdlrd lrdlrdlrdlrd lrd
+r dldldldl dldldldl dldldldl dldldldl dldldld
