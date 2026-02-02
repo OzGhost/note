@@ -107,11 +107,42 @@
         return row;
     }
     function tailFloor(v) {
-        return Math.floor(v*100)/100;
+        return Math.floor(v*10000)/10000;
+    }
+    function valPerHp(npcMark, mob) {
+        var loots = mob.params.drops;
+        var remain = 1;
+        var avgVal = 0;
+        for (var i = 0; i < loots.length; i++) {
+            var loot = loots[i];
+            if (loot.mon_book_only) continue;
+            var rate = remain * loot.chance;
+            remain -= rate;
+            var item = item_base[loot.id];
+            var fval = item.params.price;
+            var sellat = npcMark[loot.id] ? 0.5 : 0.4;
+            var aval = fval * rate * sellat;
+            avgVal += aval;
+        }
+        return tailFloor(avgVal / mob.params.health);
     }
 
     var npcMark = markNpcBuyItems();
     var mnames = extractNames();
     var dz = initDz(mnames);
     dz.setMobSelectionCallback(newCalculator(npcMark));
+    var list = [];
+    for (var i = 0; i < mnames.length; i++) {
+        var mob = mnames[i];
+        if (mob.name.startsWith("[rare")
+                || mob.name.startsWith("[boss]")
+                || mob.name.startsWith("[elite]"))
+            continue;
+        list.push({val: valPerHp(npcMark, npc_base[mob.id]), name: mob.name});
+    }
+    list.sort(function(a,b){return b.val - a.val;});
+    for (var j = 0; j < 50; j++) {
+        var mob = list[j];
+        dz.print(tailFloor(mob.val) + " " + mob.name);
+    }
 })();
