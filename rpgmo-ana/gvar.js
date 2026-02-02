@@ -27,6 +27,9 @@ var ITEM_CATEGORY = {}
 var IMAGE_SHEET = {}
 var HIT_ANIMATION = {}
 var BASE_TYPE = {}
-var OBJECT_TYPE = {}
+var OBJECT_TYPE = {
+    SHOP: "obj.type.shop",
+    ENEMY: "obj.type.enemy"
+}
 var ACTIVITIES = {}
 var cow_image = ""
