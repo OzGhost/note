@@ -91,7 +91,7 @@
             }
             items.sort(function(a,b){ return b[1] - a[1];});
             var rows = [];
-            rows.push(toRow(["mob: "+mob.name,"avg: "+tailFloor(avgVal),"",""]));
+            rows.push(toRow(["mob: "+mob.name,"avg: "+tailFloor(avgVal),"c/hp: "+tailFloor(avgVal/mob.params.health),""]));
             rows.push(toRow(["name", "rate", "value", "sellAt"]));
             for (var i = 0; i < items.length; i++)
                 rows.push(toRow(items[i]));
