@@ -66,6 +66,11 @@
         for (var i = 0; i < npc_base.length; i++) {
             var mob = npc_base[i];
             if (!mob || mob.type != OBJECT_TYPE.ENEMY) continue;
+            /*
+            if ((mob.temp.melee_block || 0) > 20) continue;
+            if (mob.temp.total_defense > 460) continue;
+            if (mob.temp.total_accuracy > 750) continue;
+            */
             names.push({id: i, name: mob.name.toLowerCase()});
         }
         return names;
