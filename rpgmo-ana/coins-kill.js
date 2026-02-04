@@ -91,7 +91,10 @@
             }
             items.sort(function(a,b){ return b[1] - a[1];});
             var rows = [];
-            rows.push(toRow(["mob: "+mob.name,"avg: "+tailFloor(avgVal),"c/hp: "+tailFloor(avgVal/mob.params.health),""]));
+            var mblock = mob.temp.melee_block || 0;
+            var enc = 1 - (mblock/100);
+            var hp = mob.temp.health / enc;
+            rows.push(toRow(["mob: "+mob.name,"avg: "+tailFloor(avgVal),"c/hp: "+tailFloor(avgVal/hp),""]));
             rows.push(toRow(["name", "rate", "value", "sellAt"]));
             for (var i = 0; i < items.length; i++)
                 rows.push(toRow(items[i]));
@@ -124,7 +127,10 @@
             var aval = fval * rate * sellat;
             avgVal += aval;
         }
-        return tailFloor(avgVal / mob.params.health);
+        var mblock = mob.temp.melee_block || 0;
+        var enc = 1 - (mblock/100);
+        var hp = mob.temp.health / enc;
+        return tailFloor(avgVal / hp);
     }
 
     var npcMark = markNpcBuyItems();
