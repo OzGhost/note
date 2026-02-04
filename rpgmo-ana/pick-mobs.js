@@ -5,7 +5,7 @@
     for (var i = 0; i < arr.length; i++) {
         var npc = arr[i];
         if (!npc || !npc.temp) continue;
-        if (npc.name.startsWith('[Rare]')) continue;
+        if (npc.name.startsWith('[Rare')) continue;
         if (npc.name.startsWith('[BOSS]')) continue;
         if (npc.name.startsWith('[Boss]')) continue;
         if (npc.name.startsWith('[Elite]')) continue;
@@ -22,9 +22,9 @@
             mb: npc.temp.magic_block || 0,
             sb: npc.temp.melee_block || 0
         };
-        if (m.sb > 0) continue;
-        if (m.d > 328) continue;
-        if (m.a > 493) continue;
+        if (m.sb > 20) continue;
+        if (m.d > 460) continue;
+        if (m.a > 750) continue;
         wm.push(m);
     }
     wm.sort(function(a, b){ return b.h - a.h; });
