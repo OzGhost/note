@@ -71,19 +71,21 @@ function roll() {
     }
     ctx.idx = p.i;
     p.subFn && (ctx.fn = p.subFn);
-    if (p.fn) {
-        var delay = p.fn();
-        cid = setTimeout(roll, delay);
-        if (delay < 200)
+    if (!p.fn)
+        return
+    var out = p.fn();
+    if ("number" == (typeof out)) {
+        cid = setTimeout(roll, out);
+        if (out < 200)
             cid = 0;
+        return
     }
+    out.then(roll);
 }
 
 function digest(d, i) {
-    var synev = 0;
-    var waitSig = 0;
-    var kpSig = 0;
-    var invC = 0;
+    var synev, waitSig, kpSig, invC, cev;
+    synev = waitSig = kpSig = invC = cev = 0;
     switch (d) {
         case "u":
             synev = {code:"ArrowUp",key:"ArrowUp",keyCode:38,which:38,bubbles:true};
@@ -105,6 +107,19 @@ function digest(d, i) {
             break;
         case "i":
             invC = 1;
+            break;
+
+        case "U":
+            cev = {code:"ArrowUp",key:"ArrowUp",keyCode:38,which:38,bubbles:true};
+            break;
+        case "D":
+            cev = {code:"ArrowDown",key:"ArrowDown",keyCode:40,which:40,bubbles:true};
+            break;
+        case "L":
+            cev = {code:"ArrowLeft",key:"ArrowLeft",keyCode:37,which:37,bubbles:true};
+            break;
+        case "R":
+            cev = {code:"ArrowRight",key:"ArrowRight",keyCode:39,which:39,bubbles:true};
             break;
         default:
             break;
@@ -157,6 +172,8 @@ function digest(d, i) {
     }
     if (invC)
         return { fn: invClick(ctx.cmds.charAt(i+1)), i: i+2 };
+    if (cev)
+        return { fn: shiftPress(cev), i: i+1 };
 }
 
 function press(synev) {
@@ -183,6 +200,35 @@ function idle(t) {
     return function(){
         verbose && console.log("_ idle: ", t);
         return 1000*t + pickin(11, 77);
+    };
+}
+
+function invClick(c) {
+    return function() {
+        verbose && console.log("__ trigger click on 4th inv item");
+        relay.firstChild.click();
+    }
+}
+
+var LSHIFT = {code:"ShiftLeft",key:"Shift",keyCode:16,which:16,bubbles:true,location:1,shiftKey:true};
+function shiftPress(e) {
+    e.shiftKey = true;
+    return function(){
+        return new Promise(function(resolve, reject){
+            LSHIFT.shiftKey = true;
+            var d1 = press(LSHIFT)();
+            setTimeout(function(){
+                var d2 = press(e)();
+                setTimeout(function(){
+                    var d3 = release(e)();
+                    setTimeout(function(){
+                        LSHIFT.shiftKey = false;
+                        release(LSHIFT)();
+                        resolve();
+                    }, d3);
+                }, d2);
+            }, d1);
+        });
     };
 }
 
@@ -213,10 +259,3 @@ function onKeyFn(e) {
 }
 
 document.addEventListener("keydown", onKeyFn);
-
-function invClick(c) {
-    return function() {
-        verbose && console.log("__ trigger click on 4th inv item");
-        relay.firstChild.click();
-    }
-}
