@@ -227,7 +227,7 @@ function shiftPress(e) {
                         resolve();
                     }, d3);
                 }, d2);
-            }, d1);
+            }, 900);
         });
     };
 }
