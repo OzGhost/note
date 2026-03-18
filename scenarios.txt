@@ -45,17 +45,8 @@ lrulru_rulru lrulrulrulru lrulru_rulru lrulrulrulru lrulrulrulru lru lrrrrd
 lrdlrdlrdlrd lrdlrd_rdlrd _rdlrdlrdlrd lrdlrdlrdlrd lrdlrdlrdlrd lrd
 r dldldldl dldldldl dldldldl dldldldl dldldldld
 
---- 350 spin
-durdur druru rlurlu rulul duldul uldld rldrldrldrldrld ldrdr durdurdurdurdur druru
-rlurlurlurlurlurlurlurlu rulul duldulduldulduldulduldul uldld
-rldrldrldrldrldrldrldrldrldrldrld ldrdrdr durdurdurdurdurdurdurdurdurdurdur druru
-rlurlurlurlurlurlurlurlurlurlurlurlurlurlu rulul duldulduldulduldulduldulduldulduldulduldul
-uldld rldrldrldrldrldrldrldrldrldrldrldrldrldrld!ldrldrld ldrdrdr
-durdurdurdurdurdurdurdurdurdurdurdurdurdurdurdurdur druru
-rlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlurlu rulul
-dulduldulduldulduldulduldulduldulduldulduldulduldulduld
-
---- 350 re:spin
+--- 398 old spin
+r!u!lurlurlurlu rlurlurlurlurlu rlurlurlurlurlu rlurlurlurlurlu rlurlurlu lururu
 dr durdurdurdurdurdurdurdurdurdurdurdurdurdurdurdurdurdurdur urdrd
 rldrldrldrldrldrldrldrldrldrldrldrldrldrldrldrldrldrldrldrld rdldl
 dulduldulduldulduldulduldulduldulduldulduldulduldul dlduruu
@@ -65,5 +56,18 @@ rdldl dulduldulduldulduldulduldulduldul dlduruu rlurlurlurlurlurlurlurlurlurlurl
 durdurdurdurdurdurdurdur urdrd rldrldrldrldrldrldrldrld rdldl dulduldulduldul dlulu
 rlurlurlurlurlu lurur durdur urdrd lrdlrd rdldl du
 
---- 48 appendix
-r!u!lurlurlurlu rlurlurlurlurlu rlurlurlurlurlu rlurlurlurlurlu rlurlurlu lururu
+--- 395 dspin
+rlurlurlurlurlu rlurlurlurlurlu rlurlurlurlurlu rlurlurlurlurlu rlurlu lurur
+durdurdurdurdur durdurdurdurdur durdurdurdurdur durdurdurdurdur urdrd
+lrdlrdlrdlrdlrd lrdlrdlrdlrdlrd lrdlrdlrdlrdlrd lrdlrdlrdlrdlrd rdldl
+udludludludludl udludludludludl udludludludl!dl ud ruu
+rlu!lurlurlurlu rlurlurlurlurlu rlurlurlurlu lurur
+durdurdurdurdur durdurdur urdrd
+lrdlrdlrdlrdlrd lrdlrdlrd rdldl
+udludl dlulu rlu!lu!lu rd r!ur!urlurlu rulul duldul uldld
+rldrldrldrldrld rldrldrld ldrdrdr
+udrudrudrudrudr udrudrudr druru
+lrulrulrulrulru lrulrulrulrulru lrulrulrulru rulul
+dulduldulduldul dulduldulduldul duldulduldul uldld
+rldrldrldrldrld rldrldrldrldrld rldrldrldrldrld rldrld!l
+
