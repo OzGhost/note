@@ -2,6 +2,20 @@ var ctx = {};
 var verbose = 0;
 var cid = 0;
 verbose && console.log("__[o0] i'm in");
+var keys = {
+    up:    function(){return {code:"ArrowUp",   key:"ArrowUp",   keyCode:38,which:38,bubbles:true}},
+    down:  function(){return {code:"ArrowDown", key:"ArrowDown", keyCode:40,which:40,bubbles:true}},
+    left:  function(){return {code:"ArrowLeft", key:"ArrowLeft", keyCode:37,which:37,bubbles:true}},
+    right: function(){return {code:"ArrowRight",key:"ArrowRight",keyCode:39,which:39,bubbles:true}},
+    kO: function(){return {code:"KeyO",key:"o",keyCode:79,which:79,bubbles:true}},
+    kP: function(){return {code:"KeyP",key:"p",keyCode:80,which:80,bubbles:true}},
+    kN: function(){return {code:"KeyN",key:"n",keyCode:78,which:78,bubbles:true}},
+    kS: function(){return {code:"KeyS",key:"s",keyCode:83,which:83,bubbles:true}},
+    kT: function(){return {code:"KeyT",key:"t",keyCode:84,which:84,bubbles:true}},
+    kB: function(){return {code:"KeyB",key:"b",keyCode:66,which:66,bubbles:true}},
+    kM: function(){return {code:"KeyM",key:"m",keyCode:77,which:77,bubbles:true}},
+    void:  {}
+};
 
 var relay = document.createElement("div");
 relay.innerHTML = "<button onclick='inventoryClick(3)'></button>";
@@ -88,39 +102,30 @@ function digest(d, i) {
     synev = waitSig = kpSig = invC = cev = 0;
     switch (d) {
         case "u":
-            synev = {code:"ArrowUp",key:"ArrowUp",keyCode:38,which:38,bubbles:true};
-            break;
+            synev = keys.up(); break;
         case "d":
-            synev = {code:"ArrowDown",key:"ArrowDown",keyCode:40,which:40,bubbles:true};
-            break;
+            synev = keys.down(); break;
         case "l":
-            synev = {code:"ArrowLeft",key:"ArrowLeft",keyCode:37,which:37,bubbles:true};
-            break;
+            synev = keys.left(); break;
         case "r":
-            synev = {code:"ArrowRight",key:"ArrowRight",keyCode:39,which:39,bubbles:true};
-            break;
+            synev = keys.right(); break;
+
         case "w":
-            waitSig = 1;
-            break;
+            waitSig = 1; break;
         case "k":
-            kpSig = 1;
-            break;
+            kpSig = 1; break;
         case "i":
-            invC = 1;
-            break;
+            invC = 1; break;
 
         case "U":
-            cev = {code:"ArrowUp",key:"ArrowUp",keyCode:38,which:38,bubbles:true};
-            break;
+            cev = keys.up(); break;
         case "D":
-            cev = {code:"ArrowDown",key:"ArrowDown",keyCode:40,which:40,bubbles:true};
-            break;
+            cev = keys.down(); break;
         case "L":
-            cev = {code:"ArrowLeft",key:"ArrowLeft",keyCode:37,which:37,bubbles:true};
-            break;
+            cev = keys.left(); break;
         case "R":
-            cev = {code:"ArrowRight",key:"ArrowRight",keyCode:39,which:39,bubbles:true};
-            break;
+            cev = keys.right(); break;
+
         default:
             break;
     }
@@ -144,26 +149,19 @@ function digest(d, i) {
         var kev = 0;
         switch(ctx.cmds.charAt(i+1)) {
             case "o":
-                kev = {code:"KeyO",key:"o",keyCode:79,which:79,bubbles:true};
-                break;
+                kev = keys.kO(); break;
             case "p":
-                kev = {code:"KeyP",key:"p",keyCode:80,which:80,bubbles:true};
-                break;
+                kev = keys.kP(); break;
             case "n":
-                kev = {code:"KeyN",key:"n",keyCode:78,which:78,bubbles:true};
-                break;
+                kev = keys.kN(); break;
             case "s":
-                kev = {code:"KeyS",key:"s",keyCode:83,which:83,bubbles:true};
-                break;
+                kev = keys.kS(); break;
             case "t":
-                kev = {code:"KeyT",key:"t",keyCode:84,which:84,bubbles:true};
-                break;
+                kev = keys.kT(); break;
             case "b":
-                kev = {code:"KeyB",key:"b",keyCode:66,which:66,bubbles:true};
-                break;
+                kev = keys.kB(); break;
             case "m":
-                kev = {code:"KeyM",key:"m",keyCode:77,which:77,bubbles:true};
-                break;
+                kev = keys.kM(); break;
             default:
                 break;
         }
@@ -232,6 +230,58 @@ function shiftPress(e) {
     };
 }
 
+function positionEventTool() {
+    var cAddr = 0;
+    var ctx = 0;
+
+    var el = document.getElementById("location_toolbar_coords");
+    var cfg = { attributes: false, childList: true, subtree: false };
+    var obs = new MutationObserver(function (ms, _) {
+        for (var m of ms) {
+            var n = m.addedNodes[0] || {};
+            cAddr = toAddr(n.data);
+            break;
+        }
+        if (!ctx)
+            return;
+        verbose && console.log("moved", ctx.to, cAddr);
+        var t = ctx.t;
+        var g = ctx.g;
+        if (cAddr[t] != ctx.to[t]) {
+            ctx.reject("off track");
+            return ctx = 0;
+        }
+        if (Math.abs(cAddr[g] - ctx.to[g]) <= 1) {
+            ctx.resolve();
+            return ctx = 0;
+        }
+    });
+    var itrack = function(from, to) {
+        var t, g;
+        if (from[0] == to[0]) {
+            t = 0; g = 1;
+        } else if (from[1] == to[1]) {
+            t = 1; g = 0;
+        } else return new Promise.reject("untrackable line");
+        return new Promise(function(sol, jec){
+            ctx = {to: to, t: t, g: g, resolve: sol, reject: jec};
+        });
+    }
+    return {
+        listen: function() { obs.observe(el, cfg) },
+        ignore: function() { obs.disconnect(); },
+        track: itrack,
+    };
+}
+
+function toAddr(txt) {
+    return (txt || "")
+        .replace("(","")
+        .replace(")", "")
+        .split(",")
+        .map(function(e){return 1*e.trim()});
+}
+
 function onKeyFn(e) {
     if (e.key == "Control") {
         verbose && console.log("__ cancelling ...");
@@ -255,7 +305,6 @@ function onKeyFn(e) {
                 break;
         }
     }
-
 }
 
 document.addEventListener("keydown", onKeyFn);
