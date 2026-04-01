@@ -17,37 +17,33 @@ var keys = {
     void:  {}
 };
 
-var relay = document.createElement("div");
-relay.innerHTML = "<button onclick='inventoryClick(3)'></button>";
-relay.style = "position: absolute;z-index: -1;top: -20px;"
-document.body.appendChild(relay);
-
 function runControl(payload, num) {
     if (ctx.cmds)
         return verbose && console.warn("__[xx] busy");
     if (payload == "ibks") {
         ctx.num = +num;
-        browser.storage.local.get("cmds").then(runControl);
-        return;
+        return browser.storage.local.get("cmds").then(runControl);
     }
     var cmds = payload.cmds || [];
     cmds = cmds[ctx.num - 1];
     verbose && console.log(" __ execute: ", ctx.num);
     if (!cmds) {
         verbose && console.warn(" .. load default commands!");
-        cmds = "uu ll dd rr" ;
+        cmds = "uudd" ;
     }
     ctx = { cmds: cmds, idx: 0, round: readReps(cmds) };
     verbose && console.log("1 sec ...");
-    cid = setTimeout(roll, 500);
+    return cmds.charAt(0) == '?'
+        ? proll()
+        : cid = setTimeout(roll, 500);
 }
 
 function readReps(cmds) {
     var buf = "";
     for (var i = 0; i < cmds.length; i++) {
         var c = cmds.charAt(i);
-        if (c < '0' || c > '9')
-            break;
+        if (c == '?') continue;
+        if (c < '0' || c > '9') break;
         buf += c;
     }
     verbose && console.warn(">> load rounds: ", buf);
@@ -178,7 +174,7 @@ function press(synev) {
     return function() {
         verbose && console.log("_ press: ", synev.key);
         document.body.dispatchEvent(new KeyboardEvent("keydown", synev));
-        return pickin(65, 108);
+        return pickin(85, 108);
     };
 }
 
@@ -190,7 +186,7 @@ function release(synev) {
     return function() {
         verbose && console.log("_ release: ", synev.key);
         document.body.dispatchEvent(new KeyboardEvent("keyup", synev));
-        return pickin(85, 118);
+        return pickin(95, 118);
     };
 }
 
@@ -251,7 +247,7 @@ function positionEventTool() {
             ctx.reject("off track");
             return ctx = 0;
         }
-        if (Math.abs(cAddr[g] - ctx.to[g]) <= 1) {
+        if (Math.abs(cAddr[g] - ctx.to[g]) <= 2) {
             ctx.resolve();
             return ctx = 0;
         }
@@ -271,6 +267,7 @@ function positionEventTool() {
         listen: function() { obs.observe(el, cfg) },
         ignore: function() { obs.disconnect(); },
         track: itrack,
+        now: function() { return cAddr; }
     };
 }
 
@@ -282,11 +279,128 @@ function toAddr(txt) {
         .map(function(e){return 1*e.trim()});
 }
 
+function proll() {
+    if (!ctx.pinit) {
+        var tool = positionEventTool();
+        ctx.teardown = function(err){
+            err && verbose && console.log("__[xx] crashed", err);
+            verbose && console.log("__ teardown!");
+            tool.ignore();
+            ctx = {};
+        }
+        tool.listen();
+        ctx.ptool = tool;
+        ctx.pinit = 1;
+    }
+    var cmds = ctx.cmds;
+    var len = cmds.length;
+    var idx = ctx.idx;
+    (idx <= 1) && verbose && console.log("__ start round", ctx.round);
+    if (idx >= len)
+        return (0 == (ctx.round -= 1))
+            ? ctx.teardown()
+            : (ctx.idx = 1) && proll();
+    var next;
+    while (idx < len) {
+        next = detectAct(cmds, idx);
+        if (next) break;
+        idx++;
+    }
+    if (!next)
+        return (ctx.idx = len+1) && proll();
+    ctx.idx = next.idx;
+    return next.act.then(proll, ctx.teardown);
+}
+
+function detectAct(cmd, idx) {
+    var c = cmd.charAt(idx);
+    switch (c) {
+        case '(': return pmove(cmd, idx);
+        case 'u':
+        case 'd':
+        case 'l':
+        case 'r': return ppress(c, idx);
+    }
+    return;
+}
+
+function pmove(cmd, idx) {
+    var from, to, len;
+    from = to = idx;
+    len = cmd.length;
+    while (to < len) {
+        var c = cmd.charAt(to);
+        if (c == ')') break;
+        to++;
+    }
+    to++;
+    if (to > len) return;
+    var addr = toAddr(cmd.substring(from,to));
+    if (!addr.length) return;
+    if (!ctx.prev) return (ctx.prev = addr) && 0;
+    var prev = ctx.prev;
+    var minfo = toMovementKey(prev, addr);
+    if (!minfo)
+        return { act: Promise.reject("reject move from " + JSON.stringify(prev) + " to " + JSON.stringify(addr)) };
+    var setPrevFn = function(){ ctx.prev = addr; };
+    if (minfo.gap < 2)
+        return { act: pclick(minfo.key, addr).then(setPrevFn), idx: to };
+    verbose && console.log("__ move gap", minfo.gap);
+    press(minfo.key)();
+    var pro = ctx.ptool.track(prev, addr)
+        .then(
+            function(){
+                release(minfo.key)();
+                return pclick(minfo.key, addr).then(setPrevFn);
+            }, function(err){
+                release(minfo.key)();
+                return Promise.reject(err);
+            });
+    return { act: pro, idx: to };
+}
+
+function ppress() {
+    console.warn("#fme | placeholder ppress");
+}
+
+function toMovementKey(from, to) {
+    var k, gap;
+    if (from[0] == to[0]) {
+        if (from[1] < to[1]) return { key: keys.up(), gap: to[1]-from[1] };
+        return { key: keys.down(), gap: from[1]-to[1] };
+    }
+    if (from[1] == to[1]) {
+        if (from[0] < to[0]) return { key: keys.right(), gap: to[0]-from[0] };
+        return { key: keys.left(), gap: from[0]-to[0] };
+    }
+    return;
+}
+
+function pclick(key, addr) {
+    return new Promise(function(resolve, reject){
+        var d, t;
+        var loop = function(){
+            if (!t) {
+                if (!ctx.ptool) return reject("!position tool is nok");
+                var c = ctx.ptool.now();
+                verbose && console.log("__ pclick: position check");
+                if (c[0] == addr[0] && c[1] == addr[1]) return resolve();
+            }
+            d = t ? release(key)() : press(key)();
+            if (t) d += 75;
+            t = !t;
+            setTimeout(loop, d);
+        }
+        loop();
+    });
+}
+
 function onKeyFn(e) {
     if (e.key == "Control") {
         verbose && console.log("__ cancelling ...");
         clearTimeout(cid);
         ctx.cmds = 0;
+        ctx.pinit && ctx.teardown();
     }
     if (e.shiftKey && (e.key == "\\" || e.key == "|")) {
         verbose && console.log("__ ready");
