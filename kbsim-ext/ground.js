@@ -1,5 +1,5 @@
 var ctx = {};
-var verbose = 0;
+var verbose = 1;
 var cid = 0;
 verbose && console.log("__[o0] i'm in");
 var keys = {
@@ -46,7 +46,7 @@ function readReps(cmds) {
         if (c < '0' || c > '9') break;
         buf += c;
     }
-    verbose && console.warn(">> load rounds: ", buf);
+    verbose && console.log(">> load rounds: ", buf);
     if (!buf)
         return 1;
     return +buf;
@@ -227,7 +227,7 @@ function shiftPress(e) {
 }
 
 function positionEventTool() {
-    var cAddr = 0;
+    var cAddr = [];
     var ctx = 0;
 
     var el = document.getElementById("location_toolbar_coords");
@@ -238,9 +238,14 @@ function positionEventTool() {
             cAddr = toAddr(n.data);
             break;
         }
-        if (!ctx)
-            return;
-        verbose && console.log("moved", ctx.to, cAddr);
+        if (!ctx) return;
+        if (ctx.mode == "once") {
+            verbose && console.log("__ once!");
+            ctx.resolve();
+            clearTimeout(ctx.ti);
+            return ctx = 0;
+        }
+        verbose && console.log("__ moved > dest > now", ctx.to, cAddr);
         var t = ctx.t;
         var g = ctx.g;
         if (cAddr[t] != ctx.to[t]) {
@@ -263,11 +268,22 @@ function positionEventTool() {
             ctx = {to: to, t: t, g: g, resolve: sol, reject: jec};
         });
     }
+    var ionce = function() {
+        return new Promise(function(sol, jec){
+            ctx = {mode: "once", resolve: sol, reject: jec};
+            ctx.ti = setTimeout(function(){
+                verbose && console.log("__ once timeouted");
+                jec("once timeouted!");
+                ctx = 0;
+            }, 500);
+        });
+    }
     return {
         listen: function() { obs.observe(el, cfg) },
         ignore: function() { obs.disconnect(); },
         track: itrack,
-        now: function() { return cAddr; }
+        now: function() { return cAddr; },
+        once: ionce,
     };
 }
 
@@ -283,7 +299,7 @@ function proll() {
     if (!ctx.pinit) {
         var tool = positionEventTool();
         ctx.teardown = function(err){
-            err && verbose && console.log("__[xx] crashed", err);
+            err && verbose && console.warn("__[xx] crashed, ", err);
             verbose && console.log("__ teardown!");
             tool.ignore();
             ctx = {};
@@ -343,7 +359,7 @@ function pmove(cmd, idx) {
     if (!minfo)
         return { act: Promise.reject("reject move from " + JSON.stringify(prev) + " to " + JSON.stringify(addr)) };
     var setPrevFn = function(){ ctx.prev = addr; };
-    if (minfo.gap < 2)
+    if (minfo.gap <= 2)
         return { act: pclick(minfo.key, addr).then(setPrevFn), idx: to };
     verbose && console.log("__ move gap", minfo.gap);
     press(minfo.key)();
@@ -378,20 +394,27 @@ function toMovementKey(from, to) {
 
 function pclick(key, addr) {
     return new Promise(function(resolve, reject){
-        var d, t;
-        var loop = function(){
-            if (!t) {
-                if (!ctx.ptool) return reject("!position tool is nok");
-                var c = ctx.ptool.now();
-                verbose && console.log("__ pclick: position check");
-                if (c[0] == addr[0] && c[1] == addr[1]) return resolve();
-            }
-            d = t ? release(key)() : press(key)();
-            if (t) d += 75;
-            t = !t;
-            setTimeout(loop, d);
+        var d, t, p;
+        var posCheck = function(){
+            if (!ctx.ptool) return reject("ptool is nok");
+            var c = ctx.ptool.now();
+            verbose && console.log("__ pclick: position check");
+            if (c[0] == addr[0] && c[1] == addr[1]) return resolve();
+            t = 0;
+            loop();
         }
-        loop();
+        var loop = function(){
+            if (t) {
+                release(key)();
+                return p.then(posCheck, reject);
+            }
+            if (!ctx.ptool) return reject("ptool is nok");
+            d = press(key)();
+            p = ctx.ptool.once();
+            setTimeout(loop, d);
+            t = 1;
+        }
+        posCheck();
     });
 }
 
