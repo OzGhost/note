@@ -337,6 +337,7 @@ function detectAct(cmd, idx) {
         case 'r': return ppress(cmd, idx);
         case 'k': return kkpress(cmd, idx);
         case '+': return mapSwitch(cmd, idx);
+        case 'w': return pwait(cmd, idx);
     }
     return;
 }
@@ -462,6 +463,16 @@ function mapSwitch(cmd, idx) {
     });
     if (!sub) return;
     return { act: pro, idx: sub.idx };
+}
+
+function pwait(cmd, idx) {
+    var i = idx+1;
+    if (i >= cmd.lengthh) return;
+    var c = cmd.charAt(i);
+    if ('0' >= c && c > '9')
+        return;
+    var p = new Promise(function(sol,jec){ setTimeout(sol, 1000*c) });
+    return { act: p, idx: i+1 };
 }
 
 function onKeyFn(e) {
