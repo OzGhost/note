@@ -279,7 +279,10 @@ function positionEventTool() {
     }
     return {
         listen: function() { obs.observe(el, cfg) },
-        ignore: function() { obs.disconnect(); },
+        ignore: function() {
+            obs.disconnect();
+            return ctx.reject && ctx.reject("position cancel");
+        },
         track: itrack,
         now: function() { return cAddr; },
         once: ionce,
@@ -298,8 +301,8 @@ function proll() {
     if (!ctx.pinit) {
         var tool = positionEventTool();
         ctx.teardown = function(err){
-            err && verbose && console.warn("__[xx] crashed, ", err);
-            verbose && console.log("__ teardown!");
+            if (err) verbose && console.warn("__[xx] crashed, ", err);
+            else verbose && console.log("__ teardown!");
             tool.ignore();
             ctx = {};
         }
