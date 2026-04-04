@@ -272,10 +272,9 @@ function positionEventTool() {
         return new Promise(function(sol, jec){
             ctx = {mode: "once", resolve: sol, reject: jec};
             ctx.ti = setTimeout(function(){
-                verbose && console.log("__ once timeouted");
                 jec("once timeouted!");
                 ctx = 0;
-            }, 500);
+            }, 3000);
         });
     }
     return {
@@ -335,7 +334,9 @@ function detectAct(cmd, idx) {
         case 'u':
         case 'd':
         case 'l':
-        case 'r': return ppress(c, idx);
+        case 'r': return ppress(cmd, idx);
+        case 'k': return kkpress(cmd, idx);
+        case '+': return mapSwitch(cmd, idx);
     }
     return;
 }
@@ -375,8 +376,26 @@ function pmove(cmd, idx) {
     return { act: pro, idx: to };
 }
 
-function ppress() {
-    console.warn("#fme | placeholder ppress");
+function ppress(cmd, idx) {
+    var key;
+    switch (cmd.charAt(idx)) {
+        case 'u': key = keys.up(); break;
+        case 'd': key = keys.down(); break;
+        case 'l': key = keys.left(); break;
+        case 'r': key = keys.right(); break;
+        default: return;
+    }
+    return { act: k2act(key), idx: idx+1 };
+}
+
+function k2act(key) {
+    return new Promise(function(sol, jec){
+        var d = press(key)();
+        setTimeout(function(){
+            d = release(key)();
+            setTimeout(sol, d);
+        }, d);
+    });
 }
 
 function toMovementKey(from, to) {
@@ -416,6 +435,33 @@ function pclick(key, addr) {
         }
         posCheck();
     });
+}
+
+function kkpress(cmd, idx){
+    var i = idx+1;
+    if (i >= cmd.length) return;
+    var name = 'k' + cmd.charAt(i).toUpperCase();
+    var keyfn = keys[name];
+    if (!keyfn) return;
+    return { act: k2act(keyfn()), idx: i+1 };
+}
+
+function mapSwitch(cmd, idx) {
+    var sub;
+    var pro = new Promise(function(sol, jec){
+        verbose && console.log("__ install map switch hook");
+        ctx.ptool.once().then(function(){
+            if (!sub) return;
+            ctx.prev = ctx.ptool.now();
+            sol();
+        }, function(err){
+            if (sub) jec(err);
+            else verbose && console.log("__ silented, ", err);
+        });
+        sub = ppress(cmd, idx+1);
+    });
+    if (!sub) return;
+    return { act: pro, idx: sub.idx };
 }
 
 function onKeyFn(e) {
