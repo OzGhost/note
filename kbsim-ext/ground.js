@@ -1,5 +1,5 @@
 var ctx = {};
-var verbose = 1;
+var verbose = 0;
 var cid = 0;
 verbose && console.log("__[o0] i'm in");
 var keys = {
@@ -245,19 +245,29 @@ function positionEventTool() {
             clearTimeout(ctx.ti);
             return ctx = 0;
         }
+        clearTimeout(ctx.ti);
         verbose && console.log("__ moved > dest > now", ctx.to, cAddr);
         var t = ctx.t;
         var g = ctx.g;
+        var fn, arg;
         if (cAddr[t] != ctx.to[t]) {
-            ctx.reject("off track");
-            return ctx = 0;
+            fn = ctx.reject;
+            arg = "off track";
         }
-        if (Math.abs(cAddr[g] - ctx.to[g]) <= 2) {
-            ctx.resolve();
-            return ctx = 0;
+        if (!fn && Math.abs(cAddr[g] - ctx.to[g]) <= 2) {
+            fn = ctx.resolve;
         }
+        if (!fn) return ctx.ti = setTimeout(function(){
+            if (!ctx) return;
+            verbose && console.log("move interrupted, retrigger!");
+            var d = release(ctx.key)();
+            setTimeout(press(ctx.key), d);
+        }, 200);
+        var d = release(ctx.key)();
+        ctx = 0;
+        setTimeout(function(){ fn(arg); }, d);
     });
-    var itrack = function(from, to) {
+    var itrack = function(from, to, key) {
         var t, g;
         if (from[0] == to[0]) {
             t = 0; g = 1;
@@ -266,6 +276,9 @@ function positionEventTool() {
         } else return new Promise.reject("untrackable line");
         return new Promise(function(sol, jec){
             ctx = {to: to, t: t, g: g, resolve: sol, reject: jec};
+            ctx.mode = "track";
+            ctx.key = key;
+            press(key)();
         });
     }
     var ionce = function() {
@@ -367,16 +380,8 @@ function pmove(cmd, idx) {
     if (minfo.gap <= 2)
         return { act: pclick(minfo.key, addr).then(setPrevFn), idx: to };
     verbose && console.log("__ move gap", minfo.gap);
-    press(minfo.key)();
-    var pro = ctx.ptool.track(prev, addr)
-        .then(
-            function(){
-                release(minfo.key)();
-                return pclick(minfo.key, addr).then(setPrevFn);
-            }, function(err){
-                release(minfo.key)();
-                return Promise.reject(err);
-            });
+    var pro = ctx.ptool.track(prev, addr, minfo.key)
+        .then(function(){ return pclick(minfo.key, addr).then(setPrevFn); });
     return { act: pro, idx: to };
 }
 
