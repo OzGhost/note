@@ -426,7 +426,7 @@ function pclick(key, addr) {
         var posCheck = function(){
             if (!ctx.ptool) return reject("ptool is nok");
             var c = ctx.ptool.now();
-            verbose && console.log("__ pclick: position check");
+            verbose && console.log("__ position check", addr, c);
             if (c[0] == addr[0] && c[1] == addr[1]) return resolve();
             t = 0;
             loop();
@@ -437,10 +437,10 @@ function pclick(key, addr) {
                 return p.then(posCheck, reject);
             }
             if (!ctx.ptool) return reject("ptool is nok");
-            d = press(key)();
             p = ctx.ptool.once();
-            setTimeout(loop, d);
+            press(key)();
             t = 1;
+            setTimeout(loop, 62);
         }
         posCheck();
     });
@@ -479,6 +479,7 @@ function pwait(cmd, idx) {
     var c = cmd.charAt(i);
     if ('0' >= c && c > '9')
         return;
+    verbose && console.log("_ busy wait", c);
     var p = new Promise(function(sol,jec){ setTimeout(sol, 1000*c) });
     return { act: p, idx: i+1 };
 }
