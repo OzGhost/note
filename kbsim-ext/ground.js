@@ -440,7 +440,7 @@ function pclick(key, addr) {
             p = ctx.ptool.once();
             press(key)();
             t = 1;
-            setTimeout(loop, 62);
+            setTimeout(loop, 50);
         }
         posCheck();
     });
