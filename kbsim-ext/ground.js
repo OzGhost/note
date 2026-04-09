@@ -174,7 +174,7 @@ function press(synev) {
     return function() {
         verbose && console.log("_ press: ", synev.key);
         document.body.dispatchEvent(new KeyboardEvent("keydown", synev));
-        return pickin(85, 108);
+        return pickin(65, 108);
     };
 }
 
@@ -186,7 +186,7 @@ function release(synev) {
     return function() {
         verbose && console.log("_ release: ", synev.key);
         document.body.dispatchEvent(new KeyboardEvent("keyup", synev));
-        return pickin(95, 118);
+        return pickin(85, 118);
     };
 }
 
@@ -239,33 +239,33 @@ function positionEventTool() {
             break;
         }
         if (!ctx) return;
+        clearTimeout(ctx.ti);
         if (ctx.mode == "once") {
             verbose && console.log("__ once!");
-            ctx.resolve();
-            clearTimeout(ctx.ti);
+            ctx.sol();
             return ctx = 0;
         }
-        clearTimeout(ctx.ti);
-        verbose && console.log("__ moved > dest > now", ctx.to, cAddr);
+        verbose && console.log("__ moved", cAddr);
+        clearTimeout(ctx.idleTi);
         var t = ctx.t;
         var g = ctx.g;
-        var fn, arg;
-        if (cAddr[t] != ctx.to[t]) {
-            fn = ctx.reject;
-            arg = "off track";
+        var jec = ctx.jec;
+        var fn;
+        if (cAddr[t] != ctx.to[t])
+            fn = function(){ jec("Off track!") };
+        else if (Math.abs(cAddr[g] - ctx.to[g]) <= 2)
+            fn = ctx.sol;
+        if (fn) {
+            var d = release(ctx.key)();
+            ctx = 0;
+            return setTimeout(fn, d);
         }
-        if (!fn && Math.abs(cAddr[g] - ctx.to[g]) <= 2) {
-            fn = ctx.resolve;
-        }
-        if (!fn) return ctx.ti = setTimeout(function(){
-            if (!ctx) return;
-            verbose && console.log("move interrupted, retrigger!");
+        ctx.ti = setTimeout(function(){
+            verbose && console.log("____ retrigger!");
             var d = release(ctx.key)();
             setTimeout(press(ctx.key), d);
         }, 200);
-        var d = release(ctx.key)();
-        ctx = 0;
-        setTimeout(function(){ fn(arg); }, d);
+        ctx.idleTi = setTimeout(unfreeze, 3000);
     });
     var itrack = function(from, to, key) {
         var t, g;
@@ -273,28 +273,31 @@ function positionEventTool() {
             t = 0; g = 1;
         } else if (from[1] == to[1]) {
             t = 1; g = 0;
-        } else return new Promise.reject("untrackable line");
+        } else return Promise.reject("untrackable line");
         return new Promise(function(sol, jec){
-            ctx = {to: to, t: t, g: g, resolve: sol, reject: jec};
-            ctx.mode = "track";
-            ctx.key = key;
+            verbose && console.log("__ init and track", from, to);
+            ctx = {mode: "track", key: key, to: to, t: t, g: g, sol: sol, jec: jec};
             press(key)();
+            ctx.idleTi = setTimeout(unfreeze, 3000);
         });
     }
+    var unfreeze = function() {
+        if (!ctx) return;
+        clearTimeout(ctx.ti);
+        ctx.jec && ctx.jec("tracker is not reponse!");
+        ctx = 0;
+    };
     var ionce = function() {
         return new Promise(function(sol, jec){
-            ctx = {mode: "once", resolve: sol, reject: jec};
-            ctx.ti = setTimeout(function(){
-                jec("once timeouted!");
-                ctx = 0;
-            }, 3000);
+            ctx = {mode: "once", sol: sol, jec: jec};
+            ctx.ti = setTimeout(function(){ jec("once timeouted!"); ctx = 0; }, 3000);
         });
     }
     return {
         listen: function() { obs.observe(el, cfg) },
         ignore: function() {
             obs.disconnect();
-            return ctx.reject && ctx.reject("position cancel");
+            return ctx.jec && ctx.jec("position faded out!");
         },
         track: itrack,
         now: function() { return cAddr; },
@@ -423,11 +426,13 @@ function toMovementKey(from, to) {
 function pclick(key, addr) {
     return new Promise(function(resolve, reject){
         var d, t, p;
+        var tries = 0;
         var posCheck = function(){
-            if (!ctx.ptool) return reject("ptool is nok");
+            if (!ctx.ptool) return reject("no ptool");
             var c = ctx.ptool.now();
             verbose && console.log("__ position check", addr, c);
             if (c[0] == addr[0] && c[1] == addr[1]) return resolve();
+            if (tries++ > 9) return reject("____ retry exhausted!");
             t = 0;
             loop();
         }
@@ -436,11 +441,11 @@ function pclick(key, addr) {
                 release(key)();
                 return p.then(posCheck, reject);
             }
-            if (!ctx.ptool) return reject("ptool is nok");
+            if (!ctx.ptool) return reject("no ptool");
             p = ctx.ptool.once();
-            press(key)();
             t = 1;
-            setTimeout(loop, 50);
+            var d = press(key)();
+            setTimeout(loop, 0.5*d);
         }
         posCheck();
     });
@@ -463,10 +468,7 @@ function mapSwitch(cmd, idx) {
             if (!sub) return;
             ctx.prev = ctx.ptool.now();
             sol();
-        }, function(err){
-            if (sub) jec(err);
-            else verbose && console.log("__ silented, ", err);
-        });
+        }, jec);
         sub = ppress(cmd, idx+1);
     });
     if (!sub) return;
