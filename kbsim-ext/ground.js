@@ -293,12 +293,18 @@ function positionEventTool() {
             ctx.ti = setTimeout(function(){ jec("once timeouted!"); ctx = 0; }, 3000);
         });
     }
+    var idc = function(){
+        obs.disconnect();
+        if (!ctx) return;
+        clearTimeout(ctx.ti);
+        clearTimeout(ctx.idleTi);
+        if (ctx.mode == "track") release(ctx.key)();
+        if (ctx.jec) ctx.jec("position faded out!");
+        ctx = 0;
+    }
     return {
         listen: function() { obs.observe(el, cfg) },
-        ignore: function() {
-            obs.disconnect();
-            return ctx.jec && ctx.jec("position faded out!");
-        },
+        ignore: idc,
         track: itrack,
         now: function() { return cAddr; },
         once: ionce,
@@ -514,9 +520,16 @@ function combatEventTool() {
             ctx = { ii: t, sol: sol, jec: jec};
         });
     }
+    var idc = function() {
+        obs.disconnect();
+        if (!ctx) return;
+        clearTimeout(ctx.ii);
+        clearTimeout(ctx.ti);
+        ctx = 0;
+    }
     return {
         open: function() { obs.observe(el, cfg) },
-        dc: function() { obs.disconnect(); },
+        dc: idc,
         cwait: iCwait
     };
 }
