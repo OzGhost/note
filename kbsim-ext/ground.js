@@ -19,7 +19,7 @@ var keys = {
 
 function runControl(payload, num) {
     if (ctx.cmds)
-        return verbose && console.warn("__[xx] busy");
+        return console.warn("__[xx] busy");
     if (payload == "ibks") {
         ctx.num = +num;
         return browser.storage.local.get("cmds").then(runControl);
@@ -28,7 +28,7 @@ function runControl(payload, num) {
     cmds = cmds[ctx.num - 1];
     verbose && console.log(" __ execute: ", ctx.num);
     if (!cmds) {
-        verbose && console.warn(" .. load default commands!");
+        console.warn(" .. load default commands!");
         cmds = "uudd" ;
     }
     ctx = { cmds: cmds, idx: 0, round: readReps(cmds) };
@@ -264,7 +264,7 @@ function positionEventTool() {
             verbose && console.log("____ retrigger!");
             var d = release(ctx.key)();
             setTimeout(press(ctx.key), d);
-        }, 200);
+        }, 750);
         ctx.idleTi = setTimeout(unfreeze, 3000);
     });
     var itrack = function(from, to, key) {
@@ -315,15 +315,17 @@ function toAddr(txt) {
 
 function proll() {
     if (!ctx.pinit) {
-        var tool = positionEventTool();
+        var ptl = positionEventTool();
+        var ctl = combatEventTool();
         ctx.teardown = function(err){
-            if (err) verbose && console.warn("__[xx] crashed, ", err);
+            if (err) console.warn("__[xx] crashed, ", err);
             else verbose && console.log("__ teardown!");
-            tool.ignore();
+            ptl.ignore(); ctl.dc();
             ctx = {};
         }
-        tool.listen();
-        ctx.ptool = tool;
+        ptl.listen(); ctl.open();
+        ctx.ptool = ptl;
+        ctx.ctool = ctl;
         ctx.pinit = 1;
     }
     var cmds = ctx.cmds;
@@ -357,6 +359,7 @@ function detectAct(cmd, idx) {
         case 'k': return kkpress(cmd, idx);
         case '+': return mapSwitch(cmd, idx);
         case 'w': return pwait(cmd, idx);
+        case '%': return combatClock(cmd, idx);
     }
     return;
 }
@@ -484,6 +487,54 @@ function pwait(cmd, idx) {
     verbose && console.log("_ busy wait", c);
     var p = new Promise(function(sol,jec){ setTimeout(sol, 1000*c) });
     return { act: p, idx: i+1 };
+}
+
+function combatEventTool() {
+    var ctx = 0;
+    var el = document.getElementById("enemy_healthbar");
+    var cfg = { attributes: true, childList: false, subtree: false };
+    var obs = new MutationObserver(function (ms, _) {
+        if (!ctx) return;
+        for (var m of ms) {
+            if (m.target.className.split(' ').includes("hidden"))
+                ctx.ti = setTimeout(function(){
+                    verbose && console.log("__ fight over");
+                    if (!ctx) return;
+                    clearTimeout(ctx.ii);
+                    ctx.sol();
+                    ctx = 0;
+                }, 500);
+            else clearTimeout(ctx.ti);
+            break;
+        }
+    });
+    var iCwait = function() {
+        return new Promise(function(sol, jec){
+            var t = setTimeout(function(){ jec("combat timeout!"); }, 30100);
+            ctx = { ii: t, sol: sol, jec: jec};
+        });
+    }
+    return {
+        open: function() { obs.observe(el, cfg) },
+        dc: function() { obs.disconnect(); },
+        cwait: iCwait
+    };
+}
+
+function combatClock(cmd, idx) {
+    var sub;
+    var pro = new Promise(function(sol, jec){
+        verbose && console.log("____ install combat hook");
+        ctx.ctool.cwait().then(function(){
+            if (!sub) return;
+            var now = ctx.ptool.now();
+            if (now.length) ctx.prev = now;
+            sol();
+        }, jec);
+        sub = ppress(cmd, idx+1);
+    });
+    if (!sub) return;
+    return { act: pro, idx: sub.idx };
 }
 
 function onKeyFn(e) {
