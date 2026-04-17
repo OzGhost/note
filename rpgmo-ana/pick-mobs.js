@@ -22,13 +22,13 @@
             mb: npc.temp.magic_block || 0,
             sb: npc.temp.melee_block || 0
         };
-        if (m.sb > 20) continue;
-        if (m.d > 460) continue;
-        if (m.a > 750) continue;
+        //if (m.sb > 15) continue;
+        if (m.d > 47) continue;
+        if (m.a >= 39) continue;
         wm.push(m);
     }
     wm.sort(function(a, b){ return b.h - a.h; });
-    for (var i = 0; i < wm.length; i++) {
+    for (var i = 0; i < wm.length && i < 30; i++) {
         print(mtostr(wm[i]));
     }
     function mtostr(m) {

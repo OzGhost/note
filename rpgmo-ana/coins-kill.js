@@ -66,11 +66,11 @@
         for (var i = 0; i < npc_base.length; i++) {
             var mob = npc_base[i];
             if (!mob || mob.type != OBJECT_TYPE.ENEMY) continue;
-            /*
-            if ((mob.temp.melee_block || 0) > 20) continue;
-            if (mob.temp.total_defense > 460) continue;
-            if (mob.temp.total_accuracy > 750) continue;
-            */
+            //fme
+            //if ((mob.temp.melee_block || 0) > 20) continue;
+            if (mob.temp.total_defense > 47) continue;
+            if (mob.temp.total_accuracy >= 39) continue;
+            if (mob.temp.health < 14) continue;
             names.push({id: i, name: mob.name.toLowerCase()});
         }
         return names;
@@ -152,7 +152,7 @@
         list.push({val: valPerHp(npcMark, npc_base[mob.id]), name: mob.name});
     }
     list.sort(function(a,b){return b.val - a.val;});
-    for (var j = 0; j < 50; j++) {
+    for (var j = 0; j < 30; j++) {
         var mob = list[j];
         dz.print(tailFloor(mob.val) + " " + mob.name);
     }
