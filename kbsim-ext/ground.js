@@ -299,7 +299,7 @@ function positionEventTool() {
         clearTimeout(ctx.ti);
         clearTimeout(ctx.idleTi);
         if (ctx.mode == "track") release(ctx.key)();
-        if (ctx.jec) ctx.jec("position faded out!");
+        if (ctx.jec) ctx.jec("position fadeout!");
         ctx = 0;
     }
     return {
@@ -525,6 +525,7 @@ function combatEventTool() {
         if (!ctx) return;
         clearTimeout(ctx.ii);
         clearTimeout(ctx.ti);
+        if (ctx.jec) ctx.jec("combat fadeout!");
         ctx = 0;
     }
     return {
