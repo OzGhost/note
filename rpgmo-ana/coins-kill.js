@@ -1,4 +1,5 @@
 (function(){
+    var haveBook = 1;
     function initDz(names) {
         var dz = document.getElementById('coins-kill-dz');
         var eSelect = 0;
@@ -62,18 +63,20 @@
         return marks;
     }
     function extractNames() {
-        var names = [];
+        var out = { all: [], selected: [] };
         for (var i = 0; i < npc_base.length; i++) {
             var mob = npc_base[i];
             if (!mob || mob.type != OBJECT_TYPE.ENEMY) continue;
+            var v = {id: i, name: mob.name.toLowerCase()};
+            out.all.push(v);
             //fme
-            //if ((mob.temp.melee_block || 0) > 20) continue;
-            if (mob.temp.total_defense > 47) continue;
-            if (mob.temp.total_accuracy >= 39) continue;
-            if (mob.temp.health < 14) continue;
-            names.push({id: i, name: mob.name.toLowerCase()});
+            //if ((mob.temp.melee_block || 0) > 5) continue;
+            if (mob.temp.total_defense > 415) continue;
+            if (mob.temp.total_accuracy >= 502) continue;
+            if (mob.temp.health < 60) continue;
+            out.selected.push(v);
         }
-        return names;
+        return out;
     }
     function newCalculator(npcMark) {
         return function(id){
@@ -84,7 +87,7 @@
             var avgVal = 0;
             for (var i = 0; i < loots.length; i++) {
                 var loot = loots[i];
-                if (loot.mon_book_only) continue;
+                if (loot.mon_book_only && !haveBook) continue;
                 var rate = remain * loot.chance;
                 remain -= rate;
                 var item = item_base[loot.id];
@@ -94,7 +97,7 @@
                 avgVal += aval;
                 items.push([item.name, tailFloor(rate*100), tailFloor(aval), sellat]);
             }
-            items.sort(function(a,b){ return b[1] - a[1];});
+            items.sort(function(a,b){ return b[2] - a[2];});
             var rows = [];
             var mblock = mob.temp.melee_block || 0;
             var enc = 1 - (mblock/100);
@@ -123,7 +126,7 @@
         var avgVal = 0;
         for (var i = 0; i < loots.length; i++) {
             var loot = loots[i];
-            if (loot.mon_book_only) continue;
+            if (loot.mon_book_only && !haveBook) continue;
             var rate = remain * loot.chance;
             remain -= rate;
             var item = item_base[loot.id];
@@ -139,21 +142,27 @@
     }
 
     var npcMark = markNpcBuyItems();
-    var mnames = extractNames();
+    var splitList = extractNames();
+    var mnames = splitList.all;
+    var smobs = splitList.selected;
     var dz = initDz(mnames);
     dz.setMobSelectionCallback(newCalculator(npcMark));
     var list = [];
-    for (var i = 0; i < mnames.length; i++) {
-        var mob = mnames[i];
+    for (var i = 0; i < smobs.length; i++) {
+        var mob = smobs[i];
         if (mob.name.startsWith("[rare")
                 || mob.name.startsWith("[boss]")
-                || mob.name.startsWith("[elite]"))
+                || mob.name.startsWith("[elite]")
+                || mob.name.endsWith("mushroom"))
             continue;
         list.push({val: valPerHp(npcMark, npc_base[mob.id]), name: mob.name});
     }
     list.sort(function(a,b){return b.val - a.val;});
-    for (var j = 0; j < 30; j++) {
+    var c = 0;
+    for (var j = 0; j < list.length && c < 30; j++) {
         var mob = list[j];
+        if (mob.val > 12) continue;
+        c++;
         dz.print(tailFloor(mob.val) + " " + mob.name);
     }
 })();

@@ -22,9 +22,9 @@
             mb: npc.temp.magic_block || 0,
             sb: npc.temp.melee_block || 0
         };
-        //if (m.sb > 15) continue;
-        if (m.d > 47) continue;
-        if (m.a >= 39) continue;
+        //if (m.sb > 5) continue;
+        if (m.d > 136) continue;
+        if (m.a >= 75) continue;
         wm.push(m);
     }
     wm.sort(function(a, b){ return b.h - a.h; });
