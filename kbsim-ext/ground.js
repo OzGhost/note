@@ -1,6 +1,7 @@
 var ctx = {};
 var verbose = 0;
 var cid = 0;
+var edoc = 0;
 verbose && console.log("__[o0] i'm in");
 var keys = {
     up:    function(){return {code:"ArrowUp",   key:"ArrowUp",   keyCode:38,which:38,bubbles:true}},
@@ -366,6 +367,7 @@ function detectAct(cmd, idx) {
         case '+': return mapSwitch(cmd, idx);
         case 'w': return pwait(cmd, idx);
         case '%': return combatClock(cmd, idx);
+        case '~': return qLoad(cmd, idx);
     }
     return;
 }
@@ -488,8 +490,7 @@ function pwait(cmd, idx) {
     var i = idx+1;
     if (i >= cmd.lengthh) return;
     var c = cmd.charAt(i);
-    if ('0' >= c && c > '9')
-        return;
+    if ('0' >= c && c > '9') return;
     verbose && console.log("_ busy wait", c);
     var p = new Promise(function(sol,jec){ setTimeout(sol, 1000*c) });
     return { act: p, idx: i+1 };
@@ -551,6 +552,29 @@ function combatClock(cmd, idx) {
     return { act: pro, idx: sub.idx };
 }
 
+function qLoad(cmd, idx) {
+    if (!edoc) return console.warn("_ the e-doc not ready!");
+    var ftr = edoc.childNodes[0];
+    if (!ftr) {
+        ftr = document.createElement("button");
+        edoc.appendChild(ftr);
+    }
+    var ins = [["stone bar", 12],["void log", 12],["ning fea", 12]];
+    verbose && console.log("__ trigger keybinds " + JSON.stringify(ins));
+    var acts = "var kfn=Keybindings.execute_commands;";
+    acts += "kfn(47,undefined,!0);";
+    for (var i = 0; i < ins.length; i++) {
+        acts += "kfn(54,'" +ins[i][0]+ "',!0);";
+        acts += "kfn(64,'" +ins[i][1]+ "',!0);";
+        acts += "kfn(54,'',!0);";
+    }
+    ftr.setAttribute("onclick", acts);
+    var pro = new Promise(function(sol, jec){
+        setTimeout(function(){ ftr.click(); setTimeout(sol, 500); }, 0);
+    });
+    return { act: pro, idx: idx+1 };
+}
+
 function onKeyFn(e) {
     if (e.key == "Control") {
         verbose && console.log("__ cancelling ...");
@@ -578,3 +602,17 @@ function onKeyFn(e) {
 }
 
 document.addEventListener("keydown", onKeyFn);
+(function(){
+    edoc = document.getElementById("mahdoc");
+    if (!edoc) {
+        edoc = document.createElement("div");
+        edoc.id = "mahdoc";
+        edoc.style.position = "absolute";
+        edoc.style.border = "1px dashed grey";
+        edoc.style.padding = "8px 12px";
+        edoc.style.top = "-50px";
+        edoc.style.left = "8px";
+        document.body.appendChild(edoc);
+    }
+})();
+
