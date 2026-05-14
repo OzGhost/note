@@ -300,7 +300,7 @@ function positionEventTool() {
         clearTimeout(ctx.ti);
         clearTimeout(ctx.idleTi);
         if (ctx.mode == "track") release(ctx.key)();
-        if (ctx.jec) ctx.jec("position fadeout!");
+        if (ctx.jec) ctx.jec(":- position tool go off!");
         ctx = 0;
     }
     return {
@@ -324,15 +324,17 @@ function proll() {
     if (!ctx.pinit) {
         var ptl = positionEventTool();
         var ctl = combatEventTool();
+        var itl = invEventTool();
         ctx.teardown = function(err){
             if (err) console.warn("__[xx] crashed, ", err);
             else verbose && console.log("__ teardown!");
-            ptl.ignore(); ctl.dc();
+            ptl.ignore(); ctl.dc(); itl.dc();
             ctx = {};
         }
-        ptl.listen(); ctl.open();
+        ptl.listen(); ctl.open(); itl.open();
         ctx.ptool = ptl;
         ctx.ctool = ctl;
+        ctx.itool = itl;
         ctx.pinit = 1;
     }
     var cmds = ctx.cmds;
@@ -368,6 +370,8 @@ function detectAct(cmd, idx) {
         case 'w': return pwait(cmd, idx);
         case '%': return combatClock(cmd, idx);
         case '~': return qLoad(cmd, idx);
+        case '>': return invWatch(cmd, idx, 1);
+        case '<': return invWatch(cmd, idx, -1);
     }
     return;
 }
@@ -526,7 +530,7 @@ function combatEventTool() {
         if (!ctx) return;
         clearTimeout(ctx.ii);
         clearTimeout(ctx.ti);
-        if (ctx.jec) ctx.jec("combat fadeout!");
+        if (ctx.jec) ctx.jec(":- combat tool go off!");
         ctx = 0;
     }
     return {
@@ -573,6 +577,66 @@ function qLoad(cmd, idx) {
         setTimeout(function(){ ftr.click(); setTimeout(sol, 500); }, 0);
     });
     return { act: pro, idx: idx+1 };
+}
+
+function invEventTool() {
+    var ctx = 0;
+    var v = -1;
+    var el = document.getElementById("inventory_counts");
+    var cfg = { attributes: false, childList: true, subtree: false };
+    var obs = new MutationObserver(function (ms, _) {
+        for (var m of ms) {
+            v = 1*(m.addedNodes[0].data.split(' ')[0]);
+            break;
+        }
+        if (!ctx || !met(ctx.d, ctx.v)) return;
+        verbose && console.log("___ inv conds hit", v, ctx.v, ctx.d);
+        var sol = ctx.sol;
+        setTimeout(sol, 200);
+        ctx = 0;
+        v = -1;
+    });
+    function met(delta, val) {
+        return (delta > 0) ? (v > val) : (v < val);
+    }
+    var iuntil = function(val, delta){
+        if (v >= 0 && met(delta, val)) return Promise.resolve();
+        return new Promise(function(sol, jec){
+            ctx = {sol: sol, jec: jec, v: val, d: delta};
+            setTimeout(function(){ jec("inv timeout"); }, 60000);
+        });
+    }
+    var idc = function() {
+        obs.disconnect();
+        if (ctx) ctx.jec(":- inv tool go off");
+    }
+    return {
+        open: function() { obs.observe(el, cfg) },
+        dc: idc,
+        until: iuntil
+    };
+}
+
+function invWatch(cmd, idx, delta) {
+    if (!ctx.itool) return;
+    var i = idx + 2;
+    if (i >= cmd.lengthh) {
+        verbose && console.log("___ 2 digits suffix required");
+        return;
+    }
+    var c = cmd.charAt(i);
+    if ('0' > c && c > '9') {
+        verbose && console.log("___ 2 digits suffix required");
+        return;
+    }
+    var val = 1 * c;
+    c = cmd.charAt(i-1);
+    if ('0' > c && c > '9') {
+        verbose && console.log("___ 2 digits suffix required");
+        return;
+    }
+    val += 10*c;
+    return { act: ctx.itool.until(val, delta), idx: idx+3 };
 }
 
 function onKeyFn(e) {
