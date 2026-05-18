@@ -514,14 +514,14 @@ function combatEventTool() {
                     clearTimeout(ctx.ii);
                     ctx.sol();
                     ctx = 0;
-                }, 500);
+                }, 1500);
             else clearTimeout(ctx.ti);
             break;
         }
     });
     var iCwait = function() {
         return new Promise(function(sol, jec){
-            var t = setTimeout(function(){ jec("combat timeout!"); }, 30100);
+            var t = setTimeout(function(){ jec("combat timeout!"); }, 45000);
             ctx = { ii: t, sol: sol, jec: jec};
         });
     }
@@ -551,8 +551,13 @@ function combatClock(cmd, idx) {
             sol();
         }, jec);
         sub = ppress(cmd, idx+1);
+        if (!sub) sub = spress(cmd, idx+1);
+        if (sub) sub.act.catch(jec);
     });
-    if (!sub) return;
+    if (!sub) {
+        verbose && console.log("__ __ no post hook, ignore combat");
+        return;
+    }
     return { act: pro, idx: sub.idx };
 }
 
@@ -637,6 +642,39 @@ function invWatch(cmd, idx, delta) {
     }
     val += 10*c;
     return { act: ctx.itool.until(val, delta), idx: idx+3 };
+}
+
+
+function spress(cmd, idx) {
+    var key;
+    switch (cmd.charAt(idx)) {
+        case 'U': key = keys.up(); break;
+        case 'D': key = keys.down(); break;
+        case 'L': key = keys.left(); break;
+        case 'R': key = keys.right(); break;
+        default: return;
+    }
+    var act = new Promise(function(sol, jec){
+        var before = ctx.ptool.now();
+        if (!before || !before.length) return jec("current pos is unknown!");
+        key.shiftKey = true;
+        LSHIFT.shiftKey = true;
+        press(LSHIFT)();
+        setTimeout(function(){
+            var d = press(key)();
+            setTimeout(function(){
+                LSHIFT.shiftKey = false;
+                release(key)();
+                release(LSHIFT)();
+                setTimeout(function(){
+                    var after = ctx.ptool.now();
+                    if (before[0] == after[0] && before[1] == after[1]) sol();
+                    else jec("shooting target unavailable!");
+                }, pickin(200, 300));
+            }, d);
+        }, pickin(900, 1500));
+    });
+    return { act: act, idx: idx+1 };
 }
 
 function onKeyFn(e) {
