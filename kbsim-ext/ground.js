@@ -265,7 +265,7 @@ function positionEventTool() {
             verbose && console.log("____ retrigger!");
             var d = release(ctx.key)();
             setTimeout(press(ctx.key), d);
-        }, 750);
+        }, 500);
         ctx.idleTi = setTimeout(unfreeze, 3000);
     });
     var itrack = function(from, to, key) {
@@ -285,7 +285,8 @@ function positionEventTool() {
     var unfreeze = function() {
         if (!ctx) return;
         clearTimeout(ctx.ti);
-        ctx.jec && ctx.jec("tracker is not reponse!");
+        ctx.key && release(ctx.key)();
+        ctx.jec && ctx.jec("tracker is not response!");
         ctx = 0;
     };
     var ionce = function() {
@@ -325,16 +326,18 @@ function proll() {
         var ptl = positionEventTool();
         var ctl = combatEventTool();
         var itl = invEventTool();
+        var htl = hpEventTool();
         ctx.teardown = function(err){
             if (err) console.warn("__[xx] crashed, ", err);
             else verbose && console.log("__ teardown!");
-            ptl.ignore(); ctl.dc(); itl.dc();
+            ptl.ignore(); ctl.dc(); itl.dc(); htl.dc();
             ctx = {};
         }
-        ptl.listen(); ctl.open(); itl.open();
+        ptl.listen(); ctl.open(); itl.open(); htl.open();
         ctx.ptool = ptl;
         ctx.ctool = ctl;
         ctx.itool = itl;
+        ctx.htool = htl;
         ctx.pinit = 1;
     }
     var cmds = ctx.cmds;
@@ -514,7 +517,7 @@ function combatEventTool() {
                     clearTimeout(ctx.ii);
                     ctx.sol();
                     ctx = 0;
-                }, 1500);
+                }, 2000);
             else clearTimeout(ctx.ti);
             break;
         }
@@ -558,6 +561,10 @@ function combatClock(cmd, idx) {
         verbose && console.log("__ __ no post hook, ignore combat");
         return;
     }
+    pro = pro.then(function(){
+        if (ctx.htool.now() <= 30) return Promise.reject("low hp");
+        if (ctx.itool.now() == 0) return Promise.reject("inv full");
+    });
     return { act: pro, idx: sub.idx };
 }
 
@@ -618,7 +625,8 @@ function invEventTool() {
     return {
         open: function() { obs.observe(el, cfg) },
         dc: idc,
-        until: iuntil
+        until: iuntil,
+        now: function() { return v; }
     };
 }
 
@@ -675,6 +683,27 @@ function spress(cmd, idx) {
         }, pickin(900, 1500));
     });
     return { act: act, idx: idx+1 };
+}
+
+function hpEventTool() {
+    var v = -1;
+    var el = document.getElementById("player_health_name");
+    var cfg = { attributes: false, childList: true, subtree: false };
+    var obs = new MutationObserver(function (ms, _) {
+        for (var m of ms) {
+            var txt = m.addedNodes[0].data;
+            var l = txt.indexOf('(') + 1;
+            var h = txt.indexOf('/');
+            v = 1*(txt.substring(l, h));
+            verbose && console.log("__ change in hp", v);
+            break;
+        }
+    });
+    return {
+        open: function() { obs.observe(el, cfg) },
+        dc: function() { obs.disconnect(); },
+        now: function() { return v; }
+    };
 }
 
 function onKeyFn(e) {
