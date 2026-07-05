@@ -15,7 +15,7 @@ while true; do
             t=$((lu-5))
             nu=$(echo ${up:0:$t} | sed 's|\(.\)$|.\1|')
         fi
-        printf "\n> down: $nd | up: $nu "
+        printf "$nu / $nd\n"
     }
     sleep 10
 done

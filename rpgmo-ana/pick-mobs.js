@@ -20,17 +20,22 @@
             d: npc.temp.total_defense,
             h: npc.temp.health,
             mb: npc.temp.magic_block || 0,
-            sb: npc.temp.melee_block || 0
+            sb: npc.temp.melee_block || 0,
+            id: i
         };
         //if (m.sb > 5) continue;
-        if (m.d > 136) continue;
-        if (m.a >= 75) continue;
+        if (m.d > 48) continue;
+        if (m.a > 140) continue;
         wm.push(m);
     }
     wm.sort(function(a, b){ return b.h - a.h; });
+    var ids = [];
     for (var i = 0; i < wm.length && i < 30; i++) {
         print(mtostr(wm[i]));
+        ids.push(wm[i].id);
     }
+    print("---");
+    print("ids: " + JSON.stringify(ids));
     function mtostr(m) {
         return m.name
             + " [a:" + m.a

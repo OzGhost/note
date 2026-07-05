@@ -1,8 +1,7 @@
 (function(){
     var haveBook = 1;
-    function initDz(names) {
+    function initDz(names, eSelect, mEva) {
         var dz = document.getElementById('coins-kill-dz');
-        var eSelect = 0;
         var hline = document.createElement("h4"); dz.appendChild(hline);
         hline.innerText = "Coins per kill calculator";
         var plain = document.createElement('pre'); dz.appendChild(plain);
@@ -15,6 +14,8 @@
         nameinp.addEventListener("input", debounce(nameChange));
         var timeId = 0;
         var tab = document.createElement("table"); dz.appendChild(tab);
+        var idsinp = document.createElement("input"); dz.appendChild(idsinp);
+        idsinp.addEventListener("input", readIds);
         function debounce(action) {
             return function() {
                 clearTimeout(timeId);
@@ -42,9 +43,25 @@
                 });
             }
         }
+        var iprint = function (txt) { plain.innerText = plain.innerText + '\n' + txt; }
+        var iclear = function () { plain.innerText = ''; }
+        function readIds() {
+            var ids, err;
+            try {
+                ids = JSON.parse(idsinp.value);
+            } catch {
+                err = 1;
+            }
+            if (err) return;
+            var lines = mEva(ids);
+            iclear();
+            for (var i = 0; i < lines.length; i++) {
+                iprint(lines[i].val + " " + lines[i].name);
+            }
+        }
         return {
-            print: function (txt) { plain.innerText = plain.innerText + '\n' + txt; },
-            setMobSelectionCallback: function(e){ eSelect = e; }
+            print: iprint,
+            clear: iclear
         };
     }
     function markNpcBuyItems() {
@@ -71,8 +88,8 @@
             out.all.push(v);
             //fme
             //if ((mob.temp.melee_block || 0) > 5) continue;
-            if (mob.temp.total_defense > 415) continue;
-            if (mob.temp.total_accuracy >= 502) continue;
+            if (mob.temp.total_defense > 255) continue;
+            if (mob.temp.total_accuracy >= 333) continue;
             if (mob.temp.health < 60) continue;
             out.selected.push(v);
         }
@@ -141,12 +158,23 @@
         return tailFloor(avgVal / hp);
     }
 
+    function multiEvaluate(marks) {
+        return function(ids) {
+            var l = [];
+            for (var i = 0; i < ids.length; i++) {
+                var mob = npc_base[ids[i]];
+                l.push({val: valPerHp(marks, mob), name: mob.name});
+            }
+            l.sort(function(a,b){return b.val - a.val;});
+            return l;
+        }
+    }
+
     var npcMark = markNpcBuyItems();
     var splitList = extractNames();
     var mnames = splitList.all;
     var smobs = splitList.selected;
-    var dz = initDz(mnames);
-    dz.setMobSelectionCallback(newCalculator(npcMark));
+    var dz = initDz(mnames, newCalculator(npcMark), multiEvaluate(npcMark));
     var list = [];
     for (var i = 0; i < smobs.length; i++) {
         var mob = smobs[i];
@@ -161,7 +189,7 @@
     var c = 0;
     for (var j = 0; j < list.length && c < 30; j++) {
         var mob = list[j];
-        if (mob.val > 12) continue;
+        if (mob.val > 13) continue;
         c++;
         dz.print(tailFloor(mob.val) + " " + mob.name);
     }

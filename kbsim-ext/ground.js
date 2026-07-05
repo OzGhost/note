@@ -15,6 +15,7 @@ var keys = {
     kT: function(){return {code:"KeyT",key:"t",keyCode:84,which:84,bubbles:true}},
     kB: function(){return {code:"KeyB",key:"b",keyCode:66,which:66,bubbles:true}},
     kM: function(){return {code:"KeyM",key:"m",keyCode:77,which:77,bubbles:true}},
+    kE: function(){return {code:"KeyE",key:"e",keyCode:69,which:69,bubbles:true}},
     void:  {}
 };
 
@@ -327,10 +328,11 @@ function proll() {
         var ctl = combatEventTool();
         var itl = invEventTool();
         var htl = hpEventTool();
+        var atl = slotEventTool();
         ctx.teardown = function(err){
             if (err) console.warn("__[xx] crashed, ", err);
             else verbose && console.log("__ teardown!");
-            ptl.ignore(); ctl.dc(); itl.dc(); htl.dc();
+            ptl.ignore(); ctl.dc(); itl.dc(); htl.dc(); atl.dc();
             ctx = {};
         }
         ptl.listen(); ctl.open(); itl.open(); htl.open();
@@ -338,6 +340,7 @@ function proll() {
         ctx.ctool = ctl;
         ctx.itool = itl;
         ctx.htool = htl;
+        ctx.atool = atl;
         ctx.pinit = 1;
     }
     var cmds = ctx.cmds;
@@ -375,6 +378,7 @@ function detectAct(cmd, idx) {
         case '~': return qLoad(cmd, idx);
         case '>': return invWatch(cmd, idx, 1);
         case '<': return invWatch(cmd, idx, -1);
+        case '@': return slotWatch(cmd, idx);
     }
     return;
 }
@@ -517,7 +521,7 @@ function combatEventTool() {
                     clearTimeout(ctx.ii);
                     ctx.sol();
                     ctx = 0;
-                }, 2000);
+                }, 750);
             else clearTimeout(ctx.ti);
             break;
         }
@@ -562,8 +566,8 @@ function combatClock(cmd, idx) {
         return;
     }
     pro = pro.then(function(){
-        if (ctx.htool.now() <= 30) return Promise.reject("low hp");
-        if (ctx.itool.now() == 0) return Promise.reject("inv full");
+        if (ctx.htool.now() < 10) return Promise.reject("low hp");
+        //if (ctx.itool.now() == 0) return Promise.reject("inv full");
     });
     return { act: pro, idx: sub.idx };
 }
@@ -575,7 +579,7 @@ function qLoad(cmd, idx) {
         ftr = document.createElement("button");
         edoc.appendChild(ftr);
     }
-    var ins = [["stone bar", 12],["void log", 12],["ning fea", 12]];
+    var ins = [["of wat", 7],["blueberry", 28]];
     verbose && console.log("__ trigger keybinds " + JSON.stringify(ins));
     var acts = "var kfn=Keybindings.execute_commands;";
     acts += "kfn(47,undefined,!0);";
@@ -601,7 +605,12 @@ function invEventTool() {
             v = 1*(m.addedNodes[0].data.split(' ')[0]);
             break;
         }
-        if (!ctx || !met(ctx.d, ctx.v)) return;
+        if (!ctx) return;
+        clearTimeout(ctx.tid);
+        if (!met(ctx.d, ctx.v)) {
+            ctx.tid = setTimeout(function(){ ctx.jec("inv frozen"); }, 90000);
+            return;
+        }
         verbose && console.log("___ inv conds hit", v, ctx.v, ctx.d);
         var sol = ctx.sol;
         setTimeout(sol, 200);
@@ -613,14 +622,18 @@ function invEventTool() {
     }
     var iuntil = function(val, delta){
         if (v >= 0 && met(delta, val)) return Promise.resolve();
+        verbose && console.log("__ load inv watch", val, delta);
         return new Promise(function(sol, jec){
             ctx = {sol: sol, jec: jec, v: val, d: delta};
-            setTimeout(function(){ jec("inv timeout"); }, 60000);
+            ctx.tid = setTimeout(function(){ ctx.jec("inv frozen"); }, 90000);
+            setTimeout(function(){ jec("inv timeout"); }, 360000);
         });
     }
     var idc = function() {
         obs.disconnect();
-        if (ctx) ctx.jec(":- inv tool go off");
+        if (!ctx) return;
+        clearTimeout(ctx.tid);
+        ctx.jec(":- inv tool go off");
     }
     return {
         open: function() { obs.observe(el, cfg) },
@@ -632,26 +645,24 @@ function invEventTool() {
 
 function invWatch(cmd, idx, delta) {
     if (!ctx.itool) return;
-    var i = idx + 2;
-    if (i >= cmd.lengthh) {
-        verbose && console.log("___ 2 digits suffix required");
+    var val = readDDigit(cmd, idx);
+    if (val < 0) {
+        verbose && console.log("___ inv: 2 digits suffix required");
         return;
     }
-    var c = cmd.charAt(i);
-    if ('0' > c && c > '9') {
-        verbose && console.log("___ 2 digits suffix required");
-        return;
-    }
-    var val = 1 * c;
-    c = cmd.charAt(i-1);
-    if ('0' > c && c > '9') {
-        verbose && console.log("___ 2 digits suffix required");
-        return;
-    }
-    val += 10*c;
     return { act: ctx.itool.until(val, delta), idx: idx+3 };
 }
 
+function readDDigit(cmd, idx) {
+    var i = idx + 2;
+    if (i >= cmd.length) return -1;
+    var c = cmd.charAt(i);
+    if ('0' > c && c > '9') return -1;
+    var tail = 1 * c;
+    c = cmd.charAt(i-1);
+    if ('0' > c && c > '9') return -1;
+    return 10*c + tail;
+}
 
 function spress(cmd, idx) {
     var key;
@@ -704,6 +715,50 @@ function hpEventTool() {
         dc: function() { obs.disconnect(); },
         now: function() { return v; }
     };
+}
+
+function slotEventTool() {
+    var obs, ctx, tid;
+    var islot = function(idx) {
+        if (obs) {
+            verbose && console.log("____ ! slot event register repeated");
+        } else {
+            verbose && console.log("__ watch slot #", idx);
+            var el = document.getElementById("inv_" + idx);
+            var cfg = { attributes: true, childList: false, subtree: false };
+            obs = new MutationObserver(function (ms, _) {
+                clearTimeout(tid);
+                if (!ctx) return;
+                var sol = ctx.sol;
+                ctx = 0;
+                setTimeout(sol, 200);
+            });
+            obs.observe(el, cfg);
+        }
+        return new Promise(function(sol, jec){
+            ctx = {sol: sol, jec: jec};
+            tid = setTimeout(function(){ jec("slot timeout!");}, 180000);
+        });
+    }
+    var idc = function() {
+        if (obs) obs.disconnect();
+        clearTimeout(tid);
+        if (ctx) ctx.jec(":- slot tool go off!");
+    }
+    return {
+        onSlot: islot,
+        dc: idc
+    };
+}
+
+function slotWatch(cmd, idx) {
+    if (!ctx.atool) return;
+    var val = readDDigit(cmd, idx);
+    if (val < 0) {
+        verbose && console.log("___ slot: 2 digits suffix required");
+        return;
+    }
+    return { act: ctx.atool.onSlot(val), idx: idx+3 };
 }
 
 function onKeyFn(e) {
