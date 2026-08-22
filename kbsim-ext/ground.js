@@ -269,16 +269,16 @@ function positionEventTool() {
         }, 500);
         ctx.idleTi = setTimeout(unfreeze, 3000);
     });
-    var itrack = function(from, to, key) {
+    var itrack = function(here, there, key) {
         var t, g;
-        if (from[0] == to[0]) {
+        if (here[0] == there[0]) {
             t = 0; g = 1;
-        } else if (from[1] == to[1]) {
+        } else if (here[1] == there[1]) {
             t = 1; g = 0;
         } else return Promise.reject("untrackable line");
         return new Promise(function(sol, jec){
-            verbose && console.log("__ init and track", from, to);
-            ctx = {mode: "track", key: key, to: to, t: t, g: g, sol: sol, jec: jec};
+            verbose && console.log("__ init and track", here, there);
+            ctx = {mode: "track", key: key, to: there, t: t, g: g, sol: sol, jec: jec};
             press(key)();
             ctx.idleTi = setTimeout(unfreeze, 3000);
         });
@@ -315,11 +315,9 @@ function positionEventTool() {
 }
 
 function toAddr(txt) {
-    return (txt || "")
-        .replace("(","")
-        .replace(")", "")
-        .split(",")
-        .map(function(e){return 1*e.trim()});
+    var stx = txt.trim();
+    return stx.substr(1,stx.length-2).split(",")
+        .map(function(e){return 1*e.trim();});
 }
 
 function proll() {
@@ -384,30 +382,32 @@ function detectAct(cmd, idx) {
 }
 
 function pmove(cmd, idx) {
-    var from, to, len;
-    from = to = idx;
+    var head, tail, len;
+    head = tail = idx;
     len = cmd.length;
-    while (to < len) {
-        var c = cmd.charAt(to);
+    while (tail < len) {
+        var c = cmd.charAt(tail);
         if (c == ')') break;
-        to++;
+        tail++;
     }
-    to++;
-    if (to > len) return;
-    var addr = toAddr(cmd.substring(from,to));
+    tail++;
+    if (tail > len) return;
+    var addr = toAddr(cmd.substring(head,tail));
     if (!addr.length) return;
     if (!ctx.prev) return (ctx.prev = addr) && 0;
     var prev = ctx.prev;
+    addr[0] = addr[0] || prev[0];
+    addr[1] = addr[1] || prev[1];
     var minfo = toMovementKey(prev, addr);
     if (!minfo)
         return { act: Promise.reject("reject move from " + JSON.stringify(prev) + " to " + JSON.stringify(addr)) };
     var setPrevFn = function(){ ctx.prev = addr; };
     if (minfo.gap <= 2)
-        return { act: pclick(minfo.key, addr).then(setPrevFn), idx: to };
+        return { act: pclick(minfo.key, addr).then(setPrevFn), idx: tail };
     verbose && console.log("__ move gap", minfo.gap);
     var pro = ctx.ptool.track(prev, addr, minfo.key)
         .then(function(){ return pclick(minfo.key, addr).then(setPrevFn); });
-    return { act: pro, idx: to };
+    return { act: pro, idx: tail };
 }
 
 function ppress(cmd, idx) {
@@ -432,15 +432,15 @@ function k2act(key) {
     });
 }
 
-function toMovementKey(from, to) {
+function toMovementKey(here, there) {
     var k, gap;
-    if (from[0] == to[0]) {
-        if (from[1] < to[1]) return { key: keys.up(), gap: to[1]-from[1] };
-        return { key: keys.down(), gap: from[1]-to[1] };
+    if (here[0] == there[0]) {
+        if (here[1] < there[1]) return { key: keys.up(), gap: there[1]-here[1] };
+        return { key: keys.down(), gap: here[1]-there[1] };
     }
-    if (from[1] == to[1]) {
-        if (from[0] < to[0]) return { key: keys.right(), gap: to[0]-from[0] };
-        return { key: keys.left(), gap: from[0]-to[0] };
+    if (here[1] == there[1]) {
+        if (here[0] < there[0]) return { key: keys.right(), gap: there[0]-here[0] };
+        return { key: keys.left(), gap: here[0]-there[0] };
     }
     return;
 }
@@ -521,7 +521,7 @@ function combatEventTool() {
                     clearTimeout(ctx.ii);
                     ctx.sol();
                     ctx = 0;
-                }, 750);
+                }, 2950);
             else clearTimeout(ctx.ti);
             break;
         }
@@ -566,8 +566,8 @@ function combatClock(cmd, idx) {
         return;
     }
     pro = pro.then(function(){
-        if (ctx.htool.now() < 10) return Promise.reject("low hp");
-        //if (ctx.itool.now() == 0) return Promise.reject("inv full");
+        if (ctx.htool.now() < 20) return Promise.reject("low hp");
+        if (ctx.itool.now() == 0) return Promise.reject("inv full");
     });
     return { act: pro, idx: sub.idx };
 }
@@ -579,7 +579,7 @@ function qLoad(cmd, idx) {
         ftr = document.createElement("button");
         edoc.appendChild(ftr);
     }
-    var ins = [["of wat", 7],["blueberry", 28]];
+    var ins = [["kombu", 21],["raw oa", 14]];
     verbose && console.log("__ trigger keybinds " + JSON.stringify(ins));
     var acts = "var kfn=Keybindings.execute_commands;";
     acts += "kfn(47,undefined,!0);";

@@ -87,10 +87,10 @@
             var v = {id: i, name: mob.name.toLowerCase()};
             out.all.push(v);
             //fme
-            //if ((mob.temp.melee_block || 0) > 5) continue;
-            if (mob.temp.total_defense > 255) continue;
-            if (mob.temp.total_accuracy >= 333) continue;
-            if (mob.temp.health < 60) continue;
+            if ((mob.temp.melee_block || 0) > 12) continue;
+            if (mob.temp.total_defense > 240) continue;
+            if (mob.temp.total_accuracy >= 206) continue;
+            if (mob.temp.health < 54) continue;
             out.selected.push(v);
         }
         return out;
@@ -176,8 +176,10 @@
     var smobs = splitList.selected;
     var dz = initDz(mnames, newCalculator(npcMark), multiEvaluate(npcMark));
     var list = [];
-    for (var i = 0; i < smobs.length; i++) {
-        var mob = smobs[i];
+    var pool = smobs;
+    //var pool = mnames;
+    for (var i = 0; i < pool.length; i++) {
+        var mob = pool[i];
         if (mob.name.startsWith("[rare")
                 || mob.name.startsWith("[boss]")
                 || mob.name.startsWith("[elite]")
@@ -189,7 +191,7 @@
     var c = 0;
     for (var j = 0; j < list.length && c < 30; j++) {
         var mob = list[j];
-        if (mob.val > 13) continue;
+        //if (mob.val > 13) continue;
         c++;
         dz.print(tailFloor(mob.val) + " " + mob.name);
     }

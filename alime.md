@@ -1,8 +1,4 @@
-radiant
-concrete revolutio
-uq holder
-the elusive samurai
-spirit chronicles
+blast of tempest
 sk8 the infinity
 high card
 our last crusade
@@ -10,9 +6,8 @@ the tatami galaxy
 takt op destiny
 the detective is already dead
 darker than black
-shangri la frontier
-undead unluck
-blast of tempest
+Shangri-La Frontier
+Undead Unluck
 edens zero
 erased
 the garden of sinners
@@ -20,7 +15,6 @@ joran the princess of blood and snow
 garo vanishing line
 the faraway paladin
 jormungand
-skeleton knight in another world
 is it wrong to try to pick up girls in a dungeon
 cleavatess
 gachiakuta
@@ -35,7 +29,7 @@ d. gray man
 gleipnir
 the eminence in shadow
 noblesse
-vivy's fluorite eye's
+vivy's fluorite eye's song
 sword of the stranger
 komi can't communicate
 foghill of the five elements
@@ -81,7 +75,7 @@ rakshasa street
 id: invaded
 samurai champloo
 My Unique Skill Makes Me OP Even at Level 1
-campfire cooking in another world
+Campfire Cooking in Another World with My Absurd Skill
 kamikatsu
 Hinamatsuri
 Heavenly Delusion
@@ -92,7 +86,7 @@ Sword art online
 my gift lv 9999 unlimited gacha: backstabbed in backwater dungeon i'm out for revenge
 the wrong way to use healing magic
 the brilliant healer's new life in the shadows
-failure frame
+Failure Frame: I Became the Strongest and Annihilated Everything With Low-Level Spells
 the strongest tank's labyrinth raids
 the unwated undead adventurer
 look, how i destroy world government
@@ -105,7 +99,6 @@ Deep Insanity: The Lost Child
 In/Spectre
 Clevatess
 Wizard Barristers
-Sentenced to Be a Hero
 Cencoroll
 Malevolent Spirits: Mononogatari
 RWBY: Ice Queendom
@@ -126,11 +119,27 @@ I Parry Everything
 The Silver Guardian
 Lagrange: The Flower of Rin-ne
 Tougen Anki
-
-## later
-boogiepop phantom
-the legend of hei
-spare me great lord
+Zetman
+The Case Study of Vanitas
+Even Given the Worthless "Appraiser" Class, I’m Actually the Strongest
+Welcome to the Outcast's Restaurant!
+Reborn to Master the Blade: From Hero-King to Extraordinary Squire
+Apocalypse Hotel
+Bogus Skill <<Fruitmaster>>: About That Time I Became Able to Eat Unlimited Numbers of Skill Fruits (That Kill You)
+Kamikatsu: Working for God in a Godless World
+Farming Life in Another World
+The Legendary Hero Is Dead!
+Ragna Crimson
+Arifureta: From Commonplace to World's Strongest
+Dead Mount Death Play
+The Witch and the Beast
+I Couldn't Become a Hero, So I Reluctantly Decided to Get a Job
+The Greatest Demon Lord Is Reborn as a Typical Nobody
+4 Cut Hero
+Hell Mode: The Hardcore Gamer Dominates in Another World with Garbage Balancing
+The Duke of Death and His Maid
+The Kingdoms of Ruin
+Seirei Gensouki: Spirit Chronicles
 
 ## soon
 marriage toxin
@@ -143,6 +152,6 @@ Kill Blue
 Kagurabachi
 Witch and Mercenary
 Agents of the Four Seasons: Dance of Spring
+From Overshadowed to Overpowered: Second Reincarnation of a Talentless Sage
+The Exiled Heavy Knight Knows How to Game the System
 
-## seem ok
-darwin's game

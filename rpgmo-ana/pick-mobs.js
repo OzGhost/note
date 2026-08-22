@@ -23,9 +23,9 @@
             sb: npc.temp.melee_block || 0,
             id: i
         };
-        //if (m.sb > 5) continue;
-        if (m.d > 48) continue;
-        if (m.a > 140) continue;
+        if (m.sb > 12) continue;
+        if (m.d > 415) continue;
+        if (m.a > 330) continue;
         wm.push(m);
     }
     wm.sort(function(a, b){ return b.h - a.h; });
