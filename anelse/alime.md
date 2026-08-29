@@ -1,4 +1,4 @@
-blast of tempest
+death parade
 sk8 the infinity
 high card
 our last crusade
@@ -34,7 +34,6 @@ sword of the stranger
 komi can't communicate
 foghill of the five elements
 ao ashi
-death parade
 link click
 charlotte
 sanda
