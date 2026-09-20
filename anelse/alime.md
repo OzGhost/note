@@ -1,4 +1,4 @@
-death parade
+Campfire Cooking in Another World with My Absurd Skill
 sk8 the infinity
 high card
 our last crusade
@@ -22,7 +22,6 @@ code gear
 good night world
 pluto
 paranoia agent
-to be heroine
 kabaneri of the iron fortress
 a certain scientific railgun
 d. gray man
@@ -61,7 +60,6 @@ afterlost
 lord of mysteries
 classroom of the elite
 the banished court magician aims to become the strongest
-solo leveling
 eureka seven
 the world's finest assassin gets reincarnated
 dragon raja
@@ -74,7 +72,6 @@ rakshasa street
 id: invaded
 samurai champloo
 My Unique Skill Makes Me OP Even at Level 1
-Campfire Cooking in Another World with My Absurd Skill
 kamikatsu
 Hinamatsuri
 Heavenly Delusion
@@ -94,7 +91,6 @@ Hitori no Shita - The Outcast
 JAKDU: shaman's blade
 Ishura
 Kagari Hibana
-Deep Insanity: The Lost Child
 In/Spectre
 Clevatess
 Wizard Barristers
@@ -110,13 +106,11 @@ That Time I Got Reincarnated as a Slime
 Magical Warfare
 Burn the Witch
 Chain Chronicle
-Great Pretender
 My Status as an Assassin Obviously Exceeds the Hero's
 Classroom for Heroes
 I've Somehow Gotten Stronger When I Improved My Farm-Related Skills
 I Parry Everything
 The Silver Guardian
-Lagrange: The Flower of Rin-ne
 Tougen Anki
 Zetman
 The Case Study of Vanitas
@@ -139,6 +133,19 @@ Hell Mode: The Hardcore Gamer Dominates in Another World with Garbage Balancing
 The Duke of Death and His Maid
 The Kingdoms of Ruin
 Seirei Gensouki: Spirit Chronicles
+No Longer Allowed in Another World
+Chained Soldier
+False Memory
+Sekirei
+Tales of Zestiria the X
+The Shy Hero and the Assassin Princesses
+Sirius the Jaeger
+To Be Heroine
+Chivalry of a Failed Knight
+Assassins Pride
+Unlimited Psychic Squad
+Talentless Nana
+Yozakura Quartet
 
 ## soon
 marriage toxin
@@ -153,4 +160,10 @@ Witch and Mercenary
 Agents of the Four Seasons: Dance of Spring
 From Overshadowed to Overpowered: Second Reincarnation of a Talentless Sage
 The Exiled Heavy Knight Knows How to Game the System
+Black Torch
+Solo Leveling ss3
 
+## noop
+Deep Insanity: The Lost Child
+Great Pretender
+Lagrange: The Flower of Rin-ne

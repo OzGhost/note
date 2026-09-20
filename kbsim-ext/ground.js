@@ -1,5 +1,5 @@
 var ctx = {};
-var verbose = 1;
+var verbose = 0;
 var cid = 0;
 var edoc = 0;
 verbose && console.log("__[o0] i'm in");
