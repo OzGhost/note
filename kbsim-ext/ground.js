@@ -1,5 +1,5 @@
 var ctx = {};
-var verbose = 0;
+var verbose = 1;
 var cid = 0;
 var edoc = 0;
 verbose && console.log("__[o0] i'm in");
@@ -35,9 +35,12 @@ function runControl(payload, num) {
     }
     ctx = { cmds: cmds, idx: 0, round: readReps(cmds) };
     verbose && console.log("1 sec ...");
-    return cmds.charAt(0) == '?'
+    var tmark = cmds.charAt(0);
+    return tmark == '?'
         ? proll()
-        : cid = setTimeout(roll, 500);
+        : tmark == '%'
+            ? iroll()
+            : cid = setTimeout(roll, 500);
 }
 
 function readReps(cmds) {
@@ -243,7 +246,7 @@ function positionEventTool() {
         if (!ctx) return;
         clearTimeout(ctx.ti);
         if (ctx.mode == "once") {
-            verbose && console.log("__ once!");
+            verbose && console.log("__ once");
             ctx.sol();
             return ctx = 0;
         }
@@ -322,6 +325,7 @@ function toAddr(txt) {
 
 function proll() {
     if (!ctx.pinit) {
+        ctx.pinit = 1;
         var ptl = positionEventTool();
         var ctl = combatEventTool();
         var itl = invEventTool();
@@ -339,7 +343,6 @@ function proll() {
         ctx.itool = itl;
         ctx.htool = htl;
         ctx.atool = atl;
-        ctx.pinit = 1;
     }
     var cmds = ctx.cmds;
     var len = cmds.length;
@@ -359,6 +362,39 @@ function proll() {
         return (ctx.idx = len+1) && proll();
     ctx.idx = next.idx;
     return next.act.then(proll, ctx.teardown);
+}
+
+function iroll() {
+    var cmds = ctx.cmds;
+    if (!cmds)
+        return verbose && console.log("__ cmds 404!");
+    if (!ctx.ifirst) {
+        ctx.ifirst = 1;
+        var ptl = positionEventTool();
+        var itl = invEventTool();
+        ctx.itail = function(err){
+            ptl.ignore(); itl.dc();
+            if (err)
+                console.warn("__[xx] crashed, ", err);
+            else
+                verbose && console.log("__ itailed");
+            ctx = {};
+        }
+        ptl.listen(); itl.open();
+        ctx.ptool = ptl;
+        ctx.itool = itl;
+    }
+    var len = cmds.length;
+    var idx = ctx.idx;
+    if (idx >= len)
+        return ctx.itail();
+    var next = 0;
+    for (; idx < len && !next; idx++)
+        next = wnext(cmds, idx);
+    if (!next)
+        return (ctx.idx = len+1) && iroll();
+    ctx.idx = next.idx;
+    return next.act.then(iroll, ctx.itail);
 }
 
 function detectAct(cmd, idx) {
@@ -381,19 +417,31 @@ function detectAct(cmd, idx) {
     return;
 }
 
-function pmove(cmd, idx) {
-    var head, tail, len;
-    head = tail = idx;
-    len = cmd.length;
-    while (tail < len) {
-        var c = cmd.charAt(tail);
-        if (c == ')') break;
-        tail++;
+function wnext(cmd, idx) {
+    var c = cmd.charAt(idx);
+    switch (c) {
+        case 'U':
+        case 'D':
+        case 'L':
+        case 'R': return harvest(cmd, idx);
+        case 'u':
+        case 'd':
+        case 'l':
+        case 'r': return step(cmd, idx);
+        case '%': return iprepare(cmd, idx);
+        case '!': return ppress(cmd, idx+1);
+        case 'k': return kkpress(cmd, idx);
+        case 'w': return pwait(cmd, idx);
+        case '(': return recoor(cmd, idx);
     }
-    tail++;
-    if (tail > len) return;
-    var addr = toAddr(cmd.substring(head,tail));
-    if (!addr.length) return;
+    return;
+}
+
+function pmove(cmd, idx) {
+    var pack = pickCoor(cmd, idx);
+    if (!pack) return;
+    var addr = pack[0];
+    var tail = pack[1];
     if (!ctx.prev) return (ctx.prev = addr) && 0;
     var prev = ctx.prev;
     addr[0] = addr[0] || prev[0];
@@ -408,6 +456,25 @@ function pmove(cmd, idx) {
     var pro = ctx.ptool.track(prev, addr, minfo.key)
         .then(function(){ return pclick(minfo.key, addr).then(setPrevFn); });
     return { act: pro, idx: tail };
+}
+
+function pickCoor(cmd, idx) {
+    var head, tail, len;
+    head = tail = idx;
+    len = cmd.length;
+    while (tail < len) {
+        var c = cmd.charAt(tail);
+        if (c == ')')
+            break;
+        tail++;
+    }
+    tail++;
+    if (tail > len)
+        return;
+    var addr = toAddr(cmd.substring(head,tail));
+    if (!addr.length)
+        return;
+    return [addr, tail];
 }
 
 function ppress(cmd, idx) {
@@ -521,7 +588,7 @@ function combatEventTool() {
                     clearTimeout(ctx.ii);
                     ctx.sol();
                     ctx = 0;
-                }, 2950);
+                }, 750);
             else clearTimeout(ctx.ti);
             break;
         }
@@ -566,20 +633,30 @@ function combatClock(cmd, idx) {
         return;
     }
     pro = pro.then(function(){
-        if (ctx.htool.now() < 20) return Promise.reject("low hp");
+        if (ctx.htool.now() < 15) return Promise.reject("low hp");
         if (ctx.itool.now() == 0) return Promise.reject("inv full");
     });
     return { act: pro, idx: sub.idx };
 }
 
 function qLoad(cmd, idx) {
-    if (!edoc) return console.warn("_ the e-doc not ready!");
+    var c = cmd.charAt(idx+1);
+    if (c < '0' || c > '9')
+        return console.warn("_ qLoad | inst need set index!");
+    if (!edoc)
+        return console.warn("_ qLoad | e-doc not ready!");
     var ftr = edoc.childNodes[0];
     if (!ftr) {
         ftr = document.createElement("button");
         edoc.appendChild(ftr);
     }
-    var ins = [["kombu", 21],["raw oa", 14]];
+    var store = [
+        [["large fire", 28],["of wa", 7]],
+        [["nite clay", 19],["coal", 19]]
+    ];
+    var ins = store[1*c];
+    if (!ins)
+        return console.warn("_ qLoad | set index >"+c+"< not found!");
     verbose && console.log("__ trigger keybinds " + JSON.stringify(ins));
     var acts = "var kfn=Keybindings.execute_commands;";
     acts += "kfn(47,undefined,!0);";
@@ -592,7 +669,7 @@ function qLoad(cmd, idx) {
     var pro = new Promise(function(sol, jec){
         setTimeout(function(){ ftr.click(); setTimeout(sol, 500); }, 0);
     });
-    return { act: pro, idx: idx+1 };
+    return { act: pro, idx: idx+2 };
 }
 
 function invEventTool() {
@@ -601,14 +678,24 @@ function invEventTool() {
     var el = document.getElementById("inventory_counts");
     var cfg = { attributes: false, childList: true, subtree: false };
     var obs = new MutationObserver(function (ms, _) {
+        var newVal = -1;
         for (var m of ms) {
-            v = 1*(m.addedNodes[0].data.split(' ')[0]);
+            newVal = 1*(m.addedNodes[0].data.split(' ')[0]);
             break;
         }
-        if (!ctx) return;
+        if (!ctx || v == newVal) return;
+        v = newVal;
+        if (ctx.mode == "change") {
+            verbose && console.log("___ inv change");
+            var sol = ctx.sol;
+            setTimeout(sol, 200);
+            ctx = 0;
+            v = -1;
+            return;
+        }
         clearTimeout(ctx.tid);
         if (!met(ctx.d, ctx.v)) {
-            ctx.tid = setTimeout(function(){ ctx.jec("inv frozen"); }, 90000);
+            ctx.tid = setTimeout(function(){ ctx.jec("inv frozen"); }, 30000);
             return;
         }
         verbose && console.log("___ inv conds hit", v, ctx.v, ctx.d);
@@ -625,8 +712,14 @@ function invEventTool() {
         verbose && console.log("__ load inv watch", val, delta);
         return new Promise(function(sol, jec){
             ctx = {sol: sol, jec: jec, v: val, d: delta};
-            ctx.tid = setTimeout(function(){ ctx.jec("inv frozen"); }, 90000);
-            setTimeout(function(){ jec("inv timeout"); }, 360000);
+            ctx.tid = setTimeout(function(){ ctx.jec("inv frozen"); }, 30000);
+            setTimeout(function(){ jec("inv delta timeout"); }, 720000);
+        });
+    }
+    var ichange = function(){
+        return new Promise(function(sol, jec){
+            ctx = {mode:"change", sol: sol, jec: jec};
+            setTimeout(function(){ jec("inv change timeout"); }, 3000);
         });
     }
     var idc = function() {
@@ -639,7 +732,8 @@ function invEventTool() {
         open: function() { obs.observe(el, cfg) },
         dc: idc,
         until: iuntil,
-        now: function() { return v; }
+        now: function() { return v; },
+        change: ichange
     };
 }
 
@@ -761,12 +855,90 @@ function slotWatch(cmd, idx) {
     return { act: ctx.atool.onSlot(val), idx: idx+3 };
 }
 
+function iprepare(cmd, idx) {
+    var pre = ctx.ptool.once().catch(function(err){
+        return Promise.reject("__ initial push required, " + err);
+    });
+    return { act: pre, idx: idx+1 };
+}
+
+function recoor(cmd, idx) {
+    var cur = ctx.ptool.now();
+    if (!cur.length)
+        return { act: Promise.reject("__ current position is unknown!") };
+    var pack = pickCoor(cmd, idx);
+    if (!pack)
+        return { act: Promise.reject("__ checkpoint 404!") };
+    var coor = pack[0];
+    var tail = pack[1];
+    var len = cmd.length;
+    while (true) {
+        if (coor[0] == cur[0] && coor[1] == cur[1]) {
+            verbose && console.log("__ __ match at coor: ", cur);
+            return { act: Promise.resolve(), idx: tail }
+        }
+        verbose && console.log("__ __ __ miss coor, <current> .. <wanted>", cur, coor);
+        var nextIdx = cmd.indexOf('(', tail);
+        if (nextIdx < 0)
+            return { act: Promise.reject("__ end-of-file, checkpoint 404!") }
+        pack = pickCoor(cmd, nextIdx);
+        if (!pack) {
+            tail = nextIdx + 1;
+            if (tail > len)
+                return { act: Promise.reject("__ end-of-file, checkpoint 404!") }
+            continue;
+        }
+        coor = pack[0];
+        tail = pack[1];
+    }
+}
+
+function harvest(cmd, idx) {
+    var c = cmd.charAt(idx);
+    var k = 0;
+    switch (c) {
+        case 'U': k = keys.up(); break;
+        case 'D': k = keys.down(); break;
+        case 'L': k = keys.left(); break;
+        case 'R': k = keys.right(); break;
+        default: return;
+    }
+    var act = k2act(k).then(ctx.itool.change)
+        .then(function(){
+            return new Promise(function(sol, jec){ setTimeout(sol, 3000); });
+        },function(err){
+            verbose && console.log("__ __ harvest tolerated, " + err);
+            return;
+        });
+    return { act: act, idx: idx+1 };
+}
+
+function step(cmd, idx) {
+    var c = cmd.charAt(idx);
+    var k = 0;
+    switch (c) {
+        case 'u': k = keys.up(); break;
+        case 'd': k = keys.down(); break;
+        case 'l': k = keys.left(); break;
+        case 'r': k = keys.right(); break;
+        default: return;
+    }
+    var preErr = 0;
+    var act = ctx.ptool.once()
+        .catch(function(err){
+            return Promise.reject("!step, " + preErr + ", " + err);
+        });
+    var tri = k2act(k).catch(function(err){ preErr = err; });
+    return { act: act, idx: idx+1 };
+}
+
 function onKeyFn(e) {
     if (e.key == "Control") {
         verbose && console.log("__ cancelling ...");
         clearTimeout(cid);
         ctx.cmds = 0;
         ctx.pinit && ctx.teardown();
+        ctx.ifirst && ctx.itail();
     }
     if (e.shiftKey && (e.key == "\\" || e.key == "|")) {
         verbose && console.log("__ ready");
