@@ -683,8 +683,9 @@ function invEventTool() {
             newVal = 1*(m.addedNodes[0].data.split(' ')[0]);
             break;
         }
-        if (!ctx || v == newVal) return;
+        if (v == newVal) return;
         v = newVal;
+        if (!ctx) return;
         if (ctx.mode == "change") {
             verbose && console.log("___ inv change");
             var sol = ctx.sol;

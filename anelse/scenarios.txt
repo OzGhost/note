@@ -17,17 +17,46 @@ rldrldrldrldrld rldrldrldrldrld rldrldrldrldrld rldrld!ldr
 -- -- p01
 %(11,11)RuRu RLuRLuLRuLRu LRuLRuLRuLRu LRuLRuLRuLRu kow2 LRuLRuLRuLRu LRuLRuLRuLRu LUrUr
 (13,33) DUrDUrD_rDUr DUrDUrDUrD !uktw2 r DUrDUrDUrDUr DUrDUrDUrDUr DUrDUrDUrDUr URdRd
-(33,31) kow2 LRdLRdLRdLRd LRdLRdLRdL_d LRdLRdLRdLRd LRdLRdLRdLRd  !rktw2 LdLRdLRdLRd RDlDl
-(31,11)? UDlUDlUDlUDl UDlUDlUDlUDl kow2 UDlUDlUDlU_l UDlUDlDlD ruLu
+(33,31) kow2 LRdLRdLRdLRd LRdLRdLRdL_d LRdLRdLRdLRd LRdLRdLRdLRdL  !rktw2 dLRdLRdLRd RDlDl
+(31,11) UDlUDlUDlUDl UDlUDlUDlUDl kow2 UDlUDlUDlU_l UDlUDlDlD ruLu
 (17,13) RLu_LuRLuRLu RLuRLuRLuRLu RLuRLuR !lktw2 uRLu RLuRLu LUrUr
 (19,27) DUrDUrDUrDUr DUrDUrDUrD_r URdRd
-(27,25)? kow2 LRdLRdLRdLRd LRdLRdLRdLRd RDlDl UDlUDl DLuLu
+(27,25) kow2 LRdLRdLRdLRd LRdLRdLRdLRd RDlDl UDlUDl DLuLu
 (23,19) LRu LuL rdRuRu !rktw2 LuLRu RUlUl DUlDUl ULdLd
 (20,22) R_dRLdRLdRLd RLdRLdRLdRLd lDrDrDr
 (22,14) kow2 UDrUDrUDrUDr UDrUDrUDrUDr DRuRu
 (30,16) LRuLRuLRuLRu L !rktw2 uLRuLRuL_u LRuLRuLRuLRu LRuLRu RUlUl
-(28,30) kow2 DUlDUlDUlDUl DUlDUlDUlDUl DUlDUlDUlDUl DUlDUl ULdLd
+(28,30) DUlDUlDUlDUl kow2 DUlDUlDUlDUl DUlDUlDUlDUl DUlDUl ULdLd
 (14,28) RLdRLdR_dRLd R !lktw2 dRLdRLdRLd RLdRLdRLdRLd RLdRLdRLdRLd RLd LdR
+-- -- p02
+%(11,11)RuRu RLuRLuLRuLRu LRuLRuLRuLRu LRuLRuLRuLRu LRuLRuLRuLRu LRuLRuLRuLRu LUrUr
+(13,33) DUrDUrD!uw1 rDUr DUrDUrDUrD _ r DUrDUrDUrDUr DUrDUrDUrDUr DUrDUrDUrDUr URdRd
+(33,31) LRdLRdLRdLRd LRdLRdLRd!rw1 Ld LRdLRdLRdLRd LRdLRdLRdLRd _ LdLRdLRdLRd RDlDl
+(31,11) UDlUDlUDlUDl UDlUDlUDlUDl UDlUDlUDlU!dw1l UDlUDlDlD ruLu
+(17,13) RLu_LuRLuRLu RLuRLuRLuRLu RLuRLuR _ uRLu RLuRLu LUrUr
+(19,27) DUrDUrDUrDUr DUrDUrDUr!uw1Dr URdRd
+(27,25) LRdLRdLRdLRd LRdLRdLRdLRd RDlDl UDlUDl DLuLu
+(23,19) LRu LuL rdRuRu _ LuLRu RUlUl DUlDUl ULdLd
+(20,22) R!lw1dRLdRLdRLd RLdRLdRLdRLd lDrDrDr
+(22,14) UDrUDrUDrUDr UDrUDrUDrUDr DRuRu
+(30,16) LRuLRuLRuLRu L _ uLRuLRuL!rw1u LRuLRuLRuLRu LRuLRu RUlUl
+(28,30) DUlDUlDUlDUl DUlDUlDUlDUl DUlDUlDUlDUl DUlDUl ULdLd
+(14,28) RLdRLd!lw1RdRLd R _ dRLdRLdRLd RLdRLdRLdRLd RLdRLdRLdRLd RLd LdR
+-- -- p03
+%(11,11)RuRu RLuRLuRLuRLu RLuRLuRLuRLu RLuRLuRLuRLu kpw2 RLuRLuRLuRLu RLuRLuRLuRLu LUrUr
+(13,33) DUrDUrD_rDUr DUrDUrDUrD !uknkoknw2 r DUrDUrDUrDUr DUrDUrDUrDUr DUrDUrDUrDUr URdRd
+(33,31) kpw2 LRdLRdLRdLRd LRdLRdLRdL_d LRdLRdLRdLRd LRdLRdLRdL
+RdL !rknkoknw2 dLRdLRdLRd RDlDl
+(31,11) UDlUDlUDlUDl UDlUDlUDlUDl kpw2 UDlUDlUDlU_l UDlUDlDlD ruLu
+(17,13) RLu_LuRLuRLu RLuRLuRLuRLu RLuRLuR !lknkoknw2 uRLu RLuRLu LUrUr
+(19,27) DUrDUrDUrDUr DUrDUrDUrD_r URdRd
+(27,25) kpw2 LRdLRdLRdLRd LRdLRdLRdLRd RDlDl UDlUDl DLuLu
+(23,19) LRu LuL rdRuRu !rknkoknw2 LuLRu RUlUl DUlDUl ULdLd
+(20,22) R_dRLdRLdRLd RLdRLdRLdRLd lDrDrDr
+(22,14) kpw2 UDrUDrUDrUDr UDrUDrUDrUDr DRuRu
+(30,16) LRuLRuLRuLRuL !rknkoknw2 uLRuLRuL_u LRuLRuLRuLRu LRuLRu RUlUl
+(28,30) DUlDUlDUlDUl kpw2 DUlDUlDUlDUl DUlDUlDUlDUl DUlDUl ULdLd
+(14,28) RLdRLdR_dRLdR !lknw2 dRLdRLdRLd RLdRLdRLdRLd RLdRLdRLdRLd RLd LdR
 
 --- azz picker
 ?3 (15,19)(,23)(20,)(,25)(25,)(,28)(28,)(,30)(31,)(,29)(32,)(,28)

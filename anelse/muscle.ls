@@ -13,4 +13,4 @@ Legs
     Lunges
     Calf Raises
 
-yesterday: Pull
+yesterday: rest
