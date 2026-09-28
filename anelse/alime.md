@@ -1,4 +1,4 @@
-Campfire Cooking in Another World with My Absurd Skill
+Talentless Nana
 sk8 the infinity
 high card
 our last crusade
@@ -64,7 +64,6 @@ eureka seven
 the world's finest assassin gets reincarnated
 dragon raja
 deadman wonderland
-let this grieving soul retire
 the most notorious talker runs the world's greatest clan
 the daily life of the immortal king
 combatants will be dispatched
@@ -144,8 +143,20 @@ To Be Heroine
 Chivalry of a Failed Knight
 Assassins Pride
 Unlimited Psychic Squad
-Talentless Nana
 Yozakura Quartet
+The Strongest Sage with the Weakest Crest
+Berserk of Gluttony
+The Reincarnation of the Strongest Exorcist in Another World
+Villainess Level 99: I May Be the Hidden Boss but I'm Not the Demon Lord
+I Was Reincarnated as the 7th Prince so I Can Take My Time Perfecting My Magical Ability
+Am I Actually the Strongest?
+The Rising of the Shield Hero
+A Returner's Magic Should Be Special
+Tower of God
+Black Summoner
+The Gorilla God's Go-To Girl
+Level 1 Demon Lord and One Room Hero
+Let This Grieving Soul Retire
 
 ## soon
 marriage toxin
@@ -162,6 +173,11 @@ From Overshadowed to Overpowered: Second Reincarnation of a Talentless Sage
 The Exiled Heavy Knight Knows How to Game the System
 Black Torch
 Solo Leveling ss3
+I Became a Legend After My 10 Year-Long Last Stand
+Noble Reincarnation: Born Blessed, So I'll Obtain Ultimate Power
+Wistoria: Wand and Sword
+The Insipid Prince's Furtive Grab for The Throne
+Easygoing Territory Defense by the Optimistic Lord: Production Magic Turns a Nameless Village into the Strongest Fortified City
 
 ## noop
 Deep Insanity: The Lost Child

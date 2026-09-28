@@ -1,18 +1,3 @@
---- 395 dspin
-rlurlurlurlurlu rlurlurlurlurlu rlurlurlurlurlu rlurlurlurlurlu rlurlu lurur
-durdurdurdurdur durdurdurdurdur durdurdurdurdur durdurdurdurdur urdrd
-lrdlrdlrdlrdlrd lrdlrdlrdlrdlrd lrdlrdlrdlrdlrd lrdlrdlrdlrdlrd rdldl
-udludludludludl udludludludludl udludludludl!dl ud ruu
-rlu!lurlurlurlu rlurlurlurlurlu rlurlurlurlu lurur
-durdurdurdurdur durdurdur urdrd
-lrdlrdlrdlrdlrd lrdlrdlrd rdldl
-udludl dlulu rlu!lu!lu rd r!ur!urlurlu rulul duldul uldld
-rldrldrldrldrld rldrldrld ldrdrdr
-udrudrudrudrudr udrudrudr druru
-lrulrulrulrulru lrulrulrulrulru lrulrulrulru rulul
-dulduldulduldul dulduldulduldul duldulduldul uldld
-rldrldrldrldrld rldrldrldrldrld rldrldrldrldrld rldrld!ldr
-
 --- dspin
 -- -- p01
 %(11,11)RuRu RLuRLuLRuLRu LRuLRuLRuLRu LRuLRuLRuLRu kow2 LRuLRuLRuLRu LRuLRuLRuLRu LUrUr
@@ -59,7 +44,7 @@ RdL !rknkoknw2 dLRdLRdLRd RDlDl
 (14,28) RLdRLdR_dRLdR !lknw2 dRLdRLdRLd RLdRLdRLdRLd RLdRLdRLdRLd RLd LdR
 
 --- azz picker
-?3 (15,19)(,23)(20,)(,25)(25,)(,28)(28,)(,30)(31,)(,29)(32,)(,28)
+?5 (15,19)(,23)(20,)(,25)(25,)(,28)(28,)(,30)(31,)(,29)(32,)(,28)
 (36,)(,27)(37,)(,26)(41,)(,27)(46,)(,29)(47,)(,33)(48,)(,34)(51,)
 (,39) +rw1 (51,38)(,37)(50,)(,33)(39,)(,34)(38,)(,35)(32,)(,29)
 (29,)(,26)(30,)(,20)(28,)(,19)(24,)(,15)(21,)(,10)d <01w3 kow2d <01w3
@@ -77,25 +62,19 @@ RdL !rknkoknw2 dLRdLRdLRd RDlDl
 (30,)(,16)(15,)(,17) u
 
 --- un-dragon
-?2 (56,78)%u (,81)(54,)(,83)%u (53,)(,86)%l (50,)(,88)%u (,90)(48,)(,92)%u
+?3 (56,78)%u (,81)(54,)(,83)%u (53,)(,86)%l (50,)(,88)%u (,90)(48,)(,92)%u
 (,91)%l (,90)(46,)%d (,90)(51,)%u (53,)%d %r (56,)%u (57,)%d
 (53,)(,89)(51,)(,88)(50,)(,87)%l (48,)(,84)(49,)%d %r (,82)(48,)%l
 (48,)(,81)%d (,81)(51,)(,80)%r (51,)(,78)%d %r (,76)(55,)(,78)(56,)
 
 --- iron-er
---- --- en ry loot
-?8 (78,46)%u (74,)%d (,47)%u (75,)(,42)(73,)%d (70,)(,44)%r
-(69,)(,46)%l (,47)%u (70,)(,49)%u (,54)%u (73,)%d (71,)(,56)(69,)
-(,58)(67,)%u (66,)(,61)(65,)(,63)%r (63,)%d (,64)%u (,63)(60,)%u
-(,60)%r (61,)(,58)(63,)%r (,51)(62,)%l (65,)%u (,49)%l (66,)
-(,45)(72,)(,46)(78,)
 --- --- eazy gold
-?5 (15,17)(,16)(30,)(,15)(32,)(,14)(34,)(,12)(36,)(,11)(38,)
+?8 (15,17)(,16)(30,)(,15)(32,)(,14)(34,)(,12)(36,)(,11)(38,)
 (,10)(41,)(,11)(43,)(,10)(60,) u<01w3
 (43,)(,11)(41,)(,10)(38,)(,11)(36,)(,12)(34,)(,14)(32,)
 (,15)(30,)(,16)(15,)(,17) uktw1
 --- --- ez coal
-?5 (14,18)(11,)(,35)(10,)(,39)(9,)(,43)(7,)(,47) u<01w3
+?8 (14,18)(11,)(,35)(10,)(,39)(9,)(,43)(7,)(,47) u<01w3
 (,42)(9,)(,38)(10,)(,35)(11,)(,18)(14,)rktw1
 --- --- kao
 ?8 (45,68)(50,)(,71)(62,)(,68)(61,)(,63)(65,)(,57)(70,)(,55)(73,)
@@ -105,10 +84,14 @@ RdL !rknkoknw2 dLRdLRdLRd RDlDl
 (85,)(,55)(79,)(,56)(73,)(,55)(70,)(,57)(65,)(,63)(61,)(,68)(62,)
 (,71)(50,)(,68)(45,) uktw1
 --- --- ez num
-?5 (14,18)(11,)(,35)(10,)(,38)(9,)(,41)(10,)(,44)(11,)(,45)(13,)(,49)
+?8 (14,18)(11,)(,35)(10,)(,38)(9,)(,41)(10,)(,44)(11,)(,45)(13,)(,49)
 (12,)(,53)%u (12,54)(,58)(10,)(,61)(11,)(,75)(16,)(,79) u<01w3
 (,75)(11,)(,61)(10,)(,58)(12,)(,55)%d (12,54)(,49)(13,)(,45)
 (11,)(,44)(10,)(,41)(9,)(,38)(10,)(,35)(11,)(,18)(14,) rktw1
---- --- long iron
-?9 (83,37)(,29)(67,) lw3 (68,)(,23)(69,)(,15)(67,) d<01w3
-(69,)(,25)(68,)(,29)(67,) lw3 (83,)(,37)uktw1
+--- --- woodzy
+?8 (29,92)(28,)(,87)(20,)(,90)(9,) +l (84,14)(,18) %u (84,22)
+(86,)(,30)(81,)(,34) +u (68,18)(,19)(66,)(,28)(65,)(,29) %u
+(65,32) +u (68,40)(65,)(,45)(63,)(,46)(62,)(,53) +u (17,63)
+(,62)(20,)(,63)(25,) r<01w3 (,58)(29,) +r (37,59)(,60)(42,)
+(,59)(51,)(,57) +r (84,31)(,30)(86,)(,22)(84,)(,20) %d (,14)
+(85,) +r (24,90)(,87)(28,)(,92)(29,) rktw1
