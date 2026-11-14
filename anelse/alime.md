@@ -1,4 +1,4 @@
-garo vanishing line
+
 sk8 the infinity
 high card
 our last crusade
@@ -153,6 +153,12 @@ Black Summoner
 The Gorilla God's Go-To Girl
 Level 1 Demon Lord and One Room Hero
 Let This Grieving Soul Retire
+WorldEnd: What do you do at the end of the world? Are you busy? Will you save us?
+Rakshasa Street
+Chrome Shelled Regios
+Possibly the Greatest Alchemist of All Time
+Deca-Dence
+My Instant Death Ability is So Overpowered, No One in This Other World Stands a Chance Against Me!
 
 ## soon
 marriage toxin
@@ -175,6 +181,8 @@ Wistoria: Wand and Sword
 The Insipid Prince's Furtive Grab for The Throne
 Easygoing Territory Defense by the Optimistic Lord: Production Magic Turns a Nameless Village into the Strongest Fortified City
 Clevatess ss2
+Crowned in a Hundred Days
+The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life
 
 ## noop
 Deep Insanity: The Lost Child
