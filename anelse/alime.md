@@ -1,4 +1,4 @@
-Talentless Nana
+garo vanishing line
 sk8 the infinity
 high card
 our last crusade
@@ -12,7 +12,6 @@ edens zero
 erased
 the garden of sinners
 joran the princess of blood and snow
-garo vanishing line
 the faraway paladin
 jormungand
 is it wrong to try to pick up girls in a dungeon
@@ -91,7 +90,6 @@ JAKDU: shaman's blade
 Ishura
 Kagari Hibana
 In/Spectre
-Clevatess
 Wizard Barristers
 Cencoroll
 Malevolent Spirits: Mononogatari
@@ -103,7 +101,6 @@ Chillin' in My 30s after Getting Fired from the Demon King's Army
 Super Cube
 That Time I Got Reincarnated as a Slime
 Magical Warfare
-Burn the Witch
 Chain Chronicle
 My Status as an Assassin Obviously Exceeds the Hero's
 Classroom for Heroes
@@ -113,7 +110,6 @@ The Silver Guardian
 Tougen Anki
 Zetman
 The Case Study of Vanitas
-Even Given the Worthless "Appraiser" Class, I’m Actually the Strongest
 Welcome to the Outcast's Restaurant!
 Reborn to Master the Blade: From Hero-King to Extraordinary Squire
 Apocalypse Hotel
@@ -178,6 +174,7 @@ Noble Reincarnation: Born Blessed, So I'll Obtain Ultimate Power
 Wistoria: Wand and Sword
 The Insipid Prince's Furtive Grab for The Throne
 Easygoing Territory Defense by the Optimistic Lord: Production Magic Turns a Nameless Village into the Strongest Fortified City
+Clevatess ss2
 
 ## noop
 Deep Insanity: The Lost Child

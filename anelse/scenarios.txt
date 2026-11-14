@@ -1,47 +1,63 @@
 --- dspin
 -- -- p01
-%(11,11)RuRu RLuRLuLRuLRu LRuLRuLRuLRu LRuLRuLRuLRu kow2 LRuLRuLRuLRu LRuLRuLRuLRu LUrUr
-(13,33) DUrDUrD_rDUr DUrDUrDUrD !uktw2 r DUrDUrDUrDUr DUrDUrDUrDUr DUrDUrDUrDUr URdRd
-(33,31) kow2 LRdLRdLRdLRd LRdLRdLRdL_d LRdLRdLRdLRd LRdLRdLRdLRdL  !rktw2 dLRdLRdLRd RDlDl
-(31,11) UDlUDlUDlUDl UDlUDlUDlUDl kow2 UDlUDlUDlU_l UDlUDlDlD ruLu
-(17,13) RLu_LuRLuRLu RLuRLuRLuRLu RLuRLuR !lktw2 uRLu RLuRLu LUrUr
-(19,27) DUrDUrDUrDUr DUrDUrDUrD_r URdRd
-(27,25) kow2 LRdLRdLRdLRd LRdLRdLRdLRd RDlDl UDlUDl DLuLu
-(23,19) LRu LuL rdRuRu !rktw2 LuLRu RUlUl DUlDUl ULdLd
-(20,22) R_dRLdRLdRLd RLdRLdRLdRLd lDrDrDr
-(22,14) kow2 UDrUDrUDrUDr UDrUDrUDrUDr DRuRu
-(30,16) LRuLRuLRuLRu L !rktw2 uLRuLRuL_u LRuLRuLRuLRu LRuLRu RUlUl
-(28,30) DUlDUlDUlDUl kow2 DUlDUlDUlDUl DUlDUlDUlDUl DUlDUl ULdLd
-(14,28) RLdRLdR_dRLd R !lktw2 dRLdRLdRLd RLdRLdRLdRLd RLdRLdRLdRLd RLd LdR
--- -- p02
-%(11,11)RuRu RLuRLuLRuLRu LRuLRuLRuLRu LRuLRuLRuLRu LRuLRuLRuLRu LRuLRuLRuLRu LUrUr
-(13,33) DUrDUrD!uw1 rDUr DUrDUrDUrD _ r DUrDUrDUrDUr DUrDUrDUrDUr DUrDUrDUrDUr URdRd
-(33,31) LRdLRdLRdLRd LRdLRdLRd!rw1 Ld LRdLRdLRdLRd LRdLRdLRdLRd _ LdLRdLRdLRd RDlDl
-(31,11) UDlUDlUDlUDl UDlUDlUDlUDl UDlUDlUDlU!dw1l UDlUDlDlD ruLu
-(17,13) RLu_LuRLuRLu RLuRLuRLuRLu RLuRLuR _ uRLu RLuRLu LUrUr
-(19,27) DUrDUrDUrDUr DUrDUrDUr!uw1Dr URdRd
+%(11,11) LuLu RLuRLuRLuRLu RLuRLuRLuRLu RLuRLuRLuRLu kow1 RLuRLuRLuRLu RLuRLuRLuRLu LUrUr
+(13,33) DUrDUr_UrDUr DUrDUrDUrU!dktw1r
+DUrDUrDUrDUr DUrDUrDUrDUr DUrDUrDUrDUr kow1 URdRd
+(33,31) LRdLRdLRdLRd LRdLRdLRd_Rd LRdLRdLRdLRd LRdLRdLRdLRd R!lktw1d
+LRdLRdLRd RDlDl
+(31,11) UDlUDlUDlUDl UDlUDlUDlUDl kow1 UDlUDlUDl_Dl UDlUDl DlDruLu
+(17,13) RLu_LuRLuRLu RLuRLuRLuRLu RLuRLuL!rktw1u
+RLu RLuRLu LUrUr
+(19,27) DUrDUrDUrDUr DUrDUrDUr_Ur kow1 URdRd
 (27,25) LRdLRdLRdLRd LRdLRdLRdLRd RDlDl UDlUDl DLuLu
-(23,19) LRu LuL rdRuRu _ LuLRu RUlUl DUlDUl ULdLd
-(20,22) R!lw1dRLdRLdRLd RLdRLdRLdRLd lDrDrDr
+(23,19) LRu LuL rdRuRu !lktw1
+Ru LRu RUlUl DUlDUl ULdLd
+(20,22) _LdRLdRLdRLd RLdRLdRLdRLd kow1 lDrDrDr
 (22,14) UDrUDrUDrUDr UDrUDrUDrUDr DRuRu
-(30,16) LRuLRuLRuLRu L _ uLRuLRuL!rw1u LRuLRuLRuLRu LRuLRu RUlUl
+(30,16) LRuLRuLRuLRu R!lktw1u
+LRuLRu_Ru LRuLRuLRuLRu LRuLRu RUlUl
+(28,30) DUlDUlDUlDUl kow1 DUlDUlDUlDUl DUlDUlDUlDUl DUlDUl ULdLd
+(14,28) RLdRLd_LdRLd L!rktw1dRLdRLdRLd RLdRLdRLdRLd RLdRLdRLdRLd RLd LdR
+-- -- p02
+%(11,11) LuLu RLuRLuRLuRLu RLuRLuRLuRLu RLuRLuRLuRLu RLuRLuRLuRLu RLuRLuRLuRLu LUrUr
+(13,33) DUrDUrU!dw1r
+DUr DUrDUrDUrU.r DUrDUrDUrDUr DUrDUrDUrDUr DUrDUrDUrDUr URdRd
+(33,31) LRdLRdLRdLRd LRdLRdLRd!lw1
+Rd LRdLRdLRdLRd LRdLRdLRdLRd R.dLRdLRdLRd RDlDl
+(31,11) UDlUDlUDlUDl UDlUDlUDlUDl UDlUDlUDlD!uw1l
+UDlUDl DlDruLu
+(17,13) RLu_LuRLuRLu RLuRLuRLuRLu RLuRLuL.uRLu RLuRLu LUrUr
+(19,27) DUrDUrDUrDUr DUrDUrDUr!dw1
+Ur URdRd
+(27,25) LRdLRdLRdLRd LRdLRdLRdLRd RDlDl UDlUDl DLuLu
+(23,19) LRu LuL rdRuRu Ru LRu RUlUl DUlDUl ULdLd
+(20,22) L!rw1d
+RLdRLdRLd RLdRLdRLdRLd lDrDrDr
+(22,14) UDrUDrUDrUDr UDrUDrUDrUDr DRuRu
+(30,16) LRuLRuLRuLRu R.uLRuLRuR!lw1u
+LRuLRuLRuLRu LRuLRu RUlUl
 (28,30) DUlDUlDUlDUl DUlDUlDUlDUl DUlDUlDUlDUl DUlDUl ULdLd
-(14,28) RLdRLd!lw1RdRLd R _ dRLdRLdRLd RLdRLdRLdRLd RLdRLdRLdRLd RLd LdR
+(14,28) RLdRLd!rw1
+LdRLd L.dRLdRLdRLd RLdRLdRLdRLd RLdRLdRLdRLd RLd LdR
 -- -- p03
-%(11,11)RuRu RLuRLuRLuRLu RLuRLuRLuRLu RLuRLuRLuRLu kpw2 RLuRLuRLuRLu RLuRLuRLuRLu LUrUr
-(13,33) DUrDUrD_rDUr DUrDUrDUrD !uknkoknw2 r DUrDUrDUrDUr DUrDUrDUrDUr DUrDUrDUrDUr URdRd
-(33,31) kpw2 LRdLRdLRdLRd LRdLRdLRdL_d LRdLRdLRdLRd LRdLRdLRdL
-RdL !rknkoknw2 dLRdLRdLRd RDlDl
-(31,11) UDlUDlUDlUDl UDlUDlUDlUDl kpw2 UDlUDlUDlU_l UDlUDlDlD ruLu
-(17,13) RLu_LuRLuRLu RLuRLuRLuRLu RLuRLuR !lknkoknw2 uRLu RLuRLu LUrUr
-(19,27) DUrDUrDUrDUr DUrDUrDUrD_r URdRd
-(27,25) kpw2 LRdLRdLRdLRd LRdLRdLRdLRd RDlDl UDlUDl DLuLu
-(23,19) LRu LuL rdRuRu !rknkoknw2 LuLRu RUlUl DUlDUl ULdLd
-(20,22) R_dRLdRLdRLd RLdRLdRLdRLd lDrDrDr
-(22,14) kpw2 UDrUDrUDrUDr UDrUDrUDrUDr DRuRu
-(30,16) LRuLRuLRuLRuL !rknkoknw2 uLRuLRuL_u LRuLRuLRuLRu LRuLRu RUlUl
-(28,30) DUlDUlDUlDUl kpw2 DUlDUlDUlDUl DUlDUlDUlDUl DUlDUl ULdLd
-(14,28) RLdRLdR_dRLdR !lknw2 dRLdRLdRLd RLdRLdRLdRLd RLdRLdRLdRLd RLd LdR
+%(11,11) LuLu RLuRLuRLuRLu RLuRLuRLuRLu RLuRLuRLuRLu kpw1 RLuRLuRLuRLu RLuRLuRLuRLu LUrUr
+(13,33) DUrDUr_UrDUr DUrDUrDUrU!dknkoknw1r
+DUrDUrDUrDUr DUrDUrDUrDUr DUrDUrDUrDUr kpw1 URdRd
+(33,31) LRdLRdLRdLRd LRdLRdLRd_Rd LRdLRdLRdLRd LRdLRdLRdLRd R!lknkoknw1d
+LRdLRdLRd RDlDl
+(31,11) UDlUDlUDlUDl UDlUDlUDlUDl kpw1 UDlUDlUDl_Dl UDlUDl DlDruLu
+(17,13) RLu_LuRLuRLu RLuRLuRLuRLu RLuRLuL!rknkoknw1u
+RLu RLuRLu LUrUr
+(19,27) DUrDUrDUrDUr DUrDUrDUr_Ur kpw1 URdRd
+(27,25) LRdLRdLRdLRd LRdLRdLRdLRd RDlDl UDlUDl DLuLu
+(23,19) LRu LuL rdRuRu !lknkoknw1
+Ru LRu RUlUl DUlDUl ULdLd
+(20,22) _LdRLdRLdRLd RLdRLdRLdRLd kpw1 lDrDrDr
+(22,14) UDrUDrUDrUDr UDrUDrUDrUDr DRuRu
+(30,16) LRuLRuLRuLRu R!lknkoknw1u
+LRuLRu_Ru LRuLRuLRuLRu LRuLRu RUlUl
+(28,30) DUlDUlDUlDUl kpw1 DUlDUlDUlDUl DUlDUlDUlDUl DUlDUl ULdLd
+(14,28) RLdRLd_LdRLd L!rknw1dRLdRLdRLd RLdRLdRLdRLd RLdRLdRLdRLd RLd LdR
 
 --- azz picker
 ?5 (15,19)(,23)(20,)(,25)(25,)(,28)(28,)(,30)(31,)(,29)(32,)(,28)
@@ -53,45 +69,124 @@ RdL !rknkoknw2 dLRdLRdLRd RDlDl
 (52,38)(51,)(,34)(48,)(,33)(47,)(,29)(46,)(,27)(41,)(,26)(37,)(,27)
 (36,)(,28)(32,)(,29)(31,)(,30)(28,)(,28)(25,)(,25)(20,)(,23)(15,)(,19) dktw1
 
+--- log roller
+?1 (48,38)(,44)(47,)(,46)(55,)(,56)(68,)(,55)(70,)(,54)(74,)(,57)(83,)(,60)
+(82,)(,68)(84,)(,70)(88,)(,71) u<01w3 kow2 u<01w3
+(88,71)(,70)(84,)(,68)(82,)(,60)(83,)(,57)(74,)(,54)(70,)(,55)(68,)
+(,56)(55,)(,46)(47,)(,44)(48,)(,38) dktw1
+?1 (60,21)(62,)(,11) d<01w3 kow2 d<01w3 (,21)(60,)lktw1
+
 --- .4 free sell
 ?(15,17)(,16)(30,)(,15)(32,)(,14)(34,)(,12)(37,)(,11)(38,)(,10)(41,)
 (,11)(44,)(,10)(79,)(,9)(85,)(,14)(87,)(,41)(88,)(,52)(87,)(,58)
-(88,)(,72)(94,)(,70) d >37 <17 >37 w1
+(88,)(,72)(94,)(,70) dw1ks >37 kp <17 dw1ks >37w1
 (,72)(88,)(,58)(87,)(,52)(88,)(,41)(87,)(,14)(85,)(,9)(79,)
 (,10)(44,)(,11)(41,)(,10)(38,)(,11)(37,)(,12)(34,)(,14)(32,)(,15)
 (30,)(,16)(15,)(,17) u
 
---- un-dragon
-?3 (56,78)%u (,81)(54,)(,83)%u (53,)(,86)%l (50,)(,88)%u (,90)(48,)(,92)%u
-(,91)%l (,90)(46,)%d (,90)(51,)%u (53,)%d %r (56,)%u (57,)%d
-(53,)(,89)(51,)(,88)(50,)(,87)%l (48,)(,84)(49,)%d %r (,82)(48,)%l
-(48,)(,81)%d (,81)(51,)(,80)%r (51,)(,78)%d %r (,76)(55,)(,78)(56,)
+--- re:drag
+?8 (17,66)%d (17,58)%r (16,58)%l %u (16,59)(16,65)%l
+(15,66)(12,)%l (11,67)(9,)(,65)%l (8,66)(5,)%d
+(4,65)%u (7,66)(,63)%d (7,66)(9,)(,68)%u (9,68)(10,)%r (13,68)%r
+(14,69)(18,)(,70)%r (18,70)(,67)%r (17,67)(,66)
+--- to chest
+?(17,71)(,66)(12,)(,63)(10,)(,60)(11,)(,58) %.d (,55)(10,)(,53)
+(15,)(,51)(17,)(,50)(19,)(,47)(21,)(,46)(22,)(,44)%.d (,40)%.d
+(,29)(21,)(,26)(20,)(,22)(12,)(,23)(10,)(,22)(9,) +u (22,23)(,18)d
+--- from chest
+?(22,18)(,22)(9,) +u (16,23)(,22)(20,)(,28)(21,)(,30)(22,)(,38) %.u
+(,42) %.u (,46)(21,)(,47)(19,)(,50)(17,)(,51)(12,)(,53)(10,)(,55)
+(11,)(,56)%.u (,60)(10,)(,63)(12,)(,66)(17,)(,71)
+--- red:D in hell
+?2 (7,60)%l (7,60)(,65)%l (6,66)%u (6,70)%u (6,74)%u (6,72)(8,)%r
+(9,71)(12,)%r (13,72)(15,)%r (16,71)(20,)%r (21,73)%u (23,74)(,69)%d
+(22,68)(,67)(14,)(,61)(12,)%l (11,60)(9,)(,59)%d (9,64)%u (9,64)
+(,66)(8,)(,68)%r (9,60)(7,)
 
---- iron-er
---- --- eazy gold
-?8 (15,17)(,16)(30,)(,15)(32,)(,14)(34,)(,12)(36,)(,11)(38,)
-(,10)(41,)(,11)(43,)(,10)(60,) u<01w3
-(43,)(,11)(41,)(,10)(38,)(,11)(36,)(,12)(34,)(,14)(32,)
-(,15)(30,)(,16)(15,)(,17) uktw1
---- --- ez coal
-?8 (14,18)(11,)(,35)(10,)(,39)(9,)(,43)(7,)(,47) u<01w3
+--- ez coal
+?8 (14,18)(11,)(,35)(10,)(,39)(9,)(,43)(7,)(,47) u<01w3 kow2 u<01w3
 (,42)(9,)(,38)(10,)(,35)(11,)(,18)(14,)rktw1
---- --- kao
+--- kao
 ?8 (45,68)(50,)(,71)(62,)(,68)(61,)(,63)(65,)(,57)(70,)(,55)(73,)
 (,56)(79,)(,55)(85,)(,59)(86,)(,64)(91,)(,69)(90,)(,72)(91,)(,75)
-(92,)(,86)(85,)(,90) u<01w3
+(92,)(,86)(85,)(,90) u<01w3 kow2 u<01w3
 (85,90)(,86)(92,)(,75)(91,)(,72)(90,)(,69)(91,)(,64)(86,)(,59)
 (85,)(,55)(79,)(,56)(73,)(,55)(70,)(,57)(65,)(,63)(61,)(,68)(62,)
 (,71)(50,)(,68)(45,) uktw1
---- --- ez num
+--- ez num
 ?8 (14,18)(11,)(,35)(10,)(,38)(9,)(,41)(10,)(,44)(11,)(,45)(13,)(,49)
-(12,)(,53)%u (12,54)(,58)(10,)(,61)(11,)(,75)(16,)(,79) u<01w3
-(,75)(11,)(,61)(10,)(,58)(12,)(,55)%d (12,54)(,49)(13,)(,45)
+(12,)(,53)%.u (12,54)(,58)(10,)(,61)(11,)(,75)(16,)(,79) u<01w3
+(,75)(11,)(,61)(10,)(,58)(12,)(,55)%.d (12,54)(,49)(13,)(,45)
 (11,)(,44)(10,)(,41)(9,)(,38)(10,)(,35)(11,)(,18)(14,) rktw1
---- --- woodzy
+--- woodzy
 ?8 (29,92)(28,)(,87)(20,)(,90)(9,) +l (84,14)(,18) %u (84,22)
 (86,)(,30)(81,)(,34) +u (68,18)(,19)(66,)(,28)(65,)(,29) %u
 (65,32) +u (68,40)(65,)(,45)(63,)(,46)(62,)(,53) +u (17,63)
 (,62)(20,)(,63)(25,) r<01w3 (,58)(29,) +r (37,59)(,60)(42,)
 (,59)(51,)(,57) +r (84,31)(,30)(86,)(,22)(84,)(,20) %d (,14)
 (85,) +r (24,90)(,87)(28,)(,92)(29,) rktw1
+--- long coal
+?8 (29,92)(28,)(,86)(33,)(,85)(34,)(,81)(33,)(,75)(39,)(,72)(41,)(,69)
+(46,)(,67)(53,)(,66)(65,)(,74)(73,)(,69)(75,)(,68)(77,)(,41)(72,)(,45)
+(71,) +u (42,21)(,22)(43,)(,23)(46,)(,20)(49,) %.r (54,) r<01w3 kow2 r<01w3
+(51,) %.l (46,)(,23)(43,)(,22)(42,)(,21)(39,) +l
+(71,45)(72,)(,41)(77,)(,68)(75,)(,69)(73,)(,74)(65,)(,66)(53,)(,67)
+(46,)(,69)(41,)(,72)(39,)(,75)(33,)(,81)(34,)(,85)(33,)(,86)(28,)(,92)(29,) rktw1
+--- s4nd
+?8 (14,33)(15,)(,21)(16,)(,17)(9,)(,34) l<01w3 kow2 l<01w3 (,17)(16,)(,25)(15,)(,33)(14,)lktw1
+--- long gold
+?12 (45,68)(50,)(,79)(47,)(,84)(46,)(,85)(45,)(,92) +r (74,11)(89,)(,17)
+(88,)(,24)(85,)(,37)(83,)(,38)(70,) %.l (67,) l<04kbw3 %.r (84,)(,36)
+(85,)(,20)(88,)(,14)(89,)(,11)(74,)(,9) +d (46,88)(45,)(,85)(46,)(,84)
+(47,)(,78)(50,)(,68)(45,) uktw1
+--- loot:pop
+?8 (33,86)%u (32,87)%l (32,87)(,90)%l (31,91)(30,)(,92)%l (30,92)%r (31,90)(33,)%r
+(34,89)(35,)%r (35,89)(,86)%r (36,87)(34,)%d (33,86)
+--- nmlzy
+?8 (14,18)(11,)(,35)(10,)(,39)(9,)(,43)(10,)(,44)(11,)(,46)(13,)(,49)(14,) %.r
+(19,49) +d (13,48)(,19)(9,) l<01w3 kow2 l<01w3
+(13,19)(,48)(18,) +r (16,49) %.l (13,49)
+(,46)(11,)(,44)(10,)(,43)(9,)(,39)(10,)(,35)(11,)(,18)(14,) rktw1
+--- loot:beak
+?8 (54,43)%l (55,43)%u (54,44)(,47)%l (53,46)(52,)(,45)%l
+(52,45)(,47)(58,)%d (59,46)(,44)(57,)%d (54,43)%d (54,43) w9
+--- loot:mor en
+?8 (34,36)%u (32,37)(,38)%l (32,38)(,35)%l (31,36)(35,)%d
+(37,35)(,31)(38,)%d (37,30)(,29)%l (36,28)%d (36,22)%d
+(36,29)(37,)(,36)(34,)
+--- loot:d scale
+?8 (64,81)%d (64,81)%r (65,84)(68,)%d %r (69,84)%u (70,85)(,87)(71,)%r
+%d (70,86)(,87)%u (70,92)%l (69,89)(67,)(,85)(66,)%l (65,83)%l (64,81)
+--- loot:bleeding shroom
+?8 (46,89)%d (44,89)(,90)(42,)(,91)%l (42,92)(41,)(,94)%u
+(40,94)(,95)(38,)%l (44,95)%r (44,94)(46,)%d (45,94)(,93)
+(47,)(,92)(49,)(,91)(50,)(,89)(49,)(,87)(47,)(,82)(50,)
+(,79)(51,)(,78)(56,)(,79)(58,)(,78)(59,)(,76)(61,)(,75)
+(63,)(,73)(64,)(,72)(65,)(,71)(68,)(,68)(71,)%.d (71,65)
+(76,)(,64)(77,)%d (77,61)(78,)%d (78,63)(80,)%u
+(81,63)(,62)(84,)%r (82,62)(,60)%d (82,57)(83,)%d (84,57)
+(,56)(86,)%d (83,56)(,59)(82,)(,62)(81,)(,63)(80,)(,67)
+(78,)(,68)%l (77,69)(71,)(,68)(68,)(,71)(65,)(,72)(64,)
+(,74)(62,)(,75)(61,)(,76)(59,)(,78)(58,)(,79)(56,)(,78)
+(51,)(,80)(49,)(,83)(47,)(,89)(46,)
+--- loot:chest
+? (68,49)%d (68,45)(69,)%d (71,44)(,41)%r (74,41)%r
+(75,43)%u %l (74,45)%u (73,46)%l (72,47)(71,)%u
+(70,48)(,49)(68,)
+--- flintm
+?12 (22,16)~1w1 (26,)u@05krw4 (22,)uw1
+
+--- white-g
+?8 (15,19)(,23)(20,)(,25)(25,)(,28)(28,)(,30)(31,)(,29)(32,)(,28)
+(36,)(,27)(37,)(,26)(41,)(,27)(46,)(,31) u<01w3 kow2 u<01w3
+(,27)(41,)(,26)(37,)(,27)(36,)(,28)(32,)(,29)(31,)(,30)(28,)
+(,28)(25,)(,25)(20,)(,23)(15,)(,19) dktw1
+--- bpalm
+?8 (54,60)(,55)(51,)(,53)(47,)(,41)(55,)(,44)(59,)(,46)
+(64,)(,40)(70,)(,39)(72,)(,36)(85,)(,35) +dw1 (85,29) d<01w3 kow2 d<01w3
+(85,32) +lw1 (85,36)(72,)(,39)(70,)(,40)(64,)(,46)(59,)(,44)(55,)
+(,41)(47,)(,53)(51,)(,55)(54,)(,60) lktw1
+--- moak
+?8 (48,38)(,44)(47,)(,56)(44,)(,62)(43,)(,68)(41,)(,78)(36,)(,80) +uw1
+(43,81)(,82) u<01w3 kow2 u<01w3 (43,80)(36,) +uw1 (37,78)
+(41,)(,68)(43,)(,62)(44,)(,56)(47,)(,44)(48,)(,38)dktw1

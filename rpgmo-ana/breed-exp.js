@@ -5,12 +5,15 @@
         var tt = 0;
         for (var i = 0; i < rs.length; i++) {
             var cr = lo*rs[i].max_chance;
+            //var cr = lo*rs[i].base_chance;
             tt += cr;
             lo -= cr;
         }
         return tt;
     }
     var pairs = [];
+    var parentMap = {};
+    var kidMap = {};
     for (var i = 0; i < pets.length; i++) {
         var pet = pets[i];
         if (!pet) continue;
@@ -20,6 +23,12 @@
             var like = ls[j];
             var lv = pet.params.breeding_level;
             lv = Math.max(lv, pets[like.pet_id].params.breeding_level);
+            parentMap['_'+i] = i;
+            parentMap['_'+like.pet_id] = like.pet_id;
+            for (var k = 0; k < like.returns.length; k++) {
+                var rt = like.returns[k];
+                kidMap['_'+rt.pet_id] = rt.pet_id;
+            }
             pairs.push({
                 lv: lv,
                 name: pet.name + " x " + pets[like.pet_id].name,
@@ -46,4 +55,10 @@
     inp.min = 1;
     inp.value = 60;
     inp.addEventListener('input', function(){ rateByLv(inp.value); });
+    var kids = Object.values(kidMap);
+    for (var i = 0; i < kids.length; i++) {
+        var kid = kids[i];
+        if (parentMap['_'+kid])
+            console.log(pets[kid].name);
+    }
 })();

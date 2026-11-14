@@ -1,0 +1,11 @@
+
+1350    gold chunk          lv45
+1350    spirit log          lv45
+
+1550    white gold chunk    lv55
+
+1650    blue plam log       lv55
+
+1750    potato              lv13
+
+2050    yarrow              lv15

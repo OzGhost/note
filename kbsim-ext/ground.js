@@ -12,10 +12,12 @@ var keys = {
     kP: function(){return {code:"KeyP",key:"p",keyCode:80,which:80,bubbles:true}},
     kN: function(){return {code:"KeyN",key:"n",keyCode:78,which:78,bubbles:true}},
     kS: function(){return {code:"KeyS",key:"s",keyCode:83,which:83,bubbles:true}},
-    kT: function(){return {code:"KeyT",key:"t",keyCode:84,which:84,bubbles:true}},
     kB: function(){return {code:"KeyB",key:"b",keyCode:66,which:66,bubbles:true}},
+    kT: function(){return {code:"KeyT",key:"t",keyCode:84,which:84,bubbles:true}},
     kM: function(){return {code:"KeyM",key:"m",keyCode:77,which:77,bubbles:true}},
     kE: function(){return {code:"KeyE",key:"e",keyCode:69,which:69,bubbles:true}},
+    kR: function(){return {code:"KeyR",key:"r",keyCode:82,which:82,bubbles:true}},
+    kV: function(){return {code:"KeyV",key:"v",keyCode:86,which:86,bubbles:true}},
     void:  {}
 };
 
@@ -413,6 +415,7 @@ function detectAct(cmd, idx) {
         case '>': return invWatch(cmd, idx, 1);
         case '<': return invWatch(cmd, idx, -1);
         case '@': return slotWatch(cmd, idx);
+        case '^': return invClick(cmd, idx);
     }
     return;
 }
@@ -589,14 +592,19 @@ function combatEventTool() {
                     ctx.sol();
                     ctx = 0;
                 }, 750);
-            else clearTimeout(ctx.ti);
+            else {
+                clearTimeout(ctx.ti);
+                clearTimeout(ctx.l);
+            }
             break;
         }
     });
-    var iCwait = function() {
+    var iCwait = function(tolerate) {
         return new Promise(function(sol, jec){
-            var t = setTimeout(function(){ jec("combat timeout!"); }, 45000);
-            ctx = { ii: t, sol: sol, jec: jec};
+            var l = 0;
+            if (tolerate) l = setTimeout(sol, 1500);
+            var t = setTimeout(function(){ jec("combat timeout!"); }, 95000);
+            ctx = { ii: t, sol: sol, jec: jec, l: l };
         });
     }
     var idc = function() {
@@ -614,11 +622,17 @@ function combatEventTool() {
     };
 }
 
-function combatClock(cmd, idx) {
+function combatClock(cmd, i) {
+    var idx = i;
     var sub;
+    var tolerate = 0;
+    if (cmd.charAt(idx+1) == '.') {
+        tolerate = 1;
+        idx++;
+    }
     var pro = new Promise(function(sol, jec){
         verbose && console.log("____ install combat hook");
-        ctx.ctool.cwait().then(function(){
+        ctx.ctool.cwait(tolerate).then(function(){
             if (!sub) return;
             var now = ctx.ptool.now();
             if (now.length) ctx.prev = now;
@@ -633,7 +647,8 @@ function combatClock(cmd, idx) {
         return;
     }
     pro = pro.then(function(){
-        if (ctx.htool.now() < 15) return Promise.reject("low hp");
+        if (tolerate) return;
+        if (ctx.htool.now() < 35) return Promise.reject("low hp");
         if (ctx.itool.now() == 0) return Promise.reject("inv full");
     });
     return { act: pro, idx: sub.idx };
@@ -651,8 +666,8 @@ function qLoad(cmd, idx) {
         edoc.appendChild(ftr);
     }
     var store = [
-        [["large fire", 28],["of wa", 7]],
-        [["nite clay", 19],["coal", 19]]
+        [["large fi", 18]],
+        [["nite clay", 18],["coal", 18]]
     ];
     var ins = store[1*c];
     if (!ins)
@@ -696,7 +711,7 @@ function invEventTool() {
         }
         clearTimeout(ctx.tid);
         if (!met(ctx.d, ctx.v)) {
-            ctx.tid = setTimeout(function(){ ctx.jec("inv frozen"); }, 30000);
+            ctx.tid = setTimeout(function(){ ctx.jec("inv frozen"); }, 90000);
             return;
         }
         verbose && console.log("___ inv conds hit", v, ctx.v, ctx.d);
@@ -931,6 +946,21 @@ function step(cmd, idx) {
         });
     var tri = k2act(k).catch(function(err){ preErr = err; });
     return { act: act, idx: idx+1 };
+}
+
+function invClick(cmd, idx) {
+    if (!edoc)
+        return console.warn("_ invClick | e-doc not ready!");
+    var ftr = edoc.childNodes[0];
+    if (!ftr) {
+        ftr = document.createElement("button"); edoc.appendChild(ftr);
+    }
+    verbose && console.log("__ click inv item");
+    ftr.setAttribute("onclick", "left_click_cancel=!1; InvMenu.use(3); left_click_cancel=!0;");
+    var pro = new Promise(function(sol, jec){
+        setTimeout(function(){ ftr.click(); setTimeout(sol, 500); }, 0);
+    });
+    return { act: pro, idx: idx+1 };
 }
 
 function onKeyFn(e) {

@@ -7,10 +7,11 @@ Pull
     Doorframe Rows
     Prone Y-T-W Raises
     Towel Rows
-    Isometric Towel Bicep Curls
 Legs
     Squats
     Lunges
     Calf Raises
 
 yesterday: rest
+
+start-by: Push
